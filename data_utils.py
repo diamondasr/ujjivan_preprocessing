@@ -151,19 +151,25 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
         #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
         #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
-    out_file_temp="temp" + mp3_path.split("/")[-1]
-    out_file="out" + mp3_path.split("/")[-1] 
+    out_file_temp=  mp3_path.split("/")[-1] + "temp"
+    out_file= + mp3_path.split("/")[-1] + "out.wav"
     process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    print(stdout, stderr)
+    #print(stdout, stderr)
+
+    if stderr:
+        print("error during ffmpeg ")
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout2, stderr2 = process2.communicate()
     print(stdout2, stderr2)
+
+    if stderr2:
+        print("error during sox ")
 
 
 def read_json_from_file(filepath):
