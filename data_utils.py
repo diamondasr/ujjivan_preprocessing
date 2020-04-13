@@ -188,7 +188,8 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
         print("downloading single audio file")
         #global downloaded_audio_count
         downloaded_audio_count=downloaded_audio_count + 1
-        urllib.request.urlretrieve(url, destination_directory + url)
+        destination_filename= url.split("/")[-1]
+        urllib.request.urlretrieve(url, destination_directory + destination_filename)
         create_wav_list_file(url)
 
     except Exception as ex:

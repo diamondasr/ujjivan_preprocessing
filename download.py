@@ -4,6 +4,8 @@ according to parameters
 
 It also logs important information such as number of audio files downloaded
 
+Please create a directiory called audios in the same directory as this file
+
 """
 import json
 import urllib.request, json 
@@ -33,7 +35,7 @@ extension=".mp3" # default value is -1
 final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
 
-destination_directory="./audios"
+destination_directory="./audios/"
 wav_list_path="./wav.list"
 destination_transcription_file="./transcriptions.txt"
 destination_audio_file="./audio.json"
