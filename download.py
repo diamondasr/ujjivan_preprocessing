@@ -4,7 +4,7 @@ according to parameters
 
 It also logs important information such as number of audio files downloaded
 
-Please create a directiory called audios in the same directory as this file
+Please create a directiory called audios and wavs in the same directory as this file
 
 """
 import json
@@ -14,7 +14,7 @@ import urllib.parse
 from os.path import splitext
 
 import logging 
-from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file
+from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
                        
   
 #Create and configure logger 
@@ -36,6 +36,7 @@ final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
 
 destination_directory="./audios/"
+destination_wav_directory="./wavs/"
 wav_list_path="./wav.list"
 destination_transcription_file="./transcriptions.txt"
 destination_audio_file="./audio.json"
@@ -97,7 +98,11 @@ if speaker_id != -1:
                     # download audio
                     print("downloading audio for row")
                     #download_single_file(row)
-                    download_single_file(row,downloaded_audio_count,destination_directory)
+                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory)
+                    #basename=destination_mp3_path.split("/")[-1]
+                    
+                    
+                    convert_mp3_to_wav(destination_mp3_path,destination_wav_directory  )
 
 else:
     print("speaker filtering disabled ")
@@ -108,6 +113,8 @@ else:
                 if file_extension == extension:
                     # download audio
                     download_single_file(url)
+
+                    #convert_mp3_to_wav(mp3_path,output_wav_dir)
                     
 
 

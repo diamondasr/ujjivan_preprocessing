@@ -10,6 +10,8 @@ from os.path import splitext
 import logging 
 import os.path
 wav_list_path="./wav.list"
+wav_scp_path="kaldi_outputs/wav.scp"
+transcription_filepath="./transcriptions.txt"
 
 
 process = subprocess.Popen(['echo', 'More output'],
@@ -25,16 +27,48 @@ from datetime import datetime
 timestamp = 1545730073
 dt_object = datetime.fromtimestamp(timestamp)
 
+def read_transcription(transcription_id,transcription_filepath):
+    #with open(transcription_filepath, encoding='utf-8') as f:
+        #transcripts=f.read()
+    
+    import csv
+
+    with open(transcription_filepath) as inf:
+        reader = csv.reader(inf, delimiter=" ")
+        for row in reader:
+            if row[0]==transcription_id:
+                return row[1]
+
+    
+    return ""
+
 def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
     """
 
     appends to wav_list file each new data row
+    also appends to wav.scp file
 
     """
 
+
+
     append_row_file(wav_list_path,wav_file_path)
+    append_row_file(wav_scp_path,wav_file_path.split("/")[-1] + " " + wav_file_path)
 
 
+def create_text_file(wav_file_path,text_file_path):
+    """
+
+    appends to text file 
+    
+
+    """
+
+    sentence_id=wav_file_path.split("/")[-1].split("_")[2]
+    transcription=read_transcription(sentence_id,transcription_filepath)
+    text_line=wav_file_path.split("/")[-1] + " " +  transcription
+
+    append_row_file(text_line,text_file_path)
 
 def append_row_file(file,row):
     """
@@ -117,19 +151,19 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
         #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
         #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
-    out_file_temp="temp"
-    out_file="out"
-    process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', mp3_path , output_wav_dir + out_file]
+    out_file_temp="temp" + mp3_path.split("/")[-1]
+    out_file="out" + mp3_path.split("/")[-1] 
+    process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    stdout, stderr
+    print(stdout, stderr)
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
-    stdout2, stderr2 = process.communicate()
-    stdout2, stderr2
+    stdout2, stderr2 = process2.communicate()
+    print(stdout2, stderr2)
 
 
 def read_json_from_file(filepath):
@@ -169,6 +203,12 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 
 
 def download_single_file(url,downloaded_audio_count,destination_directory):
+    """
+    downloads mp3 file
+    updates wav.list file
+    updates wav.scp file
+    updates kaldi_outputs/text file
+    """
     try:
         print("downloading single audio file")
         #global downloaded_audio_count
@@ -177,6 +217,13 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
         destination_path=destination_directory + destination_filename
         urllib.request.urlretrieve(url, destination_path)
         create_wav_list_file(destination_path)
+
+
+        create_text_file(destination_path,transcription_filepath)
+
+
+
+        return destination_path
 
     except Exception as ex:
         print(ex)
