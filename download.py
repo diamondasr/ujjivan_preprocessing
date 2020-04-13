@@ -12,7 +12,7 @@ import urllib.parse
 from os.path import splitext
 
 import logging 
-from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file
+from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file
                        
   
 #Create and configure logger 
@@ -29,7 +29,7 @@ audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&l
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
 language_code="ta"
 speaker_id="127"  # default value is -1 
-extension="mp3" # default value is -1 
+extension=".mp3" # default value is -1 
 final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
 
@@ -60,6 +60,7 @@ def check_file_extension(row,extension):
         If current row has incorrect extension return False else return True
     """
     file_extension=get_ext(row)
+    print(file_extension)
     if extension != -1:
         if file_extension == extension:
             return True
@@ -72,75 +73,46 @@ def check_file_extension(row,extension):
 # download transcriptions
 download_transcriptions(final_text_url,destination_transcription_file)
 
-# download audio data and parse it as json
-with urllib.request.urlopen(final_audio_url) as url:
-    data = json.loads(url.read().decode())
-    print("downloading audio json")
-
-    write_json_to_file(data,destination_audio_file)
-
-    print("writing audio json")
+# download audio json
+data=download_audio_json(final_audio_url,destination_audio_file,"./audio.json")
 
 
-
-    data=data["data"]
-    # see if specific speaker id is provided
+data=data["data"]
+# see if specific speaker id is provided
     
 
-    if speaker_id != -1:
-        print("filtering according to specific speaker")
-        data=data[speaker_id]
-        #print(data[speaker_id])
-        #print(data)
-        for row in data:
-            print(row)
-            extension_valid=check_file_extension(row,extension)
-            print(extension_valid)
+if speaker_id != -1:
+    print("filtering according to specific speaker")
+    data=data[speaker_id]
+    #print(data[speaker_id])
+    #print(data)
+    for row in data:
+        #print(row)
+        extension_valid=check_file_extension(row,extension)
+        #print(extension_valid)
 
-            if extension_valid:
-                        # download audio
-                        print("downloading audio for row")
-                        download_single_file(row)
+        if extension_valid:
+                    # download audio
+                    print("downloading audio for row")
+                    #download_single_file(row)
+                    download_single_file(row,downloaded_audio_count,destination_directory)
 
-    else:
-        print("speaker filtering disabled ")
-        for speaker_id in data:
-            for row in speaker_id:
-                file_extension=get_ext(row)
-                if extension != -1:
-                    if file_extension == extension:
-                        # download audio
-                        download_single_file(url)
+else:
+    print("speaker filtering disabled ")
+    for speaker_id in data:
+        for row in speaker_id:
+            file_extension=get_ext(row)
+            if extension != -1:
+                if file_extension == extension:
+                    # download audio
+                    download_single_file(url)
                     
 
-    # check if specific extension is provided
-
-    #if extension != -1:
-    
-        #print(data["data"][speaker_id])
 
 
 
-def create_wav_list_file(wav_file_path):
-    """
-
-    appends to wav_list file each new data row
-
-    """
-
-    append_row_file(wav_list_path,wav_file_path)
 
 
-
-def append_row_file(file,row):
-    """
-
-    appends data row to a text file
-
-    """
-
-    with open(file, "a") as myfile:
-        myfile.write(row)
 
 
 
@@ -178,25 +150,3 @@ def download_transcriptions(final_text_url,destination_transcription_file):
         logging.error(logging.traceback.format_exc())
 
 
-def download_single_file(url):
-    try:
-        print("downloading single audio file")
-        global downloaded_audio_count
-        downloaded_audio_count=downloaded_audio_count + 1
-        urllib.urlretrieve(url, destination_directory + url)
-        create_wav_list_file(url)
-
-    except Exception as ex:
-        print(ex)
-        logging.error(logging.traceback.format_exc())
-
-def download_audio_list(audio_list):
-    """
-        input : a list of urls storing audio files
-        output : if no error return true, else return -1
-    """
-
-    for url in audio_list:
-        file_name=url.split("/")[-1]
-
-        urllib.urlretrieve(url, destination_directory + file_name)

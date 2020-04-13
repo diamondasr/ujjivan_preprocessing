@@ -159,3 +159,49 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
         return read_json_from_file(audio_json_path)
 
 
+
+def append_row_file(file,row):
+    """
+
+    appends data row to a text file
+
+    """
+
+    with open(file, "a") as myfile:
+        myfile.write(row)
+              
+def create_wav_list_file(wav_file_path):
+    """
+
+    appends to wav_list file each new data row
+
+    """
+
+    append_row_file(wav_list_path,wav_file_path)
+
+
+
+
+
+def download_single_file(url,downloaded_audio_count,destination_directory):
+    try:
+        print("downloading single audio file")
+        global downloaded_audio_count
+        downloaded_audio_count=downloaded_audio_count + 1
+        urllib.request.urlretrieve(url, destination_directory + url)
+        create_wav_list_file(url)
+
+    except Exception as ex:
+        print(ex)
+        logging.error(logging.traceback.format_exc())
+
+def download_audio_list(audio_list, destination_directory ):
+    """
+        input : a list of urls storing audio files
+        output : if no error return true, else return -1
+    """
+
+    for url in audio_list:
+        file_name=url.split("/")[-1]
+
+        urllib.request.urlretrieve(url, destination_directory + file_name)
