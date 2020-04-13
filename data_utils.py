@@ -9,6 +9,7 @@ from os.path import splitext
 
 import logging 
 import os.path
+wav_list_path="./wav.list"
 
 
 process = subprocess.Popen(['echo', 'More output'],
@@ -24,7 +25,7 @@ from datetime import datetime
 timestamp = 1545730073
 dt_object = datetime.fromtimestamp(timestamp)
 
-def create_wav_list_file(wav_file_path,wav_list_path):
+def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
     """
 
     appends to wav_list file each new data row
@@ -170,14 +171,7 @@ def append_row_file(file,row):
     with open(file, "a") as myfile:
         myfile.write(row)
 
-def create_wav_list_file(wav_file_path):
-    """
 
-    appends to wav_list file each new data row
-
-    """
-
-    append_row_file(wav_list_path,wav_file_path)
 
 
 
