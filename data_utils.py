@@ -1,3 +1,12 @@
+
+# to do
+
+# mp3 to wav conversion code to download_single_file, so that it doesnt write files that failed
+# conversion to wav.scp file
+
+# also figure out a way to pipe stdout and stderr of shell commands to log file
+
+
 import subprocess
 import logging
 
@@ -11,6 +20,7 @@ import logging
 import os.path
 wav_list_path="./wav.list"
 wav_scp_path="kaldi_outputs/wav.scp"
+text_filepath="kaldi_outputs/text"
 transcription_filepath="./transcriptions.txt"
 
 
@@ -42,16 +52,26 @@ def read_transcription(transcription_id,transcription_filepath):
         #transcripts=f.read()
     
     import csv
-
+    transcription_id=transcription_id.replace(".mp3","")
     with open(transcription_filepath) as inf:
         reader = csv.reader(inf, delimiter=" ")
         for row in reader:
             if row[0]==transcription_id:
-                return row[1]
+                return ' '.join(row[1:])
 
     
     return ""
 
+def append_row_file(file,row):
+    """
+
+    appends data row to a text file
+
+    """
+
+    with open(file, "a") as myfile:
+        myfile.write(row + "\n")
+        
 def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
     """
 
@@ -75,21 +95,15 @@ def create_text_file(wav_file_path,text_file_path):
     """
 
     sentence_id=wav_file_path.split("/")[-1].split("_")[2]
+    print("sentence id")
     print(sentence_id)
     transcription=read_transcription(sentence_id,transcription_filepath)
+    print("transcription")
+    print(transcription)
     text_line=wav_file_path.split("/")[-1] + " " +  transcription
 
     append_row_file(text_file_path,text_line)
 
-def append_row_file(file,row):
-    """
-
-    appends data row to a text file
-
-    """
-
-    with open(file, "a") as myfile:
-        myfile.write(row + "\n")
 
 
 def check_if_file_exists(filepath):
@@ -158,15 +172,20 @@ def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
         
 def convert_mp3_to_wav(mp3_path,output_wav_dir):
 
+    """
 
-        #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
-        #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
+    returns True if conversion was successfull , else returns False
+    if destination file already exists, by default it replaces it -y flag
+
+    """
+    #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
+    #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
     print("converting file " + mp3_path )
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
-    process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', mp3_path , output_wav_dir + out_file_temp]
+    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-y','-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -242,7 +261,7 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
         create_wav_list_file(destination_path)
 
 
-        create_text_file(destination_path,transcription_filepath)
+        create_text_file(destination_path, text_filepath)
 
 
 
