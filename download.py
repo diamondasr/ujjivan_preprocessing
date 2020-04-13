@@ -18,7 +18,7 @@ from data_utils import download_transcriptions,write_json_to_file,check_if_file_
                        
   
 #Create and configure logger 
-logging.basicConfig(filename="./download.log", 
+logging.basicConfig(filename="./script.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 

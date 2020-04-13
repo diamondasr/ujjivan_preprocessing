@@ -20,6 +20,16 @@ process = subprocess.Popen(['echo', 'More output'],
 stdout, stderr = process.communicate()
 stdout, stderr
 
+#Create and configure logger 
+logging.basicConfig(filename="./script.log", 
+                    format='%(asctime)s %(message)s', 
+                    filemode='w')
+#Creating an object 
+logger=logging.getLogger() 
+  
+#Setting the threshold of logger to DEBUG 
+logger.setLevel(logging.DEBUG) 
+
 
 
 from datetime import datetime
@@ -65,10 +75,11 @@ def create_text_file(wav_file_path,text_file_path):
     """
 
     sentence_id=wav_file_path.split("/")[-1].split("_")[2]
+    print(sentence_id)
     transcription=read_transcription(sentence_id,transcription_filepath)
     text_line=wav_file_path.split("/")[-1] + " " +  transcription
 
-    append_row_file(text_line,text_file_path)
+    append_row_file(text_file_path,text_line)
 
 def append_row_file(file,row):
     """
@@ -151,16 +162,20 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
         #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
         #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
-    out_file_temp=  mp3_path.split("/")[-1] + "temp"
-    out_file= + mp3_path.split("/")[-1] + "out.wav"
+    print("converting file " + mp3_path )
+    out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
+    out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
+
     process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    #print(stdout, stderr)
+    print(stdout, stderr)
 
     if stderr:
         print("error during ffmpeg ")
+        logging.error(stdout)
+        logging.error(stderr)
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
                      ,stdout=subprocess.PIPE, 
@@ -170,6 +185,8 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
 
     if stderr2:
         print("error during sox ")
+        logging.error(stdout)
+        logging.error(stderr)
 
 
 def read_json_from_file(filepath):
