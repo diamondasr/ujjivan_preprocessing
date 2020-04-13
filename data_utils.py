@@ -44,7 +44,7 @@ def append_row_file(file,row):
     """
 
     with open(file, "a") as myfile:
-        myfile.write(row)
+        myfile.write(row + "\n")
 
 
 def check_if_file_exists(filepath):
@@ -161,15 +161,6 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 
 
 
-def append_row_file(file,row):
-    """
-
-    appends data row to a text file
-
-    """
-
-    with open(file, "a") as myfile:
-        myfile.write(row)
 
 
 
@@ -183,8 +174,9 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
         #global downloaded_audio_count
         downloaded_audio_count=downloaded_audio_count + 1
         destination_filename= url.split("/")[-1]
-        urllib.request.urlretrieve(url, destination_directory + destination_filename)
-        create_wav_list_file(url)
+        destination_path=destination_directory + destination_filename
+        urllib.request.urlretrieve(url, destination_path)
+        create_wav_list_file(destination_path)
 
     except Exception as ex:
         print(ex)
