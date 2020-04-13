@@ -169,7 +169,7 @@ def append_row_file(file,row):
 
     with open(file, "a") as myfile:
         myfile.write(row)
-              
+
 def create_wav_list_file(wav_file_path):
     """
 
@@ -186,7 +186,7 @@ def create_wav_list_file(wav_file_path):
 def download_single_file(url,downloaded_audio_count,destination_directory):
     try:
         print("downloading single audio file")
-        global downloaded_audio_count
+        #global downloaded_audio_count
         downloaded_audio_count=downloaded_audio_count + 1
         urllib.request.urlretrieve(url, destination_directory + url)
         create_wav_list_file(url)

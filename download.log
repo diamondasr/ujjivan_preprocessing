@@ -1,0 +1,196 @@
+2020-04-13 12:17:56,396 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895592_127_387.mp3'
+
+2020-04-13 12:17:56,671 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895632_127_307.mp3'
+
+2020-04-13 12:17:56,931 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895663_127_62.mp3'
+
+2020-04-13 12:17:57,198 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895706_127_271.mp3'
+
+2020-04-13 12:17:57,468 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895848_127_35.mp3'
+
+2020-04-13 12:17:57,881 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895868_127_462.mp3'
+
+2020-04-13 12:17:58,149 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563895892_127_323.mp3'
+
+2020-04-13 12:17:58,439 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896303_127_559.mp3'
+
+2020-04-13 12:17:58,712 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896338_127_230.mp3'
+
+2020-04-13 12:18:04,343 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896361_127_196.mp3'
+
+2020-04-13 12:18:05,101 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896383_127_656.mp3'
+
+2020-04-13 12:18:05,634 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896430_127_619.mp3'
+
+2020-04-13 12:18:06,085 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896480_127_65.mp3'
+
+2020-04-13 12:18:06,358 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896549_127_74.mp3'
+
+2020-04-13 12:18:06,634 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896622_127_191.mp3'
+
+2020-04-13 12:18:06,971 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896652_127_19.mp3'
+
+2020-04-13 12:18:07,243 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896674_127_666.mp3'
+
+2020-04-13 12:18:07,532 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896721_127_155.mp3'
+
+2020-04-13 12:18:07,806 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896753_127_545.mp3'
+
+2020-04-13 12:18:08,106 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896780_127_626.mp3'
+
+2020-04-13 12:18:08,369 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896805_127_43.mp3'
+
+2020-04-13 12:18:08,656 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896867_127_625.mp3'
+
+2020-04-13 12:18:08,929 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896898_127_50.mp3'
+
+2020-04-13 12:18:09,197 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563896927_127_214.mp3'
+
+2020-04-13 12:18:09,479 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1563897004_127_134.mp3'
+
+2020-04-13 12:18:09,780 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1564502400_127_211.mp3'
+
+2020-04-13 12:18:10,081 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1564502465_127_431.mp3'
+
+2020-04-13 12:18:10,364 Traceback (most recent call last):
+  File "/home/saurabh/Documents/navana/data_processing/data_utils.py", line 191, in download_single_file
+    urllib.request.urlretrieve(url, destination_directory + url)
+  File "/usr/lib/python3.5/urllib/request.py", line 198, in urlretrieve
+    tfp = open(filename, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: './audioshttps://voicecollectionstorage.blob.core.windows.net/voicecollectionblobcontainer/1564502490_127_467.mp3'
+
