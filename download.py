@@ -12,7 +12,7 @@ import urllib.parse
 from os.path import splitext
 
 import logging 
-from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,ownload_audio_json
+from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file
                        
   
 #Create and configure logger 
@@ -91,9 +91,11 @@ with urllib.request.urlopen(final_audio_url) as url:
         print("filtering according to specific speaker")
         data=data[speaker_id]
         #print(data[speaker_id])
+        #print(data)
         for row in data:
+            print(row)
             extension_valid=check_file_extension(row,extension)
-
+            print(extension_valid)
 
             if extension_valid:
                         # download audio
@@ -178,8 +180,10 @@ def download_transcriptions(final_text_url,destination_transcription_file):
 
 def download_single_file(url):
     try:
+        print("downloading single audio file")
+        global downloaded_audio_count
         downloaded_audio_count=downloaded_audio_count + 1
-        urllib.urlretrieve(url, destination_directory + file_name)
+        urllib.urlretrieve(url, destination_directory + url)
         create_wav_list_file(url)
 
     except Exception as ex:

@@ -131,7 +131,13 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     stdout2, stderr2
 
 
-def download_audio_json(final_audio_url,destination_audio_file):
+def read_json_from_file(filepath):
+    import json
+
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
+def download_audio_json(final_audio_url,destination_audio_file,audio_json_path=""):
 
     # check if file already exists
     audio_exists=check_if_file_exists(destination_audio_file)
@@ -145,8 +151,11 @@ def download_audio_json(final_audio_url,destination_audio_file):
             write_json_to_file(data,destination_audio_file)
 
             print("writing audio json")
+            return data
+
 
     else:
         print("audio json already exists skippings")
+        return read_json_from_file(audio_json_path)
 
 
