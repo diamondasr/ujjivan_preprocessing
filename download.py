@@ -4,7 +4,7 @@ according to parameters
 
 It also logs important information such as number of audio files downloaded
 
-Please create a directiory called audios and wavs in the same directory as this file
+Please create a directiory called audios and wavs and kaldi_outputs in the same directory as this file
 
 """
 import json
@@ -102,7 +102,7 @@ if speaker_id != -1:
                     #basename=destination_mp3_path.split("/")[-1]
                     
                     
-                    convert_mp3_to_wav(destination_mp3_path,destination_wav_directory  )
+                    #convert_mp3_to_wav(destination_mp3_path,destination_wav_directory  )
 
 else:
     print("speaker filtering disabled ")

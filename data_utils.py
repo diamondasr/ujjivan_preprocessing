@@ -4,7 +4,7 @@
 # mp3 to wav conversion code to download_single_file, so that it doesnt write files that failed
 # conversion to wav.scp file
 
-# also figure out a way to pipe stdout and stderr of shell commands to log file
+
 
 
 import subprocess
@@ -22,6 +22,7 @@ wav_list_path="./wav.list"
 wav_scp_path="kaldi_outputs/wav.scp"
 text_filepath="kaldi_outputs/text"
 transcription_filepath="./transcriptions.txt"
+destination_wav_directory="./wavs/"
 
 
 process = subprocess.Popen(['echo', 'More output'],
@@ -40,6 +41,46 @@ logger=logging.getLogger()
 #Setting the threshold of logger to DEBUG 
 logger.setLevel(logging.DEBUG) 
 
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+def setup_logger(name, log_file, level=logging.INFO):
+    """To setup as many loggers as you want"""
+
+    handler = logging.FileHandler(log_file)        
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+
+    return logger
+
+def generic_shell(shell_command,log_file_name):
+    """
+        this defines a python function which can run any shell script command
+        from python and route logs to log file 
+    """
+
+    #print(shell_command.split())
+    process = subprocess.Popen(shell_command,
+                     stdout=subprocess.PIPE, 
+                     stderr=subprocess.PIPE,shell=True)
+    stdout, stderr = process.communicate()
+    stdout, stderr
+
+    
+
+    logging.error("stdout")
+    logger = setup_logger('shell_logger', log_file_name)
+    logger.info(stdout)
+
+    logging.error("stderror")
+    logger = setup_logger('shell_logger', log_file_name)
+    logger.info(stderr)
+
+    if (stderr):
+        print("exception has occurred, please refer to log file " + log_file_name)
+
 
 
 from datetime import datetime
@@ -52,7 +93,7 @@ def read_transcription(transcription_id,transcription_filepath):
         #transcripts=f.read()
     
     import csv
-    transcription_id=transcription_id.replace(".mp3","")
+    transcription_id=transcription_id.replace(".wav","")
     with open(transcription_filepath) as inf:
         reader = csv.reader(inf, delimiter=" ")
         for row in reader:
@@ -181,6 +222,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
     #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
+
     print("converting file " + mp3_path )
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
@@ -189,7 +231,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    print(stdout, stderr)
+    #print(stdout, stderr)
 
     if stderr:
         print("error during ffmpeg ")
@@ -200,7 +242,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout2, stderr2 = process2.communicate()
-    print(stdout2, stderr2)
+    #print(stdout2, stderr2)
 
     if stderr2:
         print("error during sox ")
@@ -254,14 +296,19 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
     try:
         print("downloading single audio file")
         #global downloaded_audio_count
-        downloaded_audio_count=downloaded_audio_count + 1
+        
         destination_filename= url.split("/")[-1]
         destination_path=destination_directory + destination_filename
         urllib.request.urlretrieve(url, destination_path)
-        create_wav_list_file(destination_path)
+        
+ 
+        output_wav_filename= url.split("/")[-1].replace("mp3","wav")
+        output_destination_path=destination_wav_directory + output_wav_filename
+        convert_mp3_to_wav(destination_path,destination_wav_directory  )
+        create_wav_list_file(output_destination_path)
+        downloaded_audio_count=downloaded_audio_count + 1
 
-
-        create_text_file(destination_path, text_filepath)
+        create_text_file(output_destination_path, text_filepath)
 
 
 
