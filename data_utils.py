@@ -22,6 +22,7 @@ wav_list_path="./wav.list"
 wav_scp_path="kaldi_outputs/wav.scp"
 text_filepath="kaldi_outputs/text"
 transcription_filepath="./transcriptions.txt"
+spk2utt_filepath="kaldi_outputs/spk2utt"
 destination_wav_directory="./wavs/"
 
 
@@ -227,7 +228,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
-    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-y','-i', mp3_path , output_wav_dir + out_file_temp]
+    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-loglevel error','-hide_banner' ,'-nostats', '-y', '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -235,7 +236,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
 
     if stderr:
         print("error during ffmpeg ")
-        logging.error(stdout)
+        #logging.error(stdout)
         logging.error(stderr)
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
@@ -246,7 +247,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
 
     if stderr2:
         print("error during sox ")
-        logging.error(stdout)
+        #logging.error(stdout)
         logging.error(stderr)
 
 
@@ -286,7 +287,7 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 
 
 
-def download_single_file(url,downloaded_audio_count,destination_directory):
+def download_single_file(url,downloaded_audio_count,destination_directory,speaker_id):
     """
     downloads mp3 file
     updates wav.list file
@@ -309,8 +310,10 @@ def download_single_file(url,downloaded_audio_count,destination_directory):
         downloaded_audio_count=downloaded_audio_count + 1
 
         create_text_file(output_destination_path, text_filepath)
-
-
+        #print("speaker id ;")
+        #print(speaker_id)
+        #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
+        append_row_file(spk2utt_filepath, speaker_id + " " + output_wav_filename )
 
         return destination_path
 

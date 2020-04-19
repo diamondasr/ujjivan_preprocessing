@@ -98,7 +98,7 @@ if speaker_id != -1:
                     # download audio
                     print("downloading audio for row")
                     #download_single_file(row)
-                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory)
+                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
                     #basename=destination_mp3_path.split("/")[-1]
                     
                     
@@ -108,11 +108,12 @@ else:
     print("speaker filtering disabled ")
     for speaker_id in data:
         for row in speaker_id:
-            file_extension=get_ext(row)
-            if extension != -1:
-                if file_extension == extension:
+            extension_valid=check_file_extension(row,extension)
+            if extension_valid:
+                
                     # download audio
-                    download_single_file(url)
+                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+
 
                     #convert_mp3_to_wav(mp3_path,output_wav_dir)
                     
