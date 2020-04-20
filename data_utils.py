@@ -92,7 +92,13 @@ def generic_shell(shell_command,log_file_name):
         print("exception has occurred, please refer to log file " + log_file_name)
 
 
-
+def create_kaldi_directories():
+    generic_shell("rm -rf kaldi_outputs","rm.log")
+    generic_shell("mkdir kaldi_outputs","mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data","mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local","mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/dict","mkdir.log")
+    
 from datetime import datetime
 
 timestamp = 1545730073

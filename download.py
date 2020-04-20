@@ -16,7 +16,7 @@ import urllib.parse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
                        
   
 #Create and configure logger 
@@ -74,6 +74,9 @@ def check_file_extension(row,extension):
     else:
         return False
 
+
+# create kaldi directory structure
+create_kaldi_directories()
 
 # download transcriptions
 download_transcriptions(final_text_url,destination_transcription_file)
