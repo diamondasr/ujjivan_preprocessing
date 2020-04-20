@@ -142,11 +142,11 @@ def create_text_file(wav_file_path,text_file_path):
     """
 
     sentence_id=wav_file_path.split("/")[-1].split("_")[2]
-    print("sentence id")
-    print(sentence_id)
+    #print("sentence id")
+    #print(sentence_id)
     transcription=read_transcription(sentence_id,transcription_filepath)
-    print("transcription")
-    print(transcription)
+    #print("transcription")
+    #print(transcription)
     text_line=wav_file_path.split("/")[-1] + " " +  transcription
 
     append_row_file(text_file_path,text_line)
@@ -207,7 +207,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
             
             # extract words from sentence and add to a set, for creation of lexicon
 
-            for word in line_transcript.split():
+            for word in sentence_transcript.split():
                 # print(word)                                                                                                                         
                 words_set.add(word)
 

@@ -14,7 +14,7 @@ import urllib.request, json
 import urllib.parse
 #from urlparse import urlparse
 from os.path import splitext
-
+from tqdm import tqdm
 import logging 
 from data_utils import download_transcriptions,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
                        
@@ -65,7 +65,7 @@ def check_file_extension(row,extension):
         If current row has incorrect extension return False else return True
     """
     file_extension=get_ext(row)
-    print(file_extension)
+    #print(file_extension)
     if extension != -1:
         if file_extension == extension:
             return True
@@ -91,14 +91,14 @@ if speaker_id != -1:
     data=data[speaker_id]
     #print(data[speaker_id])
     #print(data)
-    for row in data:
+    for row in tqdm(data):
         #print(row)
         extension_valid=check_file_extension(row,extension)
         #print(extension_valid)
 
         if extension_valid:
                     # download audio
-                    print("downloading audio for row")
+                    #print("downloading audio for row")
                     #download_single_file(row)
                     destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
                     #basename=destination_mp3_path.split("/")[-1]
@@ -126,39 +126,5 @@ else:
 
 
 
-
-
-def download_transcriptions(final_text_url,destination_transcription_file):
-    try:
-        #downloaded_audio_count=downloaded_audio_count + 1
-
-        #urllib.urlretrieve(final_text_url, destination_directory + "transcriptions.json")
-        # download audio data and parse it as json
-        print("downloading transcriptions json")
-        with urllib.request.urlopen(final_text_url) as url:
-            #data = json.loads(url.read().decode())
-            transcription_json = json.loads(url.read().decode())
-        #print(data)
-
-
-        transcription_json=transcription_json["data"]
-        #create_wav_list_file(url)
-        for sentence in transcription_json:
-            sentence_id=sentence["id"]
-            sentence_transcript=sentence["sentence"]
-            
-            # check if sentence is empty
-            if sentence_transcript=="":
-                empty_transcript_counter=empty_transcript_counter + 1
-            
-            else:
-                # write the sentence to transcription file
-                transcription_row=sentence_id + " " + sentence_transcript
-                append_row_file(destination_transcription_file,transcription_row)
-
-
-    except Exception as ex:
-        print(ex)
-        logging.error(logging.traceback.format_exc())
 
 
