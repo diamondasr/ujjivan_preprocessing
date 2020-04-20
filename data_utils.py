@@ -34,6 +34,8 @@ lexicon_language_code="tamil"
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
 final_lexicon_path=os.getcwd() + "/kaldi_outputs/data/local/dict/lexicon.txt"
 
+final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
+
 words_set = set() # a set to store words for lexicon
 
 
@@ -99,14 +101,60 @@ def generic_shell(shell_command,log_file_name):
         print("exception has occurred, please refer to log file " + log_file_name)
 
 
+def count_lines(file_path):
+    with open(file_path) as foo:
+        lines = len(foo.readlines())
+    return lines
+
+def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
+    "creates a subset of data for train and test"
+    print("creating train and test split")
+
+    shell_command1="awk '{ print $1, $NF }' " + wav_scp_path + " > dataset_ids"
+    lines_dataset=count_lines("./dataset_ids")
+    print("total rows in dataset : " + str(lines_dataset))
+    test_lines=int(0.1 * lines_dataset)
+    print("total rows in testset : " + str(test_lines))
+
+    shell_command2="shuf -n " + test_lines + " dataset_ids > test_ids  "
+    shell_command3="cat dataset_ids | grep -v -f test_ids > train_ids"
+
+    shell_command4="cat kaldi_outputs/wav.scp | grep  -f train_ids > kaldi_outputs/data/train/wav.scp"
+    shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/data/train/text"
+    shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/data/train/spk2utt"
+
+    shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/data/test/wav.scp"
+    shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/data/test/text"
+    shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/data/test/spk2utt"
+
+
+    generic_shell(shell_command1,"logs/subset.log")
+    generic_shell(shell_command2,"logs/subset.log")
+    generic_shell(shell_command3,"logs/subset.log")
+    generic_shell(shell_command4,"logs/subset.log")
+    generic_shell(shell_command5,"logs/subset.log")
+    generic_shell(shell_command6,"logs/subset.log")
+    generic_shell(shell_command7,"logs/subset.log")
+    generic_shell(shell_command8,"logs/subset.log")
+    generic_shell(shell_command9,"logs/subset.log")
+    ####shuf -n 100 $audio_dir/wav.list > $audio_dir/test_wav.list                                                                                        
+    ####cat $audio_dir/wav.list | grep -v -f $audio_dir/test_wav.list > $audio_dir/train_wav.list 
+
+    #utils/subset_data_dir.sh --utt-list
+
+    generic_shell("","logs/subset.log")
+
+
 def create_kaldi_directories():
     """ this function generates folder structure which kaldi expects"""
 
-    generic_shell("rm -rf kaldi_outputs","rm.log")
-    generic_shell("mkdir kaldi_outputs","mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data","mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local","mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/dict","mkdir.log")
+    generic_shell("rm -rf kaldi_outputs","logs/rm.log")
+    generic_shell("mkdir kaldi_outputs","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/dict","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/train","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
     
 #from datetime import datetime
 
@@ -273,6 +321,29 @@ def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
         return True
     else:
         return False
+
+def create_kaldi_lang():
+    """
+        creates file in kaldis data/local/lang directory
+        assumes lexicon.txt is already present there
+    """
+
+    # nonsilence_phones.txt
+    shell_command1="cut -d ' ' -f 2- lexicon.txt |  sed 's/ /\n/g' |   sort -u > nonsilence_phones.txt"
+
+
+    generic_shell(shell_command1,"logs/kaldi_data_lang.log")
+
+    # silence_phones.txt
+    shell_command2="echo –e 'SIL'\\n'oov' > silence_phones.txt"
+    generic_shell(shell_command2,"logs/kaldi_data_lang.log")
+
+    shell_command3="echo 'SIL' > optional_silence.txt"
+    generic_shell(shell_command3,"logs/kaldi_data_lang.log")
+
+
+
+
         
 def convert_mp3_to_wav(mp3_path,output_wav_dir):
 

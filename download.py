@@ -6,7 +6,7 @@ according to parameters
 
 It also logs important information such as number of audio files downloaded
 
-Please create a directiory called audios and wavs in same folder
+Please create a directiory called audios and wavs in same folder, and also logs
 
 """
 import json
@@ -16,7 +16,7 @@ import urllib.parse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
                        
   
 #Create and configure logger 
@@ -50,6 +50,8 @@ epoch_end=-1
 downloaded_audio_count=0
 number_of_rows=50 # how many data items do you need in dataset
 empty_transcript_counter=0
+
+wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
 
 
 def get_ext(url):
@@ -121,6 +123,8 @@ else:
 
 
                     #convert_mp3_to_wav(mp3_path,output_wav_dir)
+
+create_kaldi_subset(wav_scp_path,"kaldi_outputs")
                     
 
 
