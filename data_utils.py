@@ -14,16 +14,18 @@ from os.path import splitext
 
 import logging 
 import os.path
-wav_list_path="./wav.list"
-wav_scp_path="kaldi_outputs/wav.scp"
-text_filepath="kaldi_outputs/text"
-transcription_filepath="./transcriptions.txt"
-spk2utt_filepath="kaldi_outputs/spk2utt"
-destination_wav_directory="./wavs/"
+import os
+
+wav_list_path= os.getcwd() + "/wav.list"
+wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
+text_filepath= os.getcwd() + "/kaldi_outputs/text"
+transcription_filepath= os.getcwd() + "/transcriptions.txt"
+spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
+destination_wav_directory= os.getcwd() + "/wavs/"
 language_code="ta"
 
-temp_lexicon_path="./lexicon_left"
-final_lexicon_path="kaldi_outputs/data/local/dict/lexicon.txt"
+temp_lexicon_path= os.getcwd() + "/lexicon_left"
+final_lexicon_path=os.getcwd() + "/kaldi_outputs/data/local/dict/lexicon.txt"
 
 words_set = set() # a set to store words for lexicon
 
