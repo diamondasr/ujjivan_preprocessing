@@ -20,6 +20,7 @@ text_filepath="kaldi_outputs/text"
 transcription_filepath="./transcriptions.txt"
 spk2utt_filepath="kaldi_outputs/spk2utt"
 destination_wav_directory="./wavs/"
+language_code="ta"
 
 temp_lexicon_path="./lexicon_left"
 final_lexicon_path="kaldi_outputs/data/local/dict/lexicon.txt"
@@ -224,7 +225,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
         write_lexicon(words_set,temp_lexicon_path)
 
         # call g2p script here
-        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lang)
+        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code)
 
 
 
