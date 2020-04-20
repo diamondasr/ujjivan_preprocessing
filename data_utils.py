@@ -93,11 +93,13 @@ def generic_shell(shell_command,log_file_name):
     logger = setup_logger('shell_logger', log_file_name)
     #logger.info(stdout)
 
-    logging.error("stderror")
+    
     #logger = setup_logger('shell_logger', log_file_name)
-    logger.info(stderr)
+    #
 
     if (stderr):
+        logging.error("stderror")
+        logger.info(stderr)
         print("exception has occurred, please refer to log file " + log_file_name)
 
 
