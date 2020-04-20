@@ -1,8 +1,4 @@
-
-# to do
-
-# mp3 to wav conversion code to download_single_file, so that it doesnt write files that failed
-# conversion to wav.scp file
+# Author Saurabh Vyas , Navanatech
 
 
 
@@ -24,6 +20,12 @@ text_filepath="kaldi_outputs/text"
 transcription_filepath="./transcriptions.txt"
 spk2utt_filepath="kaldi_outputs/spk2utt"
 destination_wav_directory="./wavs/"
+
+temp_lexicon_path="./lexicon_left"
+final_lexicon_path="kaldi_outputs/data/local/dict/lexicon.txt"
+
+words_set = set() # a set to store words for lexicon
+
 
 
 process = subprocess.Popen(['echo', 'More output'],
@@ -55,6 +57,9 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.addHandler(handler)
 
     return logger
+
+def hasNumbers(inputString):
+    return any(char.isdigit() for char in inputString)
 
 def generic_shell(shell_command,log_file_name):
     """
@@ -158,6 +163,23 @@ def write_json_to_file(json_object,filepath):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(json_object, f, ensure_ascii=False, indent=4)
 
+def write_lexicon(words_set,output_lexicon_path):
+    with open(output_lexicon_path, "w") as lexicon_output:
+            for word in list(words_set):
+                lexicon_output.write(word + "\n")
+
+def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,lang):
+    '''
+     ~/nv-g2p/rule/lexicon_post_process.sh "hindi" ~/datasets/rich_transcription/hin_regional/lexicon_input.txt ~/datasets/rich_transcription/hin_regi\
+onal/lexicon_final.txt
+
+
+    '''
+
+    shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lang + " " + input_lexicon_file + " " + output_lexicon_file
+    generic_shell(shell_command,"g2p.log")
+
+
 
 def download_transcriptions(final_text_url,destination_transcription_file):
     try:
@@ -183,6 +205,12 @@ def download_transcriptions(final_text_url,destination_transcription_file):
             sentence_id=sentence["id"]
             sentence_transcript=sentence["sentence"]
             
+            # extract words from sentence and add to a set, for creation of lexicon
+
+            for word in line_transcript.split():
+                # print(word)                                                                                                                         
+                words_set.add(word)
+
             # check if sentence is empty
             if sentence_transcript=="":
                 empty_transcript_counter=empty_transcript_counter + 1
@@ -191,6 +219,13 @@ def download_transcriptions(final_text_url,destination_transcription_file):
                 # write the sentence to transcription file
                 transcription_row=str(sentence_id) + " " + str(sentence_transcript) + "\n"
                 append_row_file(destination_transcription_file,transcription_row)
+
+        # create lexicon file here
+        write_lexicon(words_set,temp_lexicon_path)
+
+        # call g2p script here
+        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lang)
+
 
 
     except Exception as ex:
