@@ -259,7 +259,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
 
 
-    print("converting file " + mp3_path )
+    #print("converting file " + mp3_path )
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
@@ -270,7 +270,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout, stderr)
 
     if stderr:
-        print("error during ffmpeg ")
+        #print("error during ffmpeg ")
         #logging.error(stdout)
         logging.error(stderr)
 
@@ -281,7 +281,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout2, stderr2)
 
     if stderr2:
-        print("error during sox ")
+        #print("error during sox ")
         #logging.error(stdout)
         logging.error(stderr)
 
@@ -330,7 +330,7 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
     updates kaldi_outputs/text file
     """
     try:
-        print("downloading single audio file")
+        #print("downloading single audio file")
         #global downloaded_audio_count
         
         destination_filename= url.split("/")[-1]
