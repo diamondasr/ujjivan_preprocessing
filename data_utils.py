@@ -112,7 +112,7 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     "creates a subset of data for train and test"
     print("creating train and test split")
 
-    shell_command1="awk '{ print $1, $NF }' " + wav_scp_path + " > dataset_ids"
+    shell_command1="awk '{ print $1 }' " + wav_scp_path + " > dataset_ids"
     
 
     
