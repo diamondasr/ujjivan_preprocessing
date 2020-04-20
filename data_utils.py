@@ -23,6 +23,7 @@ transcription_filepath= os.getcwd() + "/transcriptions.txt"
 spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
 destination_wav_directory= os.getcwd() + "/wavs/"
 language_code="ta"
+lexicon_language_code="tamil"
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
 final_lexicon_path=os.getcwd() + "/kaldi_outputs/data/local/dict/lexicon.txt"
@@ -179,7 +180,7 @@ onal/lexicon_final.txt
 
     '''
 
-    shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lang + " " + input_lexicon_file + " " + output_lexicon_file
+    shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
     generic_shell(shell_command,"g2p.log")
 
 
