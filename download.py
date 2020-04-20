@@ -12,6 +12,7 @@ Please create a directiory called audios and wavs in same folder, and also logs
 import json
 import urllib.request, json 
 import urllib.parse
+import os
 #from urlparse import urlparse
 from os.path import splitext
 from tqdm import tqdm

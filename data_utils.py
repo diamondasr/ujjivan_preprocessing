@@ -111,10 +111,7 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     print("creating train and test split")
 
     shell_command1="awk '{ print $1, $NF }' " + wav_scp_path + " > dataset_ids"
-    lines_dataset=count_lines("./dataset_ids")
-    print("total rows in dataset : " + str(lines_dataset))
-    test_lines=int(0.1 * lines_dataset)
-    print("total rows in testset : " + str(test_lines))
+    
 
     shell_command2="shuf -n " + test_lines + " dataset_ids > test_ids  "
     shell_command3="cat dataset_ids | grep -v -f test_ids > train_ids"
@@ -129,6 +126,13 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
 
 
     generic_shell(shell_command1,"logs/subset.log")
+
+    lines_dataset=count_lines("./dataset_ids")
+    print("total rows in dataset : " + str(lines_dataset))
+    test_lines=int(0.1 * lines_dataset)
+    print("total rows in testset : " + str(test_lines))
+
+    
     generic_shell(shell_command2,"logs/subset.log")
     generic_shell(shell_command3,"logs/subset.log")
     generic_shell(shell_command4,"logs/subset.log")
