@@ -80,12 +80,12 @@ def generic_shell(shell_command,log_file_name):
 
     
 
-    logging.error("stdout")
+    #logging.error("stdout")
     logger = setup_logger('shell_logger', log_file_name)
-    logger.info(stdout)
+    #logger.info(stdout)
 
     logging.error("stderror")
-    logger = setup_logger('shell_logger', log_file_name)
+    #logger = setup_logger('shell_logger', log_file_name)
     logger.info(stderr)
 
     if (stderr):
