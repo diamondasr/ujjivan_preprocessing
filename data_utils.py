@@ -1,5 +1,11 @@
 # Author Saurabh Vyas , Navanatech
 
+"""
+
+This script has common utility functions, and is used by main download.py script
+
+"""
+
 
 
 
@@ -32,11 +38,11 @@ words_set = set() # a set to store words for lexicon
 
 
 
-process = subprocess.Popen(['echo', 'More output'],
-                     stdout=subprocess.PIPE, 
-                     stderr=subprocess.PIPE)
-stdout, stderr = process.communicate()
-stdout, stderr
+#process = subprocess.Popen(['echo', 'More output'],
+ #                    stdout=subprocess.PIPE, 
+  #                   stderr=subprocess.PIPE)
+#stdout, stderr = process.communicate()
+#stdout, stderr
 
 #Create and configure logger 
 logging.basicConfig(filename="./script.log", 
@@ -63,6 +69,7 @@ def setup_logger(name, log_file, level=logging.INFO):
     return logger
 
 def hasNumbers(inputString):
+    """ checks if string has numbers or not"""
     return any(char.isdigit() for char in inputString)
 
 def generic_shell(shell_command,log_file_name):
@@ -93,20 +100,22 @@ def generic_shell(shell_command,log_file_name):
 
 
 def create_kaldi_directories():
+    """ this function generates folder structure which kaldi expects"""
+
     generic_shell("rm -rf kaldi_outputs","rm.log")
     generic_shell("mkdir kaldi_outputs","mkdir.log")
     generic_shell("mkdir kaldi_outputs/data","mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/local","mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/local/dict","mkdir.log")
     
-from datetime import datetime
+#from datetime import datetime
 
-timestamp = 1545730073
-dt_object = datetime.fromtimestamp(timestamp)
+#timestamp = 1545730073
+#dt_object = datetime.fromtimestamp(timestamp)
 
 def read_transcription(transcription_id,transcription_filepath):
-    #with open(transcription_filepath, encoding='utf-8') as f:
-        #transcripts=f.read()
+    # gets transcription from transcriptions.txt having corresponding id
+    
     
     import csv
     transcription_id=transcription_id.replace(".wav","")
@@ -122,7 +131,7 @@ def read_transcription(transcription_id,transcription_filepath):
 def append_row_file(file,row):
     """
 
-    appends data row to a text file
+    general function which appends data row to a text file
 
     """
 
@@ -132,7 +141,7 @@ def append_row_file(file,row):
 def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
     """
 
-    appends to wav_list file each new data row
+    appends audio file path to wav_list file each new data row
     also appends to wav.scp file
 
     """
@@ -146,7 +155,7 @@ def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
 def create_text_file(wav_file_path,text_file_path):
     """
 
-    appends to text file 
+    appends to kaldi text ( data/text ) file 
     
 
     """
@@ -174,12 +183,17 @@ def write_json_to_file(json_object,filepath):
         json.dump(json_object, f, ensure_ascii=False, indent=4)
 
 def write_lexicon(words_set,output_lexicon_path):
+    """ given a set having unique words , write one word to each line
+    this file will be input to the g2p """
+
     with open(output_lexicon_path, "w") as lexicon_output:
             for word in list(words_set):
                 lexicon_output.write(word + "\n")
 
 def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,lang):
     '''
+    call g2p script to take list of words and convert it into final lexicon
+
      ~/nv-g2p/rule/lexicon_post_process.sh "hindi" ~/datasets/rich_transcription/hin_regional/lexicon_input.txt ~/datasets/rich_transcription/hin_regi\
 onal/lexicon_final.txt
 
@@ -192,6 +206,9 @@ onal/lexicon_final.txt
 
 
 def download_transcriptions(final_text_url,destination_transcription_file):
+    """ downloads transcriptions , but if already present doesnt download again 
+    """
+
     try:
         #downloaded_audio_count=downloaded_audio_count + 1
 
@@ -335,9 +352,11 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 def download_single_file(url,downloaded_audio_count,destination_directory,speaker_id):
     """
     downloads mp3 file
+    converts mp3 to wav file
     updates wav.list file
     updates wav.scp file
     updates kaldi_outputs/text file
+    updates spk2utt file
     """
     try:
         #print("downloading single audio file")

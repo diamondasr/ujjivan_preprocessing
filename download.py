@@ -6,7 +6,7 @@ according to parameters
 
 It also logs important information such as number of audio files downloaded
 
-Please create a directiory called audios and wavs and kaldi_outputs in the same directory as this file
+Please create a directiory called audios and wavs in same folder
 
 """
 import json
