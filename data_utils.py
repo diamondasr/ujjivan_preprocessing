@@ -332,7 +332,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
             
             else:
                 # write the sentence to transcription file
-                transcription_row=str(sentence_id) + " " + str(sentence_transcript) + "\n"
+                transcription_row=str(sentence_id) + " " + str(sentence_transcript) 
                 append_row_file(destination_transcription_file,transcription_row)
 
         # create lexicon file here
