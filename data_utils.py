@@ -87,6 +87,7 @@ def generic_shell(shell_command,log_file_name):
                         stderr=subprocess.PIPE,shell=True)
         stdout, stderr = process.communicate()
         #stdout, stderr
+        print(stdout)
 
         
 
