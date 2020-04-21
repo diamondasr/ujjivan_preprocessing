@@ -91,15 +91,17 @@ data=download_audio_json(final_audio_url,destination_audio_file,"./audio.json")
 
 data=data["data"]
 # see if specific speaker id is provided
+
     
+
 
 if speaker_id != -1:
     print("filtering according to specific speaker")
-    data=data[speaker_id]
+    #data=data[speaker_id]
     #print(data[speaker_id])
     #print(data)
     for row in tqdm(data):
-        #print(row)
+        print(row)
         extension_valid=check_file_extension(row,extension)
         #print(extension_valid)
 
