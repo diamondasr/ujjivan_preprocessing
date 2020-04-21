@@ -107,6 +107,7 @@ try:
             #print(extension_valid)
 
             if extension_valid:
+                        #print("valid extension")
                         # download audio
                         #print("downloading audio for row")
                         #download_single_file(row)

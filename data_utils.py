@@ -246,12 +246,12 @@ def create_text_file(wav_file_path,text_file_path):
 
     """
 
-    sentence_id=wav_file_path.split("/")[-1].split("_")[2]
+    sentence_id=wav_file_path.split("_")[2].split('.')[0]
     #print("sentence id")
     #print(sentence_id)
     transcription=read_transcription(sentence_id,transcription_filepath)
-    #print("transcription")
-    #print(transcription)
+    print("transcription")
+    print(transcription)
     text_line=wav_file_path.split("/")[-1] + " " +  transcription
 
     append_row_file(text_file_path,text_line)
