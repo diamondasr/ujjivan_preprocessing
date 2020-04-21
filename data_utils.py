@@ -276,8 +276,10 @@ onal/lexicon_final.txt
 
     '''
 
+    print("Running G2p and creating final lexicon file")
+
     shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
-    generic_shell(shell_command,"g2p.log")
+    generic_shell(shell_command,"logs/g2p.log")
 
 
 
@@ -357,7 +359,7 @@ def create_kaldi_lang():
     """
 
     #lexicon.txt
-    shell_command0="cp lexicon.txt kaldi_outputs/data/local/dict"
+    shell_command0="cp ./lexicon.txt kaldi_outputs/data/local/dict"
     generic_shell(shell_command0,"logs/kaldi_data_lang.log")
 
     # nonsilence_phones.txt
