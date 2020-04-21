@@ -80,26 +80,30 @@ def generic_shell(shell_command,log_file_name):
         from python and route logs to log file 
     """
 
-    #print(shell_command.split())
-    process = subprocess.Popen(shell_command,
-                     stdout=subprocess.PIPE, 
-                     stderr=subprocess.PIPE,shell=True)
-    stdout, stderr = process.communicate()
-    stdout, stderr
+    try:
+        #print(shell_command.split())
+        process = subprocess.Popen(shell_command,
+                        stdout=subprocess.PIPE, 
+                        stderr=subprocess.PIPE,shell=True)
+        stdout, stderr = process.communicate()
+        #stdout, stderr
 
-    
+        
 
-    #logging.error("stdout")
-    logger = setup_logger('shell_logger', log_file_name)
+        #logging.error("stdout")
+        #logger = setup_logger('shell_logger', log_file_name)
     #logger.info(stdout)
+        shell_logger=setup_logger("shell_logger", log_file_name, level=logging.INFO)
 
     
     #logger = setup_logger('shell_logger', log_file_name)
     #
+    except:
+        print("Exception during running generic shell with following command - ")
+        print(shell_command)
 
-    if (stderr):
-        logging.error("stderror")
-        logger.info(stderr)
+    
+        shell_logger.info(stderr)
         print("exception has occurred, please refer to log file " + log_file_name)
 
 
@@ -153,8 +157,9 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
 
 
 def create_kaldi_directories():
-    """ this function generates folder structure which kaldi expects"""
+    """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi"""
 
+    # kaldi specific
     generic_shell("rm -rf kaldi_outputs","logs/rm.log")
     generic_shell("mkdir kaldi_outputs","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data","logs/mkdir.log")
@@ -162,6 +167,11 @@ def create_kaldi_directories():
     generic_shell("mkdir kaldi_outputs/data/local/dict","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/train","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
+
+    # non kaldi
+    generic_shell("rm -rf logs","logs/rm.log")
+    generic_shell("mkdir logs","logs/mkdir.log")
+
     
 #from datetime import datetime
 
