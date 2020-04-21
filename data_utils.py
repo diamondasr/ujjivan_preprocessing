@@ -382,7 +382,7 @@ def create_kaldi_lang():
     #shell_command1="cut -d ' ' -f 2- ./lexicon.txt |  sed 's/ /\n/g' |   sort -u > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
 
 
-    generic_shell(shell_command1,"logs/kaldi_data_lang.log")
+    #generic_shell(shell_command1,"logs/kaldi_data_lang.log")
 
     # silence_phones.txt
     shell_command2="echo  SIL > kaldi_outputs/data/local/dict/silence_phones.txt"
@@ -393,7 +393,7 @@ def create_kaldi_lang():
 
     # nonsilence_phones.txt
     shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d" " -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/data/local/dict/phones_t.txt"
-    shell_command5="sed -i -e '/^\s*$/d' kaldi_outputs/data/local/dict/phones_t.txt"
+    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/data/local/dict/phones_t.txt"
     shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/data/local/dict/phones.txt"
     shell_command7="grep -v -F -f kaldi_outputs/data/local/dict/silence_phones.txt kaldi_outputs/data/local/dict/phones.txt > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
 
