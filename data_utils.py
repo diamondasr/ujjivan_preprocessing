@@ -233,8 +233,9 @@ def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
 
 
 
+    utterance_id=wav_list_path.split("/")[-1].replace("mp3","")
     append_row_file(wav_list_path,wav_file_path)
-    append_row_file(wav_scp_path,wav_file_path.split("/")[-1] + " " + wav_file_path)
+    append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
 
 def create_text_file(wav_file_path,text_file_path):
@@ -499,16 +500,17 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
         
  
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
+        utterance_id=url.split("/")[-1].replace("mp3","")
         output_destination_path=destination_wav_directory + output_wav_filename
         convert_mp3_to_wav(destination_path,destination_wav_directory  )
         create_wav_list_file(output_destination_path)
         downloaded_audio_count=downloaded_audio_count + 1
 
-        create_text_file(output_destination_path, text_filepath)
+        create_text_file(utterance_id, text_filepath)
         #print("speaker id ;")
         #print(speaker_id)
         #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
-        append_row_file(spk2utt_filepath, speaker_id + " " + output_wav_filename )
+        append_row_file(spk2utt_filepath, speaker_id + " " + utterance_id )
 
         return destination_path
 
