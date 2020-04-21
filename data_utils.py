@@ -93,13 +93,14 @@ def generic_shell(shell_command,log_file_name):
         #logging.error("stdout")
         #logger = setup_logger('shell_logger', log_file_name)
     #logger.info(stdout)
-        shell_logger=setup_logger("shell_logger", log_file_name, level=logging.INFO)
+        
 
     
     #logger = setup_logger('shell_logger', log_file_name)
     #
     except:
         print("Exception during running generic shell with following command - ")
+        shell_logger=setup_logger("shell_logger", log_file_name, level=logging.INFO)
         print(shell_command)
 
     
