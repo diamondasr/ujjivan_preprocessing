@@ -287,7 +287,7 @@ onal/lexicon_final.txt
 
     print("Running G2p and creating final lexicon file")
 
-    shell_command="~/nv-g2p/rule/lexicon_post_process.sh" + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
+    shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
     generic_shell(shell_command,"logs/g2p.log")
 
 
