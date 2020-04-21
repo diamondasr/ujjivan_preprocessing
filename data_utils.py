@@ -32,7 +32,7 @@ language_code="ta"
 lexicon_language_code="tamil"
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
-final_lexicon_path=os.getcwd() + "./lexicon.txt"
+final_lexicon_path=os.getcwd() + "/lexicon.txt"
 
 final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
 
@@ -279,7 +279,7 @@ onal/lexicon_final.txt
 
     print("Running G2p and creating final lexicon file")
 
-    shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
+    shell_command="mi " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
     generic_shell(shell_command,"logs/g2p.log")
 
 
