@@ -32,7 +32,7 @@ language_code="ta"
 lexicon_language_code="tamil"
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
-final_lexicon_path=os.getcwd() + "/kaldi_outputs/data/local/dict/lexicon.txt"
+final_lexicon_path=os.getcwd() + "./lexicon.txt"
 
 final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
 
@@ -176,7 +176,7 @@ def create_kaldi_directories():
     generic_shell("mkdir kaldi_outputs/data/local/dict","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/train","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.lsog")
     generic_shell("mkdir kaldi_outputs/mfcc","logs/mkdir.log")
 
     # non kaldi
@@ -289,7 +289,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
         #downloaded_audio_count=downloaded_audio_count + 1
 
         #urllib.urlretrieve(final_text_url, destination_directory + "transcriptions.json")
-        transcription_exists=check_if_file_exists(destination_transcription_file)
+        transcription_exists=check_if_file_exists(destination_transcription_file) and check_if_file_exists(final_lexicon_path)
         if transcription_exists:
             print("transcriptions.txt already exists not downloading")
             return 
@@ -353,20 +353,24 @@ def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
 def create_kaldi_lang():
     """
         creates file in kaldis data/local/lang directory
-        assumes lexicon.txt is already present there
+        
     """
 
+    #lexicon.txt
+    shell_command0="cp lexicon.txt kaldi_outputs/data/local/dict"
+    generic_shell(shell_command0,"logs/kaldi_data_lang.log")
+
     # nonsilence_phones.txt
-    shell_command1="cut -d ' ' -f 2- lexicon.txt |  sed 's/ /\n/g' |   sort -u > nonsilence_phones.txt"
+    shell_command1="cut -d ' ' -f 2- ./lexicon.txt |  sed 's/ /\n/g' |   sort -u > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
 
 
     generic_shell(shell_command1,"logs/kaldi_data_lang.log")
 
     # silence_phones.txt
-    shell_command2="echo –e 'SIL'\\n'oov' > silence_phones.txt"
+    shell_command2="echo –e 'SIL'\\n'oov' > kaldi_outputs/data/local/dict/silence_phones.txt"
     generic_shell(shell_command2,"logs/kaldi_data_lang.log")
 
-    shell_command3="echo 'SIL' > optional_silence.txt"
+    shell_command3="echo 'SIL' > kaldi_outputs/data/local/dict/optional_silence.txt"
     generic_shell(shell_command3,"logs/kaldi_data_lang.log")
 
 

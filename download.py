@@ -7,6 +7,7 @@ according to parameters
 It also logs important information such as number of audio files downloaded
 
 Please create a directiory called audios and wavs in same folder, and also logs
+Also, do conda activate g2p
 
 """
 import json
@@ -17,7 +18,7 @@ import os
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
                        
   
 #Create and configure logger 
@@ -125,7 +126,13 @@ else:
 
                     #convert_mp3_to_wav(mp3_path,output_wav_dir)
 
+
+# creates train test split
 create_kaldi_subset(wav_scp_path,"kaldi_outputs")
+
+# creates kaldi/data/local/dict 
+create_kaldi_lang()
+
 
 rm_unnecessary_files()
                     
