@@ -87,14 +87,22 @@ def generic_shell(shell_command,log_file_name):
                         stderr=subprocess.PIPE,shell=True)
         stdout, stderr = process.communicate()
         #stdout, stderr
-        print(stdout)
+        #print(stdout)
+
+        if stderr:
+            print(stderr)
+            print("Exception during running generic shell with following command - ")
+            print(shell_command)
+            shell_logger=setup_logger("shell_logger", log_file_name, level=logging.INFO)
+            print(shell_command)
+
 
         
 
         #logging.error("stdout")
         #logger = setup_logger('shell_logger', log_file_name)
     #logger.info(stdout)
-        
+          
 
     
     #logger = setup_logger('shell_logger', log_file_name)
