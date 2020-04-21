@@ -34,7 +34,7 @@ logger.setLevel(logging.DEBUG)
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
 language_code="ta"
-speaker_id="127"  # default value is -1 
+speaker_id="225"  # default value is -1 
 extension=".mp3" # default value is -1 
 final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
@@ -98,10 +98,10 @@ data=data["data"]
 if speaker_id != -1:
     print("filtering according to specific speaker")
     data=data[speaker_id]
-    #print(data[speaker_id])
+    print(data)
     #print(data)
     for row in tqdm(data):
-        #print(row)
+        print(row)
         extension_valid=check_file_extension(row,extension)
         #print(extension_valid)
 
@@ -118,7 +118,10 @@ if speaker_id != -1:
 else:
     print("speaker filtering disabled ")
     for speaker_id in data:
-        for row in speaker_id:
+        print(speaker_id)
+        for row in data[speaker_id]:
+            print(row)
+            #print(data[speaker_id])
             extension_valid=check_file_extension(row,extension)
             if extension_valid:
                 
