@@ -79,6 +79,7 @@ def check_file_extension(row,extension):
         return False
 
 
+
 # create kaldi directory structure
 create_kaldi_directories()
 
@@ -94,43 +95,46 @@ data=data["data"]
 
     
 
+try:
+    if speaker_id != -1:
+        print("filtering according to specific speaker")
+        data=data[speaker_id]
+        print(data)
+        #print(data)
+        for row in tqdm(data):
+            print(row)
+            extension_valid=check_file_extension(row,extension)
+            #print(extension_valid)
 
-if speaker_id != -1:
-    print("filtering according to specific speaker")
-    data=data[speaker_id]
-    print(data)
-    #print(data)
-    for row in tqdm(data):
-        print(row)
-        extension_valid=check_file_extension(row,extension)
-        #print(extension_valid)
-
-        if extension_valid:
-                    # download audio
-                    #print("downloading audio for row")
-                    #download_single_file(row)
-                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
-                    #basename=destination_mp3_path.split("/")[-1]
-                    
+            if extension_valid:
+                        # download audio
+                        #print("downloading audio for row")
+                        #download_single_file(row)
+                        destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+                        #basename=destination_mp3_path.split("/")[-1]
+                        
                     
                     #convert_mp3_to_wav(destination_mp3_path,destination_wav_directory  )
 
-else:
-    print("speaker filtering disabled ")
-    for speaker_id in data:
-        print(speaker_id)
-        for row in data[speaker_id]:
-            print(row)
-            #print(data[speaker_id])
-            extension_valid=check_file_extension(row,extension)
-            if extension_valid:
-                
-                    # download audio
-                    destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+    else:
+        print("speaker filtering disabled ")
+        for speaker_id in data:
+            print(speaker_id)
+            for row in data[speaker_id]:
+                print(row)
+                #print(data[speaker_id])
+                extension_valid=check_file_extension(row,extension)
+                if extension_valid:
+                    
+                        # download audio
+                        destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
 
 
-                    #convert_mp3_to_wav(mp3_path,output_wav_dir)
+                        #convert_mp3_to_wav(mp3_path,output_wav_dir)
 
+except Exception as ex:
+    print("there was exception in download.py")
+    print(ex)
 
 # creates train test split
 create_kaldi_subset(wav_scp_path,"kaldi_outputs")
