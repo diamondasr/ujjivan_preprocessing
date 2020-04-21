@@ -500,7 +500,7 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
         
  
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
-        utterance_id=url.split("/")[-1].replace("mp3","")
+        utterance_id=url.split("/")[-1].replace(".mp3","")
         output_destination_path=destination_wav_directory + output_wav_filename
         convert_mp3_to_wav(destination_path,destination_wav_directory  )
         create_wav_list_file(output_destination_path)
