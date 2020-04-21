@@ -157,6 +157,14 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     generic_shell("","logs/subset.log")
 
 
+def rm_unnecessary_files():
+    """ this functions deletes some temporary files , for example before train/test split """
+    generic_shell("rm  kaldi_outputs/wav.scp","logs/rm.log")
+    generic_shell("rm  kaldi_outputs/text","logs/rm.log")
+    generic_shell("rm  kaldi_outputs/spk2utt","logs/rm.log")
+
+
+
 def create_kaldi_directories():
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi"""
 
@@ -168,6 +176,8 @@ def create_kaldi_directories():
     generic_shell("mkdir kaldi_outputs/data/local/dict","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/train","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/mfcc","logs/mkdir.log")
 
     # non kaldi
     generic_shell("rm -rf logs","logs/rm.log")
