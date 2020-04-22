@@ -441,7 +441,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
-    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-loglevel error','-hide_banner' ,'-nostats', '-y', '-i', mp3_path , output_wav_dir + out_file_temp]
+    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-hide_banner' ,'-nostats', '-y', '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
