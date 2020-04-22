@@ -3,5 +3,18 @@ audios/
 kaldi_outputs/
 lexicon_left
 transcriptions.txt
+UI.odt
+wav.list
+test_ids
+temp1
+temp2
+temp3
+dataset_ids
+audio.json
+train_ids
+logs/
+.vscode/
+
+
 
 
