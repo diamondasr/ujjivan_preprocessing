@@ -448,7 +448,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout, stderr)
 
     if stderr:
-        #print("error during ffmpeg ")
+        print("error during ffmpeg ")
         #logging.error(stdout)
         logging.error(stderr)
 
@@ -459,7 +459,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout2, stderr2)
 
     if stderr2:
-        #print("error during sox ")
+        print("error during sox ")
         #logging.error(stdout)
         logging.error(stderr)
 
