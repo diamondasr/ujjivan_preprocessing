@@ -187,6 +187,9 @@ def create_kaldi_directories():
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.lsog")
     generic_shell("mkdir kaldi_outputs/mfcc","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/data","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/lm_temp","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/kaldi_lm","logs/mkdir.log")
 
     # non kaldi
     generic_shell("rm -rf logs","logs/rm.log")
@@ -403,6 +406,8 @@ def create_kaldi_lang():
     generic_shell(shell_command6,"logs/kaldi_data_lang.log")
     generic_shell(shell_command7,"logs/kaldi_data_lang.log")
 
+    shell_command8="cp kaldi_outputs/data/train/text kaldi_outputs/data/local/data/train.text"
+    generic_shell(shell_command8,"logs/kaldi_data_lang.log")
 
 
         
