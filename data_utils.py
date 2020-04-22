@@ -525,8 +525,8 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
         #print("speaker id ;")
         #print(speaker_id)
         #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
-        append_row_file(spk2utt_filepath, speaker_id + " " + utterance_id )
-        append_row_file(utt2spk_filepath, utterance_id + " " + speaker_id )
+        append_row_file(spk2utt_filepath, utterance_id + "_" + speaker_id + " " + utterance_id )
+        append_row_file(utt2spk_filepath, utterance_id + " " + utterance_id + "_" + speaker_id )
 
         return destination_path
 
