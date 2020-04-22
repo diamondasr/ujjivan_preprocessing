@@ -148,9 +148,15 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/data/train/text"
     shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/data/train/spk2utt"
 
+
     shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/data/test/wav.scp"
     shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/data/test/text"
     shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/data/test/spk2utt"
+
+    shell_command10="cat kaldi_outputs/utt2spk | grep  -f train_ids > kaldi_outputs/data/train/utt2spk"
+    shell_command11="cat kaldi_outputs/utt2spk | grep  -f test_ids > kaldi_outputs/data/test/utt2spk"
+
+
 
     generic_shell(shell_command2,"logs/subset.log")
     generic_shell(shell_command3,"logs/subset.log")
@@ -160,6 +166,8 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     generic_shell(shell_command7,"logs/subset.log")
     generic_shell(shell_command8,"logs/subset.log")
     generic_shell(shell_command9,"logs/subset.log")
+    generic_shell(shell_command10,"logs/subset.log")
+    generic_shell(shell_command11,"logs/subset.log")
     ####shuf -n 100 $audio_dir/wav.list > $audio_dir/test_wav.list                                                                                        
     ####cat $audio_dir/wav.list | grep -v -f $audio_dir/test_wav.list > $audio_dir/train_wav.list 
 
