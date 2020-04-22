@@ -27,9 +27,11 @@ wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
 transcription_filepath= os.getcwd() + "/transcriptions.txt"
 spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
+utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
 destination_wav_directory= os.getcwd() + "/wavs/"
 language_code="ta"
 lexicon_language_code="tamil"
+
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
 final_lexicon_path=os.getcwd() + "/lexicon.txt"
@@ -516,6 +518,7 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
         #print(speaker_id)
         #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
         append_row_file(spk2utt_filepath, speaker_id + " " + utterance_id )
+        append_row_file(utt2spk_filepath, utterance_id + " " + speaker_id )
 
         return destination_path
 
