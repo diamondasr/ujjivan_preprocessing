@@ -49,7 +49,7 @@ words_set = set() # a set to store words for lexicon
 #stdout, stderr
 
 #Create and configure logger 
-logging.basicConfig(filename="./script.log", 
+logging.basicConfig(filename="logs/script.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 
@@ -448,7 +448,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout, stderr)
 
     if stderr:
-        print("error during ffmpeg ")
+        #ssprint("error during ffmpeg ")
         #logging.error(stdout)
         logging.error(stderr)
 
@@ -459,7 +459,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     #print(stdout2, stderr2)
 
     if stderr2:
-        print("error during sox ")
+        #print("error during sox ")
         #logging.error(stdout)
         logging.error(stderr2)
 

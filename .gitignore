@@ -14,7 +14,7 @@ audio.json
 train_ids
 logs/
 .vscode/
-
+*.log
 
 
 

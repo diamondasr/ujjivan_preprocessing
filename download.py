@@ -4,10 +4,6 @@
 This python3 script takes audio source url as input and downloads audio data and filters it 
 according to parameters
 
-It also logs important information such as number of audio files downloaded
-
-Please create a directiory called audios and wavs in same folder, and also logs
-Also, do conda activate g2p
 
 """
 import json
@@ -22,7 +18,7 @@ from data_utils import download_transcriptions,create_kaldi_lang,rm_unnecessary_
                        
   
 #Create and configure logger 
-logging.basicConfig(filename="./script.log", 
+logging.basicConfig(filename="logs/script.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 
@@ -146,6 +142,7 @@ create_kaldi_lang()
 
 rm_unnecessary_files()
 
+print("Done")
 print("inside kaldi recipie directory")
 print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
 print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
