@@ -461,7 +461,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     if stderr2:
         print("error during sox ")
         #logging.error(stdout)
-        logging.error(stderr)
+        logging.error(stderr2)
 
 
 def read_json_from_file(filepath):
