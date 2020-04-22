@@ -145,6 +145,11 @@ create_kaldi_lang()
 
 
 rm_unnecessary_files()
+
+print("inside kaldi recipie directory")
+print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
+print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
+print(" ln -s " + os.getcwd() + "/kaldi_outputs/mfcc .")
                     
 
 

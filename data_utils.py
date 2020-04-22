@@ -204,6 +204,10 @@ def create_kaldi_directories():
     # non kaldi
     generic_shell("rm -rf logs","logs/rm.log")
     generic_shell("mkdir logs","logs/mkdir.log")
+    generic_shell("rm -rf wavs","logs/rm.log")
+    generic_shell("rm -rf audios","logs/rm.log")
+    generic_shell("mkdir wavs","logs/mkdir.log")
+    generic_shell("mkdir audios","logs/mkdir.log")
 
     
 #from datetime import datetime
