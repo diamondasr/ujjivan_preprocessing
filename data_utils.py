@@ -89,7 +89,7 @@ def write_pickle_file(python_object,destination_filename):
         writes a python dict to a file
     """
 
-    with open(destination_filename, 'w') as file:
+    with open(destination_filename, 'wb') as file:
      file.write(pickle.dumps(python_object))
 
 def load_pickle_file(filename):
