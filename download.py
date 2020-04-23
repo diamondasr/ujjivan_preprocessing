@@ -9,13 +9,13 @@ then for given language it converts all mp3 files according to audio.json to its
 """
 import json
 import urllib.request, json 
-import urllib.parse
+#import urllib.parses
 import os
 #from urlparse import urlparse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions, init_system, close_system,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions, init_system, close_system , create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
 
 
 #from data_utils import *          
@@ -47,7 +47,7 @@ destination_audio_file="./audio.json"
 epoch_start=-1
 epoch_end=-1
 
-source_mp3_directory="~/~/datasets/trial/voicecollectionblobcontainer"
+source_mp3_directory="~/~/datasets/trial/voicecollectionblobcontainer/"
 
 downloaded_audio_count=0
 number_of_rows=50 # how many data items do you need in dataset
@@ -148,7 +148,7 @@ except Exception as ex:
 rm_unnecessary_files()
 
 # close_system
-close_sytem(language_code)
+close_system(language_code)
 
 print("Done")
 print("inside kaldi recipie directory")

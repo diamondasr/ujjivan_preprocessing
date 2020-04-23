@@ -111,7 +111,7 @@ def close_system(language_code):
     """
     Basically does some final post processing like storing stateof dictionary etc
     """
-
+    global conversion_file_set
     write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
 
 
@@ -562,7 +562,7 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         destination_filename= url.split("/")[-1]
         #destination_path=destination_directory + destination_filename
         #urllib.request.urlretrieve(url, destination_path)
-        destination_path= source_mp3_directory/destination_filename 
+        destination_path= source_mp3_directory + destination_filename 
  
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
         utterance_id=url.split("/")[-1].replace(".mp3","")
