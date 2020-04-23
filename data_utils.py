@@ -57,7 +57,7 @@ words_set = set() # a set to store words for lexicon
 #stdout, stderr
 
 #Create and configure logger 
-logging.basicConfig(filename="logs/script.log", 
+logging.basicConfig(filename="logs/"  + language_code + ".script.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 
@@ -115,6 +115,12 @@ def init_system(language_code):
     global conversion_file_set
     my_set=load_pickle_file("."+ language_code + ".set")
     conversion_file_set = my_set
+    print("conversion file set : ")
+    print(conversion_file_set)
+
+    if conversion_file_set == None:
+        conversion_file_set=set()
+
 
 
 def close_system(language_code):
@@ -122,6 +128,8 @@ def close_system(language_code):
     Basically does some final post processing like storing stateof dictionary etc
     """
     global conversion_file_set
+    print("conversion file set : ")
+    print(conversion_file_set)
     write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
 
 
