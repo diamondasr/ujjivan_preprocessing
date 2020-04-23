@@ -136,7 +136,7 @@ try:
 
 except Exception as ex:
     print("there was exception in download.py")
-    print(ex)
+    #print(ex)
 
 # creates train test split
 create_kaldi_subset(wav_scp_path,"kaldi_outputs")

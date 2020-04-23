@@ -501,7 +501,7 @@ def create_kaldi_lang():
 
     # nonsilence_phones.txt
     shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/data/local/dict/phones_t.txt"
-    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/data/local/dict/phones_t.txt"
+    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/" + language_code + "/data/local/dict/phones_t.txt"
     shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/data/local/dict/phones.txt"
     shell_command7="grep -v -F -f kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt kaldi_outputs/" + language_code + "/data/local/dict/phones.txt > kaldi_outputs/" + language_code + "/data/local/dict/nonsilence_phones.txt"
 
@@ -637,7 +637,7 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         return destination_path
 
     except Exception as ex:
-        print(ex)
+        print("exception during convert single file function")
         logging.error(logging.traceback.format_exc())
 
 def download_audio_list(audio_list, destination_directory ):
