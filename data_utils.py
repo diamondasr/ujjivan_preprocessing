@@ -33,8 +33,9 @@ text_filepath= os.getcwd() + "/kaldi_outputs/text"
 transcription_filepath= os.getcwd() + "/transcriptions.txt"
 spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
 utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
-destination_wav_directory= os.getcwd() + "/wavs/"
 language_code="ta"
+destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
+
 lexicon_language_code="tamil"
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 
