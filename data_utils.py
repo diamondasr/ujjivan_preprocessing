@@ -115,8 +115,8 @@ def init_system(language_code):
     global conversion_file_set
     my_set=load_pickle_file("."+ language_code + ".set")
     conversion_file_set = my_set
-    print("conversion file set : ")
-    print(conversion_file_set)
+    #print("conversion file set : ")
+    #print(conversion_file_set)
 
     if conversion_file_set == None:
         conversion_file_set=set()
@@ -128,8 +128,8 @@ def close_system(language_code):
     Basically does some final post processing like storing stateof dictionary etc
     """
     global conversion_file_set
-    print("conversion file set : ")
-    print(conversion_file_set)
+    #print("conversion file set : ")
+    #print(conversion_file_set)
     write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
 
 
@@ -587,6 +587,7 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
 
         # check if file has already been converted
         if utterance_id in  conversion_file_set:
+
             return
 
 
