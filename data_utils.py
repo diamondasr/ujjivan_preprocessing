@@ -265,17 +265,17 @@ def create_kaldi_directories(language_code):
 
 
 
-    
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +   language_code + "data/local/dict","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "data/train","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/test","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/exp","logs/" + language_code + "." + "mkdir.lsog")
-    generic_shell("mkdir kaldi_outputs/mfcc","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/data","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+            
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
