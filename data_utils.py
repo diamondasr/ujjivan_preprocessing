@@ -116,12 +116,15 @@ def init_system(language_code):
     global conversion_file_set
     my_set=load_pickle_file("."+ language_code + ".set")
     conversion_file_set = my_set
-    print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
+    
     #print("conversion file set : ")
     #print(conversion_file_set)
 
     if conversion_file_set == None:
         conversion_file_set=set()
+    else:
+        print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
+
 
 
 
