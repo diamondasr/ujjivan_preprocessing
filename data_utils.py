@@ -95,10 +95,19 @@ def write_pickle_file(python_object,destination_filename):
 
 def load_pickle_file(filename):
     """ loads python dict from pickle file"""
-    with open(filename, 'rb') as handle:
-        python_object = pickle.load(handle)
-        return python_object
 
+    try:
+        f = open(filename)
+        # Do something with the file
+        with open(filename, 'rb') as handle:
+            python_object = pickle.load(handle)
+            return python_object
+
+
+    except IOError:
+        print("Pickle File not accessible")
+
+    
 def init_system(language_code):
     """
     Basically does some initialization stuff like loading some files
