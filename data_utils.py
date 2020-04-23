@@ -21,6 +21,11 @@ from os.path import splitext
 import logging 
 import os.path
 import os
+from datetime import datetime
+import _pickle as pickle
+
+
+#datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 wav_list_path= os.getcwd() + "/wav.list"
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
@@ -31,6 +36,8 @@ utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
 destination_wav_directory= os.getcwd() + "/wavs/"
 language_code="ta"
 lexicon_language_code="tamil"
+conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
+
 
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left"
@@ -75,6 +82,42 @@ def setup_logger(name, log_file, level=logging.INFO):
 def hasNumbers(inputString):
     """ checks if string has numbers or not"""
     return any(char.isdigit() for char in inputString)
+
+
+def write_pickle_file(python_object,destination_filename):
+    """
+        writes a python dict to a file
+    """
+
+    with open(destination_filename, 'w') as file:
+     file.write(pickle.dumps(python_object))
+
+def load_pickle_file(filename):
+    """ loads python dict from pickle file"""
+    with open(filename, 'rb') as handle:
+        python_object = pickle.load(handle)
+        return python_object
+
+def init_system(language_code):
+    """
+    Basically does some initialization stuff like loading some files
+    """
+    global conversion_file_set
+    my_set=load_pickle_file("."+ language_code + ".set")
+    conversion_file_set = my_set
+
+
+def close_system(language_code):
+    """
+    Basically does some final post processing like storing stateof dictionary etc
+    """
+
+    write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
+
+
+
+
+
 
 def generic_shell(shell_command,log_file_name):
     """
@@ -184,16 +227,17 @@ def rm_unnecessary_files():
 
 
 
-def create_kaldi_directories():
+def create_kaldi_directories(language_code):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi"""
 
     # kaldi specific
-    generic_shell("rm -rf kaldi_outputs","logs/rm.log")
-    generic_shell("mkdir kaldi_outputs","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/dict","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/train","logs/mkdir.log")
+    #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
+    generic_shell("mkdir kaldi_outputs" ,"logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" + +  language_code + "data/local/dict","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "data/train","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.lsog")
     generic_shell("mkdir kaldi_outputs/mfcc","logs/mkdir.log")
@@ -202,12 +246,14 @@ def create_kaldi_directories():
     generic_shell("mkdir kaldi_outputs/data/local/kaldi_lm","logs/mkdir.log")
 
     # non kaldi
-    generic_shell("rm -rf logs","logs/rm.log")
+    #generic_shell("rm -rf logs","logs/rm.log")
     generic_shell("mkdir logs","logs/mkdir.log")
-    generic_shell("rm -rf wavs","logs/rm.log")
+    #generic_shell("rm -rf wavs","logs/rm.log")
     generic_shell("rm -rf audios","logs/rm.log")
     generic_shell("mkdir wavs","logs/mkdir.log")
     generic_shell("mkdir audios","logs/mkdir.log")
+    generic_shell("mkdir wavs/" + language_code ,"logs/mkdir.log")
+
 
     
 #from datetime import datetime
@@ -500,7 +546,7 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 
 
 
-def download_single_file(url,downloaded_audio_count,destination_directory,speaker_id):
+def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory):
     """
     downloads mp3 file
     converts mp3 to wav file
@@ -514,14 +560,25 @@ def download_single_file(url,downloaded_audio_count,destination_directory,speake
         #global downloaded_audio_count
         
         destination_filename= url.split("/")[-1]
-        destination_path=destination_directory + destination_filename
-        urllib.request.urlretrieve(url, destination_path)
-        
+        #destination_path=destination_directory + destination_filename
+        #urllib.request.urlretrieve(url, destination_path)
+        destination_path= source_mp3_directory/destination_filename 
  
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
         utterance_id=url.split("/")[-1].replace(".mp3","")
+
+        # check if file has already been converted
+        if utterance_id in  conversion_file_set:
+            return
+
+
+
         output_destination_path=destination_wav_directory + output_wav_filename
         convert_mp3_to_wav(destination_path,destination_wav_directory  )
+
+        conversion_file_set.add(utterance_id)
+
+        
         create_wav_list_file(output_destination_path)
         downloaded_audio_count=downloaded_audio_count + 1
 

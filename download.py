@@ -1,8 +1,9 @@
 """
 # Author Saurabh Vyas , Navanatech
 
-This python3 script takes audio source url as input and downloads audio data and filters it 
-according to parameters
+This python3 script downloads audio.json and transcriptions.txt, and creates a folder called wavs and 10 subdirectories,
+then for given language it converts all mp3 files according to audio.json to its correspoding subdirectory in wav 
+
 
 
 """
@@ -14,11 +15,13 @@ import os
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , download_single_file,convert_mp3_to_wav
-                       
+from data_utils import download_transcriptions, init_sytem, close_sytem,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+
+
+#from data_utils import *          
   
 #Create and configure logger 
-logging.basicConfig(filename="logs/script.log", 
+logging.basicConfig(filename="logs/main.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 
@@ -74,13 +77,14 @@ def check_file_extension(row,extension):
     else:
         return False
 
-
+# initialize system
+init_system(language_code)
 
 # create kaldi directory structure
-create_kaldi_directories()
+create_kaldi_directories(language_code)
 
 # download transcriptions
-download_transcriptions(final_text_url,destination_transcription_file)
+download_transcripstions(final_text_url,destination_transcription_file)
 
 # download audio json
 data=download_audio_json(final_audio_url,destination_audio_file,"./audio.json")
@@ -107,7 +111,7 @@ try:
                         # download audio
                         #print("downloading audio for row")
                         #download_single_file(row)
-                        destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
                         #basename=destination_mp3_path.split("/")[-1]
                         
                     
@@ -124,7 +128,7 @@ try:
                 if extension_valid:
                     
                         # download audio
-                        destination_mp3_path=download_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
 
 
                         #convert_mp3_to_wav(mp3_path,output_wav_dir)
@@ -134,19 +138,25 @@ except Exception as ex:
     print(ex)
 
 # creates train test split
-create_kaldi_subset(wav_scp_path,"kaldi_outputs")
+#create_kaldi_subset(wav_scp_path,"kaldi_outputs")
 
 # creates kaldi/data/local/dict 
-create_kaldi_lang()
+#create_kaldi_lang()
 
 
 rm_unnecessary_files()
+
+# close_system
+close_sytem(language_code)
 
 print("Done")
 print("inside kaldi recipie directory")
 print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
 print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
 print(" ln -s " + os.getcwd() + "/kaldi_outputs/mfcc .")
+
+
+
                     
 
 
