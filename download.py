@@ -15,7 +15,7 @@ import os
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions, init_sytem, close_sytem,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions, init_system, close_sytem,create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
 
 
 #from data_utils import *          
@@ -47,6 +47,7 @@ destination_audio_file="./audio.json"
 epoch_start=-1
 epoch_end=-1
 
+source_mp3_directory="~/~/datasets/trial/voicecollectionblobcontainer"
 
 downloaded_audio_count=0
 number_of_rows=50 # how many data items do you need in dataset
@@ -84,7 +85,7 @@ init_system(language_code)
 create_kaldi_directories(language_code)
 
 # download transcriptions
-download_transcripstions(final_text_url,destination_transcription_file)
+download_transcriptions(final_text_url,destination_transcription_file)
 
 # download audio json
 data=download_audio_json(final_audio_url,destination_audio_file,"./audio.json")
@@ -111,7 +112,7 @@ try:
                         # download audio
                         #print("downloading audio for row")
                         #download_single_file(row)
-                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory)
                         #basename=destination_mp3_path.split("/")[-1]
                         
                     
@@ -128,7 +129,7 @@ try:
                 if extension_valid:
                     
                         # download audio
-                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id)
+                        destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory)
 
 
                         #convert_mp3_to_wav(mp3_path,output_wav_dir)
