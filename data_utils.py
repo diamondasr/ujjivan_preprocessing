@@ -345,8 +345,8 @@ def create_text_file(wav_file_path,text_file_path):
     #print("sentence id")
     #print(sentence_id)
     transcription=read_transcription(sentence_id,transcription_filepath)
-    print("transcription")
-    print(transcription)
+    #print("transcription")
+    #print(transcription)
     text_line=wav_file_path.split("/")[-1].replace(".wav","") + " " +  transcription
 
     append_row_file(text_file_path,text_line)
@@ -471,7 +471,7 @@ def create_kaldi_lang():
 
 
     #lexicon.txt
-    shell_command0="cp ./lexicon.txt kaldi_outputs/data/local/dict"
+    shell_command0="cp ./lexicon.txt kaldi_outputs/" + language_code + "/data/local/dict"
     generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     
@@ -481,24 +481,24 @@ def create_kaldi_lang():
     #generic_shell(shell_command1,"logs/kaldi_data_lang.log")
 
     # silence_phones.txt
-    shell_command2="echo  SIL > kaldi_outputs/data/local/dict/silence_phones.txt"
+    shell_command2="echo  SIL > kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt"
     generic_shell(shell_command2,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
-    shell_command3="echo 'SIL' > kaldi_outputs/data/local/dict/optional_silence.txt"
+    shell_command3="echo 'SIL' > kaldi_outputs/" + language_code + "/data/local/dict/optional_silence.txt"
     generic_shell(shell_command3,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     # nonsilence_phones.txt
-    shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/data/local/dict/phones_t.txt"
+    shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/data/local/dict/phones_t.txt"
     shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/data/local/dict/phones_t.txt"
-    shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/data/local/dict/phones.txt"
-    shell_command7="grep -v -F -f kaldi_outputs/data/local/dict/silence_phones.txt kaldi_outputs/data/local/dict/phones.txt > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
+    shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/data/local/dict/phones.txt"
+    shell_command7="grep -v -F -f kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt kaldi_outputs/" + language_code + "/data/local/dict/phones.txt > kaldi_outputs/" + language_code + "/data/local/dict/nonsilence_phones.txt"
 
     generic_shell(shell_command4,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command5,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command6,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command7,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
-    shell_command8="cp kaldi_outputs/data/train/text kaldi_outputs/data/local/data/train.text"
+    shell_command8="cp kaldi_outputs/" + language_code + "/data/train/text kaldi_outputs/" + language_code + "/data/local/data/train.text"
     generic_shell(shell_command8,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
 
