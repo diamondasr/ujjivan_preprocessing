@@ -139,10 +139,10 @@ except Exception as ex:
     print(ex)
 
 # creates train test split
-#create_kaldi_subset(wav_scp_path,"kaldi_outputs")
+create_kaldi_subset(wav_scp_path,"kaldi_outputs")
 
 # creates kaldi/data/local/dict 
-#create_kaldi_lang()
+create_kaldi_lang()
 
 
 #rm_unnecessary_files()

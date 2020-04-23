@@ -450,7 +450,8 @@ def download_transcriptions(final_text_url,destination_transcription_file):
 
 
     except Exception as ex:
-        print(ex)
+        #print(ex)
+        print("exception in download transcriptions function")
         logging.error(logging.traceback.format_exc())
 
 
