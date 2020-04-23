@@ -178,11 +178,11 @@ def generic_shell(shell_command,log_file_name):
     except:
         print("Exception during running generic shell with following command - ")
         shell_logger=setup_logger("shell_logger", log_file_name, level=logging.INFO)
-        print(shell_command)
+        #print(shell_command)
 
     
-        shell_logger.info(stderr)
-        print("exception has occurred, please refer to log file " + log_file_name)
+        #shell_logger.info(stderr)
+        #print("exception has occurred, please refer to log file " + log_file_name)
 
 
 def count_lines(file_path):
@@ -294,7 +294,7 @@ def create_kaldi_directories(language_code):
     if not os.path.isdir("wavs"):
         generic_shell("mkdir wavs","logs/" + language_code + "." + "mkdir.log")
     #generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
-    if not os.path.isdir("wavs/" + language_code"):
+    if not os.path.isdir("wavs/" + language_code):
         generic_shell("mkdir wavs/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
 
 
