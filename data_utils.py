@@ -101,6 +101,7 @@ def load_pickle_file(filename):
         # Do something with the file
         with open(filename, 'rb') as handle:
             python_object = pickle.load(handle)
+
             return python_object
 
 
@@ -115,6 +116,7 @@ def init_system(language_code):
     global conversion_file_set
     my_set=load_pickle_file("."+ language_code + ".set")
     conversion_file_set = my_set
+    print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
     #print("conversion file set : ")
     #print(conversion_file_set)
 

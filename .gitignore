@@ -16,6 +16,8 @@ logs/
 .vscode/
 *.log
 test.py
+__pycache__
+
 
 
 

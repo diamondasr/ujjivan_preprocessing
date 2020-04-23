@@ -100,10 +100,10 @@ try:
     if speaker_id != -1:
         print("filtering according to specific speaker")
         data=data[speaker_id]
-        print(data)
+        #print(data)
         #print(data)
         for row in tqdm(data):
-            print(row)
+            #print(row)
             extension_valid=check_file_extension(row,extension)
             #print(extension_valid)
 
