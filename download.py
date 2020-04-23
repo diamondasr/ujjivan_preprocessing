@@ -47,7 +47,7 @@ destination_audio_file="./audio.json"
 epoch_start=-1
 epoch_end=-1
 
-source_mp3_directory="~/datasets/trial/voicecollectionblobcontainer/"
+source_mp3_directory="/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"
 
 downloaded_audio_count=0
 number_of_rows=50 # how many data items do you need in dataset
