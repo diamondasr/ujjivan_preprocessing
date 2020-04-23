@@ -205,17 +205,17 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     shell_command2="shuf -n " + str(test_lines) + " dataset_ids > test_ids  "
     shell_command3="cat dataset_ids | grep -v -f test_ids > train_ids"
 
-    shell_command4="cat kaldi_outputs/wav.scp | grep  -f train_ids > kaldi_outputs/data/train/wav.scp"
-    shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/data/train/text"
-    shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/data/train/spk2utt"
+    shell_command4="cat kaldi_outputs/wav.scp | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/wav.scp"
+    shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/text"
+    shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/spk2utt"
 
 
-    shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/data/test/wav.scp"
-    shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/data/test/text"
-    shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/data/test/spk2utt"
+    shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/wav.scp"
+    shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/text"
+    shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/spk2utt"
 
-    shell_command10="cat kaldi_outputs/utt2spk | grep  -f train_ids > kaldi_outputs/data/train/utt2spk"
-    shell_command11="cat kaldi_outputs/utt2spk | grep  -f test_ids > kaldi_outputs/data/test/utt2spk"
+    shell_command10="cat kaldi_outputs/utt2spk | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/utt2spk"
+    shell_command11="cat kaldi_outputs/utt2spk | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/utt2spk"
 
 
 
@@ -250,8 +250,17 @@ def create_kaldi_directories(language_code):
 
     # kaldi specific
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
-    generic_shell("mkdir kaldi_outputs" ,"logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/" + language_code + "." + "mkdir.log")
+
+    # check if kaldi_outputs exist
+    if not os.path.isdir("kaldi_outputs"):
+        generic_shell("mkdir kaldi_outputs" ,"logs/" + language_code + "." + "mkdir.log")
+    
+    if not os.path.isdir("kaldi_outputs/" + language_code ):
+            generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/" + language_code + "." + "mkdir.log")
+
+
+
+    
     generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
     generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
     generic_shell("mkdir kaldi_outputs/" +   language_code + "data/local/dict","logs/" + language_code + "." + "mkdir.log")
@@ -370,7 +379,7 @@ onal/lexicon_final.txt
     print("Running G2p and creating final lexicon file")
 
     shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
-    generic_shell(shell_command,"logs/g2p.log")
+    generic_shell(shell_command,"logs/" + language_code + ".g2p.log")
 
 
 
