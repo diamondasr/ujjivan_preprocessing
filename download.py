@@ -145,7 +145,7 @@ except Exception as ex:
 #create_kaldi_lang()
 
 
-rm_unnecessary_files()
+#rm_unnecessary_files()
 
 # close_system
 close_system(language_code)
