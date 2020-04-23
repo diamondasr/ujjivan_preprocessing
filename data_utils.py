@@ -25,7 +25,7 @@ from datetime import datetime
 import _pickle as pickle
 
 
-#datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 wav_list_path= os.getcwd() + "/wav.list"
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
@@ -177,7 +177,7 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     
 
 
-    generic_shell(shell_command1,"logs/subset.log")
+    generic_shell(shell_command1,"logs/" + language_code + "." + "subset.log")
 
     lines_dataset=count_lines("./dataset_ids")
     print("total rows in dataset : " + str(lines_dataset))
@@ -201,29 +201,29 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
 
 
 
-    generic_shell(shell_command2,"logs/subset.log")
-    generic_shell(shell_command3,"logs/subset.log")
-    generic_shell(shell_command4,"logs/subset.log")
-    generic_shell(shell_command5,"logs/subset.log")
-    generic_shell(shell_command6,"logs/subset.log")
-    generic_shell(shell_command7,"logs/subset.log")
-    generic_shell(shell_command8,"logs/subset.log")
-    generic_shell(shell_command9,"logs/subset.log")
-    generic_shell(shell_command10,"logs/subset.log")
-    generic_shell(shell_command11,"logs/subset.log")
+    generic_shell(shell_command2,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command3,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command4,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command5,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command6,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command7,"logs/" + language_code + "." + "ssubset.log")
+    generic_shell(shell_command8,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command9,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command10,"logs/" + language_code + "." + "subset.log")
+    generic_shell(shell_command11,"logs/" + language_code + "." + "subset.log")
     ####shuf -n 100 $audio_dir/wav.list > $audio_dir/test_wav.list                                                                                        
     ####cat $audio_dir/wav.list | grep -v -f $audio_dir/test_wav.list > $audio_dir/train_wav.list 
 
     #utils/subset_data_dir.sh --utt-list
 
-    generic_shell("","logs/subset.log")
+    #generic_shell("","logs/subset.log")
 
 
 def rm_unnecessary_files():
     """ this functions deletes some temporary files , for example before train/test split """
-    generic_shell("rm  kaldi_outputs/wav.scp","logs/rm.log")
-    generic_shell("rm  kaldi_outputs/text","logs/rm.log")
-    generic_shell("rm  kaldi_outputs/spk2utt","logs/rm.log")
+    generic_shell("rm  kaldi_outputs/wav.scp","logs/" + language_code + "." + "rm.log")
+    generic_shell("rm  kaldi_outputs/text","logs/" + language_code + "." + "rm.log")
+    generic_shell("rm  kaldi_outputs/spk2utt","logs/" + language_code + "." + "rm.log")
 
 
 
@@ -232,27 +232,27 @@ def create_kaldi_directories(language_code):
 
     # kaldi specific
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
-    generic_shell("mkdir kaldi_outputs" ,"logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +   language_code + "data/local/dict","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" +  language_code + "data/train","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.lsog")
-    generic_shell("mkdir kaldi_outputs/mfcc","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/data","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/lm_temp","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/data/local/kaldi_lm","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs" ,"logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +   language_code + "data/local/dict","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +  language_code + "data/train","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/test","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/exp","logs/" + language_code + "." + "mkdir.lsog")
+    generic_shell("mkdir kaldi_outputs/mfcc","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/data","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir kaldi_outputs/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
-    generic_shell("mkdir logs","logs/mkdir.log")
+    generic_shell("mkdir logs","logs/" + language_code + "." + "mkdir.log")
     #generic_shell("rm -rf wavs","logs/rm.log")
-    generic_shell("rm -rf audios","logs/rm.log")
-    generic_shell("mkdir wavs","logs/mkdir.log")
-    generic_shell("mkdir audios","logs/mkdir.log")
-    generic_shell("mkdir wavs/" + language_code ,"logs/mkdir.log")
+    generic_shell("rm -rf audios","logs/" + language_code + "." + "rm.log")
+    generic_shell("mkdir wavs","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
+    generic_shell("mkdir wavs/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
 
 
     
@@ -440,7 +440,7 @@ def create_kaldi_lang():
 
     #lexicon.txt
     shell_command0="cp ./lexicon.txt kaldi_outputs/data/local/dict"
-    generic_shell(shell_command0,"logs/kaldi_data_lang.log")
+    generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     
     #shell_command1="cut -d ' ' -f 2- ./lexicon.txt |  sed 's/ /\n/g' |   sort -u > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
@@ -450,10 +450,10 @@ def create_kaldi_lang():
 
     # silence_phones.txt
     shell_command2="echo  SIL > kaldi_outputs/data/local/dict/silence_phones.txt"
-    generic_shell(shell_command2,"logs/kaldi_data_lang.log")
+    generic_shell(shell_command2,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     shell_command3="echo 'SIL' > kaldi_outputs/data/local/dict/optional_silence.txt"
-    generic_shell(shell_command3,"logs/kaldi_data_lang.log")
+    generic_shell(shell_command3,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     # nonsilence_phones.txt
     shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/data/local/dict/phones_t.txt"
@@ -461,13 +461,13 @@ def create_kaldi_lang():
     shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/data/local/dict/phones.txt"
     shell_command7="grep -v -F -f kaldi_outputs/data/local/dict/silence_phones.txt kaldi_outputs/data/local/dict/phones.txt > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
 
-    generic_shell(shell_command4,"logs/kaldi_data_lang.log")
-    generic_shell(shell_command5,"logs/kaldi_data_lang.log")
-    generic_shell(shell_command6,"logs/kaldi_data_lang.log")
-    generic_shell(shell_command7,"logs/kaldi_data_lang.log")
+    generic_shell(shell_command4,"logs/" + language_code + "." + "kaldi_data_lang.log")
+    generic_shell(shell_command5,"logs/" + language_code + "." + "kaldi_data_lang.log")
+    generic_shell(shell_command6,"logs/" + language_code + "." + "kaldi_data_lang.log")
+    generic_shell(shell_command7,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     shell_command8="cp kaldi_outputs/data/train/text kaldi_outputs/data/local/data/train.text"
-    generic_shell(shell_command8,"logs/kaldi_data_lang.log")
+    generic_shell(shell_command8,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
 
         
