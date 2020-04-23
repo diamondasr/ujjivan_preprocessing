@@ -287,12 +287,15 @@ def create_kaldi_directories(language_code):
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
-    generic_shell("mkdir logs","logs/" + language_code + "." + "mkdir.log")
+    if not os.path.isdir("logs"):
+        generic_shell("mkdir logs","logs/" + language_code + "." + "mkdir.log")
     #generic_shell("rm -rf wavs","logs/rm.log")
-    generic_shell("rm -rf audios","logs/" + language_code + "." + "rm.log")
-    generic_shell("mkdir wavs","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
-    generic_shell("mkdir wavs/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
+    #generic_shell("rm -rf audios","logs/" + language_code + "." + "rm.log")
+    if not os.path.isdir("wavs"):
+        generic_shell("mkdir wavs","logs/" + language_code + "." + "mkdir.log")
+    #generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
+    if not os.path.isdir("wavs/" + language_code"):
+        generic_shell("mkdir wavs/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
 
 
     
