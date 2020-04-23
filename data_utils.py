@@ -236,7 +236,7 @@ def create_kaldi_directories(language_code):
     generic_shell("mkdir kaldi_outputs/"  +  language_code ,"logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/mkdir.log")
-    generic_shell("mkdir kaldi_outputs/" + +  language_code + "data/local/dict","logs/mkdir.log")
+    generic_shell("mkdir kaldi_outputs/" +   language_code + "data/local/dict","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/" +  language_code + "data/train","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/data/test","logs/mkdir.log")
     generic_shell("mkdir kaldi_outputs/exp","logs/mkdir.lsog")
