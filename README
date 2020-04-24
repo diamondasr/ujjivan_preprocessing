@@ -11,6 +11,7 @@ cd ujjivan.preprocessing ( use tmux with detached mode)
 
 conda activate g2p
 
+mkdir logs
 
 Usage:
 
