@@ -258,6 +258,9 @@ def rm_unnecessary_files(language_code):
     generic_shell("rm  kaldi_outputs/wav.scp","logs/" + language_code + "." + "rm.log")
     generic_shell("rm  kaldi_outputs/text","logs/" + language_code + "." + "rm.log")
     generic_shell("rm  kaldi_outputs/spk2utt","logs/" + language_code + "." + "rm.log")
+    generic_shell("rm  lexicon_left","logs/" + language_code + "." + "rm.log")
+    generic_shell("rm  lexicon.txt","logs/" + language_code + "." + "rm.log")
+    generic_shell("rm  wav.list","logs/" + language_code + "." + "rm.log")
 
 
 def read_file_to_list(filepath):
