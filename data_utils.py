@@ -615,6 +615,10 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir):
     stdout2, stderr2 = process2.communicate()
     #print(stdout2, stderr2)
 
+    # remove temp wav file
+    shell_command="rm " + output_wav_dir + out_file_temp 
+    generic_shell(shell_command,"logs/" + language_code + "." + "rm.log")
+
     if stderr2:
         #print("error during sox ")
         #logging.error(stdout)
