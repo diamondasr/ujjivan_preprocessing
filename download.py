@@ -26,57 +26,61 @@ argument_parser.add_argument('-lang',
                        type=str,
                        help='the lang id which is used is url of azure for example ta')
 
+argument_parser.add_argument('-source_mp3_dir',
+                       type=str,
+                       help='the source mp3 directory containing audio files')
+
+argument_parser.add_argument('-destination_wav_dir',
+                       type=str,
+                       help='the destination directory where wav files are stored')
+
 
 
 # Execute the parse_args() method
 args = argument_parser.parse_args()
 
 
-#from data_utils import *          
-  
-#Create and configure logger 
-#logging.basicConfig(filename="logs/main.log", 
-#                    format='%(asctime)s %(message)s', 
-#                    filemode='w')
-#Creating an object 
-#logger=logging.getLogger() 
-  
-#Setting the threshold of logger to DEBUG 
-#logger.setLevel(logging.DEBUG) 
+
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
-language_code="ta" 
+language_code=args.lang # this is part of url of audio source and text source
+
 speaker_id="225"  # default value is -1 
 extension=".mp3" # default value is -1 
+
 final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
 
 destination_directory="./audios/"
 #destination_wav_directory="./wavs/"
 #wav_list_path="./wav.list"
+
 destination_transcription_file="data/" + language_code + "/transcriptions.txt"
 destination_audio_file="data/" + language_code +"/audio.json"
 
-epoch_start=-1
-epoch_end=-1
-lexicon_language_code="tamil"
+#epoch_start=-1
+#epoch_end=-1
+lexicon_language_code="tamil" # this is the language code that we enter in g2p repl.py
 
-source_mp3_directory="/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"
+#"/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"
+source_mp3_directory=args.source_mp3_dir
+
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
 
 downloaded_audio_count=0
-number_of_rows=50 # how many data items do you need in dataset
-empty_transcript_counter=0
+#number_of_rows=50 # how many data items do you need in dataset
+#empty_transcript_counter=0
 
-wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
-wav_list_path= os.getcwd() + "/wav.list"
+wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp" # where will wav.scp be stored temporarily
+wav_list_path= os.getcwd() + "/wav.list"              # where will wav.list be stored temporarily
 
 
-destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
+#  os.getcwd() + "/wavs/" + language_code + "/"
+destination_wav_directory= args.destination_wav_dir + language_code + "/"
 
-spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
-utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
+spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"  # where will spk2utt be stored temporarily
+utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"  # where will utt2spk be stored temporarily
 
 transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
 
@@ -178,6 +182,7 @@ create_kaldi_directories(language_code,create_subset_split_dirs=True)
 #create_kaldi_lang(language_code)
 
 
+# removes temp files 
 rm_unnecessary_files(language_code)
 
 # close_system

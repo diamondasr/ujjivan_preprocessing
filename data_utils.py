@@ -123,8 +123,8 @@ def init_system(language_code):
     #print("conversion file set : ")
     #print(conversion_file_set)
 
-    print("activate conda environment g2p")
-    generic_shell("conda activate g2p","logs/" + language_code + "." + "conda.log")
+    #print("activate conda environment g2p")
+    #generic_shell("conda activate g2p","logs/" + language_code + "." + "conda.log")
 
 
     if conversion_file_set == None:
@@ -272,6 +272,7 @@ def rm_unnecessary_files(language_code):
     remove_file("kaldi_outputs/wav.scp")
     remove_file("kaldi_outputs/text")
     remove_file("kaldi_outputs/spk2utt")
+    remove_file("kaldi_outputs/utt2spk")
     remove_file("lexicon_left")
     remove_file("lexicon.txt")
     remove_file("wav.list")

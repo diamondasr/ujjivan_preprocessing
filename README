@@ -3,5 +3,19 @@ Python prprocessing script for Ujjivan dataset
 README 
 
 
+Steps:
+
+git clone -b version2 https://github.com/diamondasr/ujjivan_preprocessing.git ujjivan.preprocessing
+
+cd ujjivan.preprocessing ( use tmux with detached mode)
+
+conda activate g2p
+
+
+Usage:
+
+python3 download.py -lang ta -source_mp3_dir "/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"  -destination_wav_dir "/home/ubuntu/wavs"
+
+
 
 
