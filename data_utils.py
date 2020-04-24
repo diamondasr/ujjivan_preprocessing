@@ -294,15 +294,20 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
     if create_subset_split_dirs==True:
         
         # read the length of wav.scp in kaldi_outputs/language_id
-        wav_scp_count=count_lines("kaldi_outputs/"  + "/wav.scp")
+        wav_scp_count=str(count_lines("kaldi_outputs/"  + "/wav.scp"))
 
         # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
         # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
         
         if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
             print ("subset file exists for language")
+            print("wav scp count : ")
+            print(wav_scp_count)
+
+
 
             subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
+            
             if wav_scp_count in subset_counts:
                 print("split directory already existing")
             else:
