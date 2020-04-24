@@ -123,6 +123,10 @@ def init_system(language_code):
     #print("conversion file set : ")
     #print(conversion_file_set)
 
+    print("activate conda environment g2p")
+    generic_shell("conda activate g2p","logs/" + language_code + "." + "conda.log")
+
+
     if conversion_file_set == None:
         conversion_file_set=set()
     else:
@@ -300,6 +304,9 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
     # kaldi specific
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
 
+    if not os.path.isdir("logs"):
+        generic_shell("mkdir logs" ,"logs/" + language_code + "." + "mkdir.log")
+
     # check if kaldi_outputs exist
     if not os.path.isdir("data"):
         generic_shell("mkdir data" ,"logs/" + language_code + "." + "mkdir.log")
@@ -344,6 +351,7 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
                 print("split directory already existing")
             else:
                 print("split directory doesnt exist, creating ..")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
                 shell_command="cp kaldi_outputs/wav.scp kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
                 shell_command2="cp kaldi_outputs/text kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
                 shell_command3="cp kaldi_outputs/spk2utt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
