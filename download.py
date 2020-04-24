@@ -152,6 +152,10 @@ except Exception as ex:
     print("there was exception in download.py")
     #print(ex)
 
+
+# create kaldi subdirectory for new split like ta_15k, it can only be done after wav.scp,text,spk2utt have already been generated
+create_kaldi_directories(language_code,create_subset_split_dirs=True)
+
 # creates train test split
 #create_kaldi_subset(wav_scp_path,"kaldi_outputs")
 

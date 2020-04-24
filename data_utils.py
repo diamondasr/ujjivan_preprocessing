@@ -307,6 +307,8 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
                         print("split directory already existing")
                     else:
                         print("split directory doesnt exist, creating ..")
+                        shell_command="cp kaldi_outputs/{wav.scp,text,spk2utt} kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+                        generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
 
 
 
