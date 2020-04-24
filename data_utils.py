@@ -255,12 +255,21 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir,language_code):
 
 def rm_unnecessary_files(language_code):
     """ this functions deletes some temporary files , for example before train/test split """
-    generic_shell("rm  kaldi_outputs/wav.scp","logs/" + language_code + "." + "rm.log")
-    generic_shell("rm  kaldi_outputs/text","logs/" + language_code + "." + "rm.log")
-    generic_shell("rm  kaldi_outputs/spk2utt","logs/" + language_code + "." + "rm.log")
-    generic_shell("rm  lexicon_left","logs/" + language_code + "." + "rm.log")
-    generic_shell("rm  lexicon.txt","logs/" + language_code + "." + "rm.log")
-    generic_shell("rm  wav.list","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  kaldi_outputs/wav.scp","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  kaldi_outputs/text","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  kaldi_outputs/spk2utt","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  lexicon_left","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  lexicon.txt","logs/" + language_code + "." + "rm.log")
+    #generic_shell("rm  wav.list","logs/" + language_code + "." + "rm.log")
+
+    remove_file("kaldi_outputs/wav.scp")
+    remove_file("kaldi_outputs/text")
+    remove_file("kaldi_outputs/spk2utt")
+    remove_file("lexicon_left")
+    remove_file("lexicon.txt")
+    remove_file("wav.list")
+
+
 
 
 def read_file_to_list(filepath):
@@ -548,6 +557,16 @@ def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
         return True
     else:
         return False
+
+def remove_file(filepath):
+    """
+        utility function to remove a file but checks if it exists before removing it
+    """
+
+    if os.path.isfile(filepath):
+        os.remove(filepath)
+
+
 
 def create_kaldi_lang(language_code):
     """

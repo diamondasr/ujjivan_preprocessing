@@ -35,14 +35,14 @@ args = argument_parser.parse_args()
 #from data_utils import *          
   
 #Create and configure logger 
-logging.basicConfig(filename="logs/main.log", 
-                    format='%(asctime)s %(message)s', 
-                    filemode='w')
+#logging.basicConfig(filename="logs/main.log", 
+#                    format='%(asctime)s %(message)s', 
+#                    filemode='w')
 #Creating an object 
-logger=logging.getLogger() 
+#logger=logging.getLogger() 
   
 #Setting the threshold of logger to DEBUG 
-logger.setLevel(logging.DEBUG) 
+#logger.setLevel(logging.DEBUG) 
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
@@ -116,7 +116,7 @@ create_kaldi_directories(language_code,create_subset_split_dirs=False)
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
 
-# download audio json
+# download audio json files
 data=download_audio_json(final_audio_url,destination_audio_file)
 
 
