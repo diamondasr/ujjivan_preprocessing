@@ -2,21 +2,6 @@ Python prprocessing script for Ujjivan dataset
 
 README 
 
-git clone  https://github.com/diamondasr/ujjivan_preprocessing.git ujjivan.preprocessings
-( please note underscore in path will mess up string split used to extract utterance id)
-
-conda activate g2p 
-
-modify top variables of download.py depending upon dataset
-
-Please make 2 folders audios and wavs in same directory.
-
-python3 download.py ( Its good idea to run it on tmux )
-
-
-The results are kaldi compatible directory kaldi_outputs
-
-logs are stored in logs directory
 
 
 

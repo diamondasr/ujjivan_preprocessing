@@ -113,7 +113,7 @@ init_system(language_code)
 # create initial kaldi directory structure
 create_kaldi_directories(language_code,create_subset_split_dirs=False)
 
-# download transcriptions
+# download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
 
 # download audio json
