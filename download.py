@@ -46,7 +46,7 @@ logger.setLevel(logging.DEBUG)
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
-language_code=args.lang
+language_code=args.lang 
 speaker_id="225"  # default value is -1 
 extension=".mp3" # default value is -1 
 final_audio_url=audio_source + language_code
@@ -102,7 +102,7 @@ create_kaldi_directories(language_code)
 download_transcriptions(final_text_url,destination_transcription_file)
 
 # download audio json
-data=download_audio_json(final_audio_url,destination_audio_file,"./audio.json")
+data=download_audio_json(final_audio_url,destination_audio_file)
 
 
 data=data["data"]

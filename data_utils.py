@@ -467,7 +467,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
         #downloaded_audio_count=downloaded_audio_count + 1
 
         #urllib.urlretrieve(final_text_url, destination_directory + "transcriptions.json")
-        transcription_exists=check_if_file_exists(destination_transcription_file) and check_if_file_exists(final_lexicon_path)
+        transcription_exists=check_if_file_exists(destination_transcription_file) 
         if transcription_exists:
             print("transcriptions.txt already exists not downloading")
             return 
@@ -620,7 +620,7 @@ def read_json_from_file(filepath):
     with open(filepath, 'r') as f:
         return json.load(f)
 
-def download_audio_json(final_audio_url,destination_audio_file,audio_json_path=""):
+def download_audio_json(final_audio_url,destination_audio_file):
 
     # check if file already exists
     audio_exists=check_if_file_exists(destination_audio_file)
@@ -639,8 +639,7 @@ def download_audio_json(final_audio_url,destination_audio_file,audio_json_path="
 
     else:
         print("audio json already exists skippings")
-        return read_json_from_file(audio_json_path)
-
+        return read_json_from_file(destination_audio_file)
 
 
 
