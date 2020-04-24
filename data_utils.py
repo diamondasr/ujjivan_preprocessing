@@ -369,7 +369,10 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
             shell_command2="cp kaldi_outputs/text kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
             shell_command3="cp kaldi_outputs/spk2utt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
             shell_command4="cp kaldi_outputs/utt2spk kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-
+            generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
+            generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
+            generic_shell(shell_command3,"logs/" + language_code + "." + "cp.log")
+            generic_shell(shell_command4,"logs/" + language_code + "." + "cp.log")
 
                 #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
                 #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")

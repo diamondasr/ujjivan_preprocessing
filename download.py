@@ -178,7 +178,7 @@ create_kaldi_directories(language_code,create_subset_split_dirs=True)
 #create_kaldi_lang(language_code)
 
 
-rm_unnecessary_files(language_code)
+#rm_unnecessary_files(language_code)
 
 # close_system
 close_system(language_code)
