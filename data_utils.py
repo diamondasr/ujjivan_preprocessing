@@ -294,7 +294,7 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
     if create_subset_split_dirs==True:
         
         # read the length of wav.scp in kaldi_outputs/language_id
-        wav_scp_count=count_lines("kaldi_outputs/" + language_code + "/wav.scp")
+        wav_scp_count=count_lines("kaldi_outputs/"  + "/wav.scp")
 
         # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
         # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
@@ -308,13 +308,17 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
             else:
                 print("split directory doesnt exist, creating ..")
                 shell_command="cp kaldi_outputs/{wav.scp,text,spk2utt} kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+                shell_command2="cp lexicon.txt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
                 generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
+                generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
 
 
 
         else:
             print ("subsets.txt doesnt exist creating it for the first time")
             generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
+            shell_command2="cp lexicon.txt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+            generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
             append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
 
 
