@@ -27,25 +27,25 @@ import _pickle as pickle
 
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-wav_list_path= os.getcwd() + "/wav.list"
-wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
-text_filepath= os.getcwd() + "/kaldi_outputs/text"
-language_code="ta"
-transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
-spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
-utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
+#wav_list_path= os.getcwd() + "/wav.list"
+#wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
+#text_filepath= os.getcwd() + "/kaldi_outputs/text"
+#language_code="ta"
+#transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
+#spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
+#utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
 
-destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
+#destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
 
-lexicon_language_code="tamil"
+#lexicon_language_code="tamil"
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 
 
 
-temp_lexicon_path= os.getcwd() + "/lexicon_left"
-final_lexicon_path=os.getcwd() + "/lexicon.txt"
+#temp_lexicon_path= os.getcwd() + "/lexicon_left"
+#final_lexicon_path=os.getcwd() + "/lexicon.txt"
 
-final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
+#final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
 
 words_set = set() # a set to store words for lexicon
 
@@ -57,15 +57,6 @@ words_set = set() # a set to store words for lexicon
 #stdout, stderr = process.communicate()
 #stdout, stderr
 
-#Create and configure logger 
-logging.basicConfig(filename="logs/"  + language_code + ".main.log", 
-                    format='%(asctime)s %(message)s', 
-                    filemode='w')
-#Creating an object 
-logger=logging.getLogger() 
-  
-#Setting the threshold of logger to DEBUG 
-logger.setLevel(logging.DEBUG) 
 
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
@@ -117,6 +108,17 @@ def init_system(language_code):
     global conversion_file_set
     my_set=load_pickle_file("."+ language_code + ".set")
     conversion_file_set = my_set
+    
+    #Create and configure logger 
+    logging.basicConfig(filename="logs/"  + language_code + ".main.log", 
+                    format='%(asctime)s %(message)s', 
+                    filemode='w')
+    #Creating an object 
+    logger=logging.getLogger() 
+  
+    #Setting the threshold of logger to DEBUG 
+    logger.setLevel(logging.DEBUG) 
+
     
     #print("conversion file set : ")
     #print(conversion_file_set)
@@ -191,7 +193,7 @@ def count_lines(file_path):
         lines = len(foo.readlines())
     return lines
 
-def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
+def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir,language_code):
     "creates a subset of data for train and test"
     print("creating train and test split")
 
@@ -251,7 +253,7 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir):
     #generic_shell("","logs/subset.log")
 
 
-def rm_unnecessary_files():
+def rm_unnecessary_files(language_code):
     """ this functions deletes some temporary files , for example before train/test split """
     generic_shell("rm  kaldi_outputs/wav.scp","logs/" + language_code + "." + "rm.log")
     generic_shell("rm  kaldi_outputs/text","logs/" + language_code + "." + "rm.log")
@@ -397,7 +399,7 @@ def append_row_file(file,row):
     with open(file, "a") as myfile:
         myfile.write(row + "\n")
         
-def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
+def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
     """
 
     appends audio file path to wav_list file each new data row
@@ -412,7 +414,7 @@ def create_wav_list_file(wav_file_path,wav_list_path="./wav.list"):
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
 
-def create_text_file(wav_file_path,text_file_path):
+def create_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
 
     appends to kaldi text ( data/text ) file 
@@ -450,7 +452,7 @@ def write_lexicon(words_set,output_lexicon_path):
             for word in list(words_set):
                 lexicon_output.write(word + "\n")
 
-def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,lang):
+def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,lexicon_language_code,language_code):
     '''
     call g2p script to take list of words and convert it into final lexicon
 
@@ -467,7 +469,7 @@ onal/lexicon_final.txt
 
 
 
-def download_transcriptions(final_text_url,destination_transcription_file):
+def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code):
     """ downloads transcriptions , but if already present doesnt download again 
     """
 
@@ -513,7 +515,7 @@ def download_transcriptions(final_text_url,destination_transcription_file):
         write_lexicon(words_set,temp_lexicon_path)
 
         # call g2p script here
-        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code)
+        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code)
 
 
 
@@ -537,7 +539,7 @@ def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
     else:
         return False
 
-def create_kaldi_lang():
+def create_kaldi_lang(language_code):
     """
         creates file in kaldis data/local/lang directory
         
@@ -583,7 +585,7 @@ def create_kaldi_lang():
 
 
         
-def convert_mp3_to_wav(mp3_path,output_wav_dir):
+def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
 
     """
 
@@ -661,7 +663,7 @@ def download_audio_json(final_audio_url,destination_audio_file):
 
 
 
-def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory):
+def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
     """
     downloads mp3 file
     converts mp3 to wav file
@@ -690,15 +692,15 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
 
 
         output_destination_path=destination_wav_directory + output_wav_filename
-        convert_mp3_to_wav(destination_path,destination_wav_directory  )
+        convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
 
         conversion_file_set.add(utterance_id)
 
         
-        create_wav_list_file(output_destination_path)
+        create_wav_list_file(output_destination_path,wav_list_file,wav_scp_path)
         downloaded_audio_count=downloaded_audio_count + 1
 
-        create_text_file(output_destination_path, text_filepath)
+        create_text_file(output_destination_path, text_filepath,transcription_filepath)
         #print("speaker id ;")
         #print(speaker_id)
         #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
