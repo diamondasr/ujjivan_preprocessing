@@ -318,7 +318,7 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
 
     if create_subset_split_dirs==True:
 
-        if not os.path.isfile("kaldi_outputs/" +   "/wav.scp"):
+        if not os.path.isfile("kaldi_outputs/" +   "wav.scp"):
             # this means all files were already processed so there is no new file
             print("not creating new split since no new file present")
             return
@@ -326,7 +326,7 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
         
         
         # read the length of wav.scp in kaldi_outputs/language_id
-        wav_scp_count=str(count_lines("kaldi_outputs/"  + "/wav.scp"))
+        wav_scp_count=str(count_lines("kaldi_outputs/"  + "wav.scp"))
 
         # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
         # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
@@ -364,6 +364,11 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
             shell_command2="cp lexicon.txt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
             generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
             append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+
+            shell_command="cp kaldi_outputs/wav.scp kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+            shell_command2="cp kaldi_outputs/text kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+            shell_command3="cp kaldi_outputs/spk2utt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+            shell_command4="cp kaldi_outputs/utt2spk kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
 
 
                 #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
