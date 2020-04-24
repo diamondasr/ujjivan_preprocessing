@@ -257,9 +257,27 @@ def rm_unnecessary_files():
     generic_shell("rm  kaldi_outputs/spk2utt","logs/" + language_code + "." + "rm.log")
 
 
+def read_file_to_list(filepath):
+    """
+        simple utility function which basically reads input file having one entry in each line
+        to a python list 
 
-def create_kaldi_directories(language_code):
-    """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi"""
+    """
+
+    with open(filepath) as f:
+        return f.read().splitlines() 
+
+
+def create_new_data_variant(language_code):
+    """
+        This function basically reads a file called kaldi_outputs/lang_id/.subsets.txt which has number of rows in existing subsets
+        if new dataset rows is not in this list then it creates a new subset
+
+    """
+def create_kaldi_directories(language_code,create_subset_split_dirs=False):
+    """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
+         
+    """
 
     # kaldi specific
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
@@ -273,17 +291,41 @@ def create_kaldi_directories(language_code):
 
 
 
-            
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+            if create_subset_split_dirs==True:
+                
+                # read the length of wav.scp in kaldi_outputs/language_id
+                wav_scp_count=count_lines("kaldi_outputs/" + language_code + "/wav.scp")
+
+                # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
+                # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
+                
+                if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
+                    print ("subset file exists for language")
+
+                    subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
+                    if wav_scp_count in subset_counts:
+                        print("split directory already existing")
+                    else:
+                        print("split directory doesnt exist, creating ..")
+
+
+
+                else:
+                    print ("subsets.txt doesnt exist creating it for the first time")
+                    generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
+                    append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+
+
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
