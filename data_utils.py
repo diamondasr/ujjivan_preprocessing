@@ -291,43 +291,43 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
 
 
 
-            if create_subset_split_dirs==True:
-                
-                # read the length of wav.scp in kaldi_outputs/language_id
-                wav_scp_count=count_lines("kaldi_outputs/" + language_code + "/wav.scp")
+    if create_subset_split_dirs==True:
+        
+        # read the length of wav.scp in kaldi_outputs/language_id
+        wav_scp_count=count_lines("kaldi_outputs/" + language_code + "/wav.scp")
 
-                # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
-                # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
-                
-                if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
-                    print ("subset file exists for language")
+        # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
+        # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
+        
+        if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
+            print ("subset file exists for language")
 
-                    subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
-                    if wav_scp_count in subset_counts:
-                        print("split directory already existing")
-                    else:
-                        print("split directory doesnt exist, creating ..")
-                        shell_command="cp kaldi_outputs/{wav.scp,text,spk2utt} kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-                        generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
-
-
-
-                else:
-                    print ("subsets.txt doesnt exist creating it for the first time")
-                    generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
-                    append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+            subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
+            if wav_scp_count in subset_counts:
+                print("split directory already existing")
+            else:
+                print("split directory doesnt exist, creating ..")
+                shell_command="cp kaldi_outputs/{wav.scp,text,spk2utt} kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
+                generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
 
 
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+
+        else:
+            print ("subsets.txt doesnt exist creating it for the first time")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
+            append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+
+
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
