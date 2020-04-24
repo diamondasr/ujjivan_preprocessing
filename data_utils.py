@@ -30,10 +30,11 @@ current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 wav_list_path= os.getcwd() + "/wav.list"
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
-transcription_filepath= os.getcwd() + "/transcriptions.txt"
+language_code="ta"
+transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
 spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
 utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
-language_code="ta"
+
 destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
 
 lexicon_language_code="tamil"
