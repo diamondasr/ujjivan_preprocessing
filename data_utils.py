@@ -57,7 +57,7 @@ words_set = set() # a set to store words for lexicon
 #stdout, stderr
 
 #Create and configure logger 
-logging.basicConfig(filename="logs/"  + language_code + ".script.log", 
+logging.basicConfig(filename="logs/"  + language_code + ".main.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w')
 #Creating an object 
@@ -283,6 +283,13 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
 
     # check if kaldi_outputs exist
+    if not os.path.isdir("data"):
+        generic_shell("mkdir data" ,"logs/" + language_code + "." + "mkdir.log")
+
+    if not os.path.isdir("data/" + language_code):
+        generic_shell("mkdir data/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
+
+
     if not os.path.isdir("kaldi_outputs"):
         generic_shell("mkdir kaldi_outputs" ,"logs/" + language_code + "." + "mkdir.log")
     

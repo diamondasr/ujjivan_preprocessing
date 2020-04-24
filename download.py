@@ -55,8 +55,8 @@ final_text_url=text_source + language_code
 destination_directory="./audios/"
 #destination_wav_directory="./wavs/"
 wav_list_path="./wav.list"
-destination_transcription_file="./transcriptions.txt"
-destination_audio_file="./audio.json"
+destination_transcription_file="data/" + language_code + "/transcriptions.txt"
+destination_audio_file="data/" + language_code +"/audio.json"
 
 epoch_start=-1
 epoch_end=-1
