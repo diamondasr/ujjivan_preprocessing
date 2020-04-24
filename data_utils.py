@@ -299,6 +299,13 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
 
 
     if create_subset_split_dirs==True:
+
+        if not os.path.isfile("kaldi_outputs/" +   "/wav.scp"):
+            # this means all files were already processed so there is no new file
+            print("not creating new split since no new file present")
+            return
+
+        
         
         # read the length of wav.scp in kaldi_outputs/language_id
         wav_scp_count=str(count_lines("kaldi_outputs/"  + "/wav.scp"))
