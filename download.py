@@ -12,10 +12,24 @@ import urllib.request, json
 #import urllib.parses
 import os
 #from urlparse import urlparse
+import argparse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
 from data_utils import download_transcriptions, init_system, close_system , create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+
+# Create the parser
+argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
+
+# Add the arguments
+argument_parser.add_argument('-lang',
+                       type=str,
+                       help='the lang id which is used is url of azure for example ta')
+
+
+
+# Execute the parse_args() method
+args = argument_parser.parse_args()
 
 
 #from data_utils import *          
@@ -32,7 +46,7 @@ logger.setLevel(logging.DEBUG)
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
-language_code="ta"
+language_code=args.lang
 speaker_id="225"  # default value is -1 
 extension=".mp3" # default value is -1 
 final_audio_url=audio_source + language_code
@@ -139,10 +153,10 @@ except Exception as ex:
     #print(ex)
 
 # creates train test split
-create_kaldi_subset(wav_scp_path,"kaldi_outputs")
+#create_kaldi_subset(wav_scp_path,"kaldi_outputs")
 
 # creates kaldi/data/local/dict 
-create_kaldi_lang()
+#create_kaldi_lang()
 
 
 #rm_unnecessary_files()
@@ -151,10 +165,10 @@ create_kaldi_lang()
 close_system(language_code)
 
 print("Done")
-print("inside kaldi recipie directory")
-print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
-print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
-print(" ln -s " + os.getcwd() + "/kaldi_outputs/mfcc .")
+#print("inside kaldi recipie directory")
+#print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
+#print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
+#sprint(" ln -s " + os.getcwd() + "/kaldi_outputs/mfcc .")
 
 
 
