@@ -50,7 +50,7 @@ audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&l
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
 language_code=args.lang # this is part of url of audio source and text source
 
-speaker_id="225"  # default value is -1 
+speaker_id="137"  # default value is -1 
 extension=".mp3" # default value is -1 
 
 final_audio_url=audio_source + language_code

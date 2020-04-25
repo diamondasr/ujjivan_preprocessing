@@ -15,7 +15,7 @@ mkdir logs
 
 Usage:
 
-python3 download.py -lang ta -source_mp3_dir "/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"  -destination_wav_dir "/home/ubuntu/wavs/"
+python3 download.py -lang ta -source_mp3_dir "/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"  -destination_wav_dir "/home/ubuntu/wavs/" -final_kaldi_format "yes"
 
 
 
