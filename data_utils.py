@@ -660,13 +660,13 @@ def create_kaldi_lang(language_code,suffix_dir,lexicon_path):
     generic_shell(shell_command6,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command7,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
-    shell_command8="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/data/local/data/train.text"
+    shell_command8="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/data/train.text"
     generic_shell(shell_command8,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     #${x}.text >${x}.stm
     # create stm files for sclite scoring
-    shell_command9="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/data/local/data/train.stm"
-    shell_command10="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/test/text kaldi_outputs/" + language_code + "/data/local/data/test.stm"
+    shell_command9="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/data/train.stm"
+    shell_command10="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/test/text kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/data/test.stm"
 
     generic_shell(shell_command9,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command10,"logs/" + language_code + "." + "kaldi_data_lang.log")
