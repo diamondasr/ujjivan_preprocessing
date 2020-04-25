@@ -17,7 +17,7 @@ from os.path import splitext
 from tqdm import tqdm
 import logging 
 from data_utils import download_transcriptions, init_system, close_system , create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
-destination_wav_dir
+
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
 
@@ -30,9 +30,13 @@ argument_parser.add_argument('-source_mp3_dir',
                        type=str,
                        help='the source mp3 directory containing audio files')
 
-argument_parser.add_argument('-',
+argument_parser.add_argument('-wav_dir',
                        type=str,
                        help='the destination directory where wav files are stored')
+
+argument_parser.add_argument('-final_kaldi_format',
+                       type=str,
+                       help='choose yes or no, this will also enable to train test split and creation of lang directory')
 
 
 
@@ -173,13 +177,15 @@ except Exception as ex:
 
 
 # create kaldi subdirectory for new split like ta_15k, it can only be done after wav.scp,text,spk2utt have already been generated
-create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=True)
+# dir_suffix is something like ta_15k
+dir_suffix=create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=True)
 
-# creates train test split
-#create_kaldi_subset(wav_scp_path,"kaldi_outputs" , language_code)
+if args.final_kaldi_format == "yes":
+    # creates train test split
+    create_kaldi_subset(wav_scp_path,"kaldi_outputs" , language_code , dir_suffix)
 
-# creates kaldi/data/local/dict 
-#create_kaldi_lang(language_code)
+    # creates kaldi/data/local/dict 
+    #create_kaldi_lang(language_code)
 
 
 # removes temp files 

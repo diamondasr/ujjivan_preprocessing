@@ -200,8 +200,15 @@ def count_lines(file_path):
         lines = len(foo.readlines())
     return lines
 
-def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir,language_code):
+def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir,language_code,suffix_dir):
+
+
     "creates a subset of data for train and test"
+    """
+    suffix_dir is something like ta_15000 , we need this to create subdirectories
+    we assume the split directory like kaldi_outputs/ta/ta_15k has already been created
+
+    """
     print("creating train and test split")
 
     shell_command1="awk '{ print $1 }' " + wav_scp_path + " > dataset_ids"
@@ -228,17 +235,17 @@ def create_kaldi_subset(wav_scp_path,final_kaldi_dataset_dir,language_code):
     
     shell_command3="cat dataset_ids | grep -v -f test_ids > train_ids"
 
-    shell_command4="cat kaldi_outputs/wav.scp | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/wav.scp"
-    shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/text"
-    shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/spk2utt"
+    shell_command4="cat kaldi_outputs/wav.scp | grep  -f train_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/train/wav.scp"
+    shell_command5="cat kaldi_outputs/text | grep  -f train_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/train/text"
+    shell_command6="cat kaldi_outputs/spk2utt | grep  -f train_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/train/spk2utt"
 
 
-    shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/wav.scp"
-    shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/text"
-    shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/spk2utt"
+    shell_command7="cat kaldi_outputs/wav.scp | grep  -f test_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/test/wav.scp"
+    shell_command8="cat kaldi_outputs/text | grep  -f test_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/test/text"
+    shell_command9="cat kaldi_outputs/spk2utt | grep  -f test_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/test/spk2utt"
 
-    shell_command10="cat kaldi_outputs/utt2spk | grep  -f train_ids > kaldi_outputs/" + language_code + "/data/train/utt2spk"
-    shell_command11="cat kaldi_outputs/utt2spk | grep  -f test_ids > kaldi_outputs/" + language_code + "/data/test/utt2spk"
+    shell_command10="cat kaldi_outputs/utt2spk | grep  -f train_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/train/utt2spk"
+    shell_command11="cat kaldi_outputs/utt2spk | grep  -f test_ids > kaldi_outputs/" + language_code + "/" + suffix_dir + "/data/test/utt2spk"
 
 
 
@@ -276,6 +283,9 @@ def rm_unnecessary_files(language_code):
     remove_file("lexicon_left")
     remove_file("lexicon.txt")
     remove_file("wav.list")
+    remove_file("test_ids")
+    remove_file("dataset_ids")
+    remove_file("train_ids")
 
 
 
@@ -405,6 +415,8 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
     #generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
     if not os.path.isdir(destination_wav_dir  + language_code):
         generic_shell("mkdir " + destination_wav_dir + language_code ,"logs/" + language_code + "." + "mkdir.log")
+    
+    return language_code + "_" + wav_scp_count # this will be used by other functions later, to store files in this subset
 
 
     
@@ -588,10 +600,13 @@ def remove_file(filepath):
 
 
 
-def create_kaldi_lang(language_code):
+def create_kaldi_lang(language_code,suffix_dir):
     """
         creates file in kaldis data/local/lang directory
         
+         suffix_dir is something like ta_15000 , we need this to create subdirectories
+    we assume the split directory like kaldi_outputs/ta/ta_15k has already been created
+
     """
 
     #cat $dir/lexicon.txt | sed 's:[[:space:]]: :g' | cut -d" " -f2- - | tr ' ' '\n' | sort -u > $dir/phones_t.txt
@@ -602,7 +617,7 @@ def create_kaldi_lang(language_code):
 
 
     #lexicon.txt
-    shell_command0="cp ./lexicon.txt kaldi_outputs/" + language_code + "/data/local/dict"
+    shell_command0="cp ./lexicon.txt kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
     generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     
@@ -612,16 +627,16 @@ def create_kaldi_lang(language_code):
     #generic_shell(shell_command1,"logs/kaldi_data_lang.log")
 
     # silence_phones.txt
-    shell_command2="echo  SIL > kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt"
+    shell_command2="echo  SIL > kaldi_outputs/" + language_code + "/" +  suffix_dir  + "/data/local/dict/silence_phones.txt"
     generic_shell(shell_command2,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
-    shell_command3="echo 'SIL' > kaldi_outputs/" + language_code + "/data/local/dict/optional_silence.txt"
-    generic_shell(shell_command3,"logs/" + language_code + "." + "kaldi_data_lang.log")
+    shell_command3="echo 'SIL' > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/optional_silence.txt"
+    generic_shell(shell_command3,"logs/" + language_code +  "." + "kaldi_data_lang.log")
 
     # nonsilence_phones.txt
-    shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/data/local/dict/phones_t.txt"
-    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/" + language_code + "/data/local/dict/phones_t.txt"
-    shell_command6="grep -v -E '!SIL' kaldi_outputs/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/data/local/dict/phones.txt"
+    shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
+    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
+    shell_command6="grep -v -E '!SIL' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones.txt"
     shell_command7="grep -v -F -f kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt kaldi_outputs/" + language_code + "/data/local/dict/phones.txt > kaldi_outputs/" + language_code + "/data/local/dict/nonsilence_phones.txt"
 
     generic_shell(shell_command4,"logs/" + language_code + "." + "kaldi_data_lang.log")
@@ -629,8 +644,10 @@ def create_kaldi_lang(language_code):
     generic_shell(shell_command6,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command7,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
-    shell_command8="cp kaldi_outputs/" + language_code + "/data/train/text kaldi_outputs/" + language_code + "/data/local/data/train.text"
+    shell_command8="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/data/local/data/train.text"
     generic_shell(shell_command8,"logs/" + language_code + "." + "kaldi_data_lang.log")
+
+    
 
 
         
