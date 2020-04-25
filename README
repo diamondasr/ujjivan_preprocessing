@@ -17,6 +17,40 @@ Usage:
 
 python3 download.py -lang ta -source_mp3_dir "/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"  -destination_wav_dir "/home/ubuntu/wavs/" -final_kaldi_format "yes"
 
+Directory Structure
 
+destination_wav_dir/{lang_id}
+logs/lang_id.*.log
+
+If final_kaldi_format is enabled :
+    kaldi_outputs/{lang_id}/{subset_id}/ {data,exp,mfcc, wav.scp,text,spk2utt,utt2spk,lexicon.txt}
+
+If final_kaldi_format is disabled :
+    kaldi_outputs/{lang_id}/{subset_id}/ {data,exp,mfcc}
+
+
+Working
+
+It downloads transcriptions.json and audio.json from base azure url and provide language code
+
+It then creates a transcriptions.txt file in data/{]ang_id} 
+format of transcriptions.txt is <transcription id> <transcription>
+
+For each line in transcriptions.txt , it creates a set of unique words,then writes in to a temp file
+the above temp file is passed to g2p script to produce final lexicon file, lexicon.txt
+
+
+It also stores audio.json in data/{]ang_id} 
+
+It then iterates through each audio file url in audio.json 
+    and downloads audio file, converts it to .wav, and also creates/appends to wav.scp,text file,spk2utt for each row
+
+It stores all utterance ids of processed files in a python set, which at the end of execution is written
+to data/{lang_id}/lang_id.set and also is read at beginning so same files are never processed again
+
+
+After all rows are processed, and final wav.scp is obtained, it counts the number of total rows, and
+appends it to a file called {lang_id.sets} , and creates a new subset like ta_50, if such split number
+already exists, it doesnt do anything.
 
 
