@@ -185,7 +185,7 @@ if args.final_kaldi_format == "yes":
     create_kaldi_subset(wav_scp_path,"kaldi_outputs" , language_code , dir_suffix)
 
     # creates kaldi/data/local/dict 
-    create_kaldi_lang(language_code,dir_suffix)
+    create_kaldi_lang(language_code,dir_suffix,final_lexicon_path)
 
 
 # removes temp files 

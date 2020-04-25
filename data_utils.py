@@ -616,7 +616,7 @@ def remove_file(filepath):
 
 
 
-def create_kaldi_lang(language_code,suffix_dir):
+def create_kaldi_lang(language_code,suffix_dir,lexicon_path):
     """
         creates file in kaldis data/local/lang directory
         
@@ -633,7 +633,7 @@ def create_kaldi_lang(language_code,suffix_dir):
 
 
     #lexicon.txt
-    shell_command0="cp ./lexicon.txt kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
+    shell_command0="cp " + lexicon_path + " " + kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
     generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     
@@ -650,7 +650,7 @@ def create_kaldi_lang(language_code,suffix_dir):
     generic_shell(shell_command3,"logs/" + language_code +  "." + "kaldi_data_lang.log")
 
     # nonsilence_phones.txt
-    shell_command4="cat ./lexicon.txt | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
+    shell_command4="cat " + lexicon_path + "  | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
     shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
     shell_command6="grep -v -E '!SIL' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones.txt"
     shell_command7="grep -v -F -f kaldi_outputs/" + language_code + "/data/local/dict/silence_phones.txt kaldi_outputs/" + language_code + "/data/local/dict/phones.txt > kaldi_outputs/" + language_code + "/data/local/dict/nonsilence_phones.txt"
