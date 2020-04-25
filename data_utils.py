@@ -377,6 +377,20 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
                 generic_shell(shell_command4,"logs/" + language_code + "." + "cp.log")
                 generic_shell(shell_command5,"logs/" + language_code + "." + "cp.log")
 
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +   language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/train","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/test","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+
+
+                
+
 
 
         else:
@@ -395,16 +409,16 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
             generic_shell(shell_command3,"logs/" + language_code + "." + "cp.log")
             generic_shell(shell_command4,"logs/" + language_code + "." + "cp.log")
 
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +   language_code + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/train","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/test","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/exp","logs/" + language_code + "." + "mkdir.lsog")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/mfcc","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
-                #generic_shell("mkdir kaldi_outputs/" +  language_code + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +   language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/train","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/test","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
