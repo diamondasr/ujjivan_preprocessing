@@ -38,6 +38,12 @@ argument_parser.add_argument('-final_kaldi_format',
                        type=str,
                        help='choose yes or no, this will also enable to train test split and creation of lang directory')
 
+argument_parser.add_argument('-g2p_lang_id',
+                       type=str,
+                       help='language id used by g2ps repl.py ')
+
+
+
 
 
 # Execute the parse_args() method
@@ -65,7 +71,7 @@ destination_audio_file="data/" + language_code +"/audio.json"
 
 #epoch_start=-1
 #epoch_end=-1
-lexicon_language_code="tamil" # this is the language code that we enter in g2p repl.py
+lexicon_language_code=args.g2p_lang_id # this is the language code that we enter in g2p repl.py
 
 #"/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"
 source_mp3_directory=args.source_mp3_dir
@@ -120,8 +126,7 @@ def check_file_extension(row,extension):
 # create initial kaldi directory structure
 create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=False)
 
-# initialize system
-init_system(language_code)
+
 
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
