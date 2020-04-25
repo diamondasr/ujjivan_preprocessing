@@ -129,10 +129,10 @@ def init_system(language_code):
     #generic_shell("conda activate g2p","logs/" + language_code + "." + "conda.log")
 
 
-    if conversion_file_set == None:
-        conversion_file_set=set()
-    else:
-        print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
+    #if conversion_file_set == None:
+     #   conversion_file_set=set()
+    
+    print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
 
 
 
@@ -306,9 +306,12 @@ def read_file_to_list(filepath):
         to a python list 
 
     """
+    if os.path.isfile(filepath): 
 
-    with open(filepath) as f:
-        return f.read().splitlines() 
+        with open(filepath) as f:
+            return f.read().splitlines() 
+    else:
+        return []
 
 
 def create_new_data_variant(language_code):
