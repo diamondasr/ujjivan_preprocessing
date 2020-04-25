@@ -418,7 +418,7 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
     if not os.path.isdir(destination_wav_dir  + language_code):
         generic_shell("mkdir " + destination_wav_dir + language_code ,"logs/" + language_code + "." + "mkdir.log")
     
-    return language_code + "_" + wav_scp_count # this will be used by other functions later, to store files in this subset
+    return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
 
 
     
