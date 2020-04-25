@@ -16,7 +16,7 @@ import argparse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions, init_system, close_system , create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions, init_system, close_system ,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
 
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
@@ -34,10 +34,6 @@ argument_parser.add_argument('-destination_wav_dir',
                        type=str,
                        help='the destination directory where wav files are stored')
 
-argument_parser.add_argument('-final_kaldi_format',
-                       type=str,
-                       help='choose yes or no, this will also enable to train test split and creation of lang directory')
-
 argument_parser.add_argument('-g2p_lang_id',
                        type=str,
                        help='language id used by g2ps repl.py ')
@@ -48,8 +44,6 @@ argument_parser.add_argument('-g2p_lang_id',
 
 # Execute the parse_args() method
 args = argument_parser.parse_args()
-
-
 
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
@@ -63,14 +57,11 @@ final_audio_url=audio_source + language_code
 final_text_url=text_source + language_code
 
 destination_directory="./audios/"
-#destination_wav_directory="./wavs/"
-#wav_list_path="./wav.list"
 
 destination_transcription_file="data/" + language_code + "/transcriptions.txt"
 destination_audio_file="data/" + language_code +"/audio.json"
 
-#epoch_start=-1
-#epoch_end=-1
+
 lexicon_language_code=args.g2p_lang_id # this is the language code that we enter in g2p repl.py
 
 #"/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"
@@ -79,8 +70,6 @@ source_mp3_directory=args.source_mp3_dir
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
 
 downloaded_audio_count=0
-#number_of_rows=50 # how many data items do you need in dataset
-#empty_transcript_counter=0
 
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp" # where will wav.scp be stored temporarily
 wav_list_path= os.getcwd() + "/wav.list"              # where will wav.list be stored temporarily
@@ -126,8 +115,6 @@ def check_file_extension(row,extension):
 # create initial kaldi directory structure
 create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=False)
 
-
-
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
 
@@ -144,23 +131,15 @@ try:
     if speaker_id != -1:
         print("filtering according to specific speaker")
         data=data[speaker_id]
-        #print(data)
-        #print(data)
+
         for row in tqdm(data):
             #print(row)
             extension_valid=check_file_extension(row,extension)
             #print(extension_valid)
 
             if extension_valid:
-                        #print("valid extension")
-                        # download audio
-                        #print("downloading audio for row")
-                        #download_single_file(row)
+
                         destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_path,wav_scp_path,language_code)
-                        #basename=destination_mp3_path.split("/")[-1]
-                        
-                    
-                    #convert_mp3_to_wav(destination_mp3_path,destination_wav_directory  )
 
     else:
         print("speaker filtering disabled ")
@@ -176,8 +155,6 @@ try:
                         destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_path,wav_scp_path,language_code)
 
 
-                        #convert_mp3_to_wav(mp3_path,output_wav_dir)
-
 except Exception as ex:
     print("there was exception in download.py")
     #print(ex)
@@ -187,14 +164,6 @@ except Exception as ex:
 # dir_suffix is something like ta_15k
 dir_suffix=create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=True)
 
-if args.final_kaldi_format == "yes":
-    # creates train test split
-    create_kaldi_subset(wav_scp_path,"kaldi_outputs" , language_code , dir_suffix)
-
-    # creates kaldi/data/local/dict 
-    create_kaldi_lang(language_code,dir_suffix,final_lexicon_path)
-
-
 # removes temp files 
 rm_unnecessary_files(language_code)
 
@@ -202,10 +171,7 @@ rm_unnecessary_files(language_code)
 close_system(language_code)
 
 print("Done")
-#print("inside kaldi recipie directory")
-#print(" ln -s " + os.getcwd() + "/kaldi_outputs/data .")
-#print(" ln -s " + os.getcwd() + "/kaldi_outputs/exp .")
-#sprint(" ln -s " + os.getcwd() + "/kaldi_outputs/mfcc .")
+
 
 
 

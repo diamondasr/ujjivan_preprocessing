@@ -27,35 +27,14 @@ import _pickle as pickle
 
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-#wav_list_path= os.getcwd() + "/wav.list"
-#wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp"
-#text_filepath= os.getcwd() + "/kaldi_outputs/text"
-#language_code="ta"
-#transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
-#spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"
-#utt2spk_filepath= os.getcwd() + "/kaldi_outputs/utt2spk"
 
-#destination_wav_directory= os.getcwd() + "/wavs/" + language_code + "/"
-
-#lexicon_language_code="tamil"
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 
 
 
-#temp_lexicon_path= os.getcwd() + "/lexicon_left"
-#final_lexicon_path=os.getcwd() + "/lexicon.txt"
-
-#final_kaldi_dataset_dir="kaldi_outputs_final" # after train/test split
-
 words_set = set() # a set to store words for lexicon
 
 
-
-#process = subprocess.Popen(['echo', 'More output'],
- #                    stdout=subprocess.PIPE, 
-  #                   stderr=subprocess.PIPE)
-#stdout, stderr = process.communicate()
-#stdout, stderr
 
 
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
@@ -77,28 +56,8 @@ def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
 
 
-def write_pickle_file(python_object,destination_filename):
-    """
-        writes a python dict to a file
-    """
-
-    with open(destination_filename, 'wb') as file:
-     file.write(pickle.dumps(python_object))
-
-def load_pickle_file(filename):
-    """ loads python dict from pickle file"""
-
-    try:
-        f = open(filename)
-        # Do something with the file
-        with open(filename, 'rb') as handle:
-            python_object = pickle.load(handle)
-
-            return python_object
 
 
-    except IOError:
-        print("Pickle File not accessible")
 
     
 def init_system(language_code):
@@ -122,16 +81,6 @@ def init_system(language_code):
     logger.setLevel(logging.DEBUG) 
 
     
-    #print("conversion file set : ")
-    #print(conversion_file_set)
-
-    #print("activate conda environment g2p")
-    #generic_shell("conda activate g2p","logs/" + language_code + "." + "conda.log")
-
-
-    #if conversion_file_set == None:
-     #   conversion_file_set=set()
-    
     print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
 
 
@@ -142,9 +91,7 @@ def close_system(language_code):
     Basically does some final post processing like storing stateof dictionary etc
     """
     global conversion_file_set
-    #print("conversion file set : ")
-    #print(conversion_file_set)
-    #write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
+
     filepath="data/" + language_code + "/" + language_code + ".set"
     write_list_to_file(list(conversion_file_set),filepath)
 
@@ -178,25 +125,11 @@ def generic_shell(shell_command,log_file_name):
             shell_logger.error(stderr)
 
 
-        
-
-        #logging.error("stdout")
-        #logger = setup_logger('shell_logger', log_file_name)
-    #logger.info(stdout)
-          
-
-    
-    #logger = setup_logger('shell_logger', log_file_name)
-    #
     except:
         print("Exception during running generic shell with following command - ")
         shell_logger=setup_logger(log_file_name, log_file_name, level=logging.INFO)
         shell_logger.error(stderr)
-        #print(shell_command)
 
-    
-        #shell_logger.info(stderr)
-        #print("exception has occurred, please refer to log file " + log_file_name)
 
 
 def count_lines(file_path):
@@ -280,16 +213,20 @@ def rm_unnecessary_files(language_code):
     #generic_shell("rm  lexicon.txt","logs/" + language_code + "." + "rm.log")
     #generic_shell("rm  wav.list","logs/" + language_code + "." + "rm.log")
 
-    remove_file("kaldi_outputs/wav.scp")
-    remove_file("kaldi_outputs/text")
-    remove_file("kaldi_outputs/spk2utt")
-    remove_file("kaldi_outputs/utt2spk")
-    remove_file("lexicon_left")
-    remove_file("lexicon.txt")
-    remove_file("wav.list")
-    remove_file("test_ids")
-    remove_file("dataset_ids")
-    remove_file("train_ids")
+    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids']
+    for file in files_to_remove:
+        remove_file(file)
+
+    #remove_file("kaldi_outputs/wav.scp")
+    #remove_file("kaldi_outputs/text")
+    #remove_file("kaldi_outputs/spk2utt")
+    #remove_file("kaldi_outputs/utt2spk")
+    #remove_file("lexicon_left")
+    #remove_file("lexicon.txt")
+    #remove_file("wav.list")
+    #remove_file("test_ids")
+    #remove_file("dataset_ids")
+    #remove_file("train_ids")
 
 
 def write_list_to_file(my_list,filepath):
@@ -314,12 +251,7 @@ def read_file_to_list(filepath):
         return []
 
 
-def create_new_data_variant(language_code):
-    """
-        This function basically reads a file called kaldi_outputs/lang_id/.subsets.txt which has number of rows in existing subsets
-        if new dataset rows is not in this list then it creates a new subset
 
-    """
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
          
@@ -423,15 +355,15 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
             generic_shell(shell_command4,"logs/" + language_code + "." + "cp.log")
 
             generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +   language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/train","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/test","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/exp","logs/" + language_code + "." + "mkdir.lsog")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/mfcc","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +   language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/dict","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/train","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/test","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/exp","logs/" + language_code + "." + "mkdir.lsog")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/mfcc","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/data","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count +  "/data/local/lm_temp","logs/" + language_code + "." + "mkdir.log")
+            #generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data/local/kaldi_lm","logs/" + language_code + "." + "mkdir.log")
 
     # non kaldi
     #generic_shell("rm -rf logs","logs/rm.log")
@@ -487,8 +419,6 @@ def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
 
     """
 
-
-
     utterance_id=wav_file_path.split("/")[-1].replace(".wav","")
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
@@ -503,11 +433,9 @@ def create_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
 
     sentence_id=wav_file_path.split("_")[2].split('.')[0]
-    #print("sentence id")
-    #print(sentence_id)
+
     transcription=read_transcription(sentence_id,transcription_filepath)
-    #print("transcription")
-    #print(transcription)
+
     text_line=wav_file_path.split("/")[-1].replace(".wav","") + " " +  transcription
 
     append_row_file(text_file_path,text_line)
@@ -605,20 +533,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
         logging.error(logging.traceback.format_exc())
 
 
-    
-
-def filter_epoch(data_epoch,minimum_epoch,maximum_epoch):
-    """ 
-    this function takes current epoch id for current row in dataset
-    minimum epoch and maximum epoch, and checks if current epoch
-    is between minimum and maximum epochs if so returns True
-    """
-
-    if data_epoch >= minimum_epoch and data_epoch <= maximum_epoch:
-        return True
-    else:
-        return False
-
 def remove_file(filepath):
     """
         utility function to remove a file but checks if it exists before removing it
@@ -626,67 +540,6 @@ def remove_file(filepath):
 
     if os.path.isfile(filepath):
         os.remove(filepath)
-
-
-
-def create_kaldi_lang(language_code,suffix_dir,lexicon_path):
-    """
-        creates file in kaldis data/local/lang directory
-        
-         suffix_dir is something like ta_15000 , we need this to create subdirectories
-    we assume the split directory like kaldi_outputs/ta/ta_15k has already been created
-
-    """
-
-    #cat $dir/lexicon.txt | sed 's:[[:space:]]: :g' | cut -d" " -f2- - | tr ' ' '\n' | sort -u > $dir/phones_t.txt
-#sed -i -e '/^\s*$/d' $dir/phones_t.txt
-#grep -v -E '!SIL' $dir/phones_t.txt > $dir/phones.txt
-
-#grep -v -F -f $dir/silence_phones.txt $dir/phones.txt > $dir/nonsilence_phones.txt
-
-
-    #lexicon.txt
-    shell_command0="cp " + lexicon_path + " " + "kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
-    generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
-
-    
-    #shell_command1="cut -d ' ' -f 2- ./lexicon.txt |  sed 's/ /\n/g' |   sort -u > kaldi_outputs/data/local/dict/nonsilence_phones.txt"
-
-
-    #generic_shell(shell_command1,"logs/kaldi_data_lang.log")
-
-    # silence_phones.txt
-    shell_command2="echo  SIL > kaldi_outputs/" + language_code + "/" +  suffix_dir  + "/data/local/dict/silence_phones.txt"
-    generic_shell(shell_command2,"logs/" + language_code + "." + "kaldi_data_lang.log")
-
-    shell_command3="echo 'SIL' > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/optional_silence.txt"
-    generic_shell(shell_command3,"logs/" + language_code +  "." + "kaldi_data_lang.log")
-
-    # nonsilence_phones.txt
-    shell_command4="cat " + lexicon_path + "  | sed 's:[[:space:]]: :g' | cut -d' ' -f2- - | tr ' ' '\n' | sort -u > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
-    shell_command5=r"sed -i -e '/^\s*$/d' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt"
-    shell_command6="grep -v -E '!SIL' kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones_t.txt > kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/phones.txt"
-    shell_command7="grep -v -F -f kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict/silence_phones.txt kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/dict/phones.txt > kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/dict/nonsilence_phones.txt"
-
-    generic_shell(shell_command4,"logs/" + language_code + "." + "kaldi_data_lang.log")
-    generic_shell(shell_command5,"logs/" + language_code + "." + "kaldi_data_lang.log")
-    generic_shell(shell_command6,"logs/" + language_code + "." + "kaldi_data_lang.log")
-    generic_shell(shell_command7,"logs/" + language_code + "." + "kaldi_data_lang.log")
-
-    shell_command8="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/data/train.text"
-    generic_shell(shell_command8,"logs/" + language_code + "." + "kaldi_data_lang.log")
-
-    #${x}.text >${x}.stm
-    # create stm files for sclite scoring
-    shell_command9="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/train/text kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/data/train.stm"
-    shell_command10="cp kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/test/text kaldi_outputs/" + language_code + "/" +  suffix_dir +  "/data/local/data/test.stm"
-
-    generic_shell(shell_command9,"logs/" + language_code + "." + "kaldi_data_lang.log")
-    generic_shell(shell_command10,"logs/" + language_code + "." + "kaldi_data_lang.log")
-
-    # Create dummy GLM file for sclite:  
-
-
 
 
         
@@ -761,13 +614,6 @@ def download_audio_json(final_audio_url,destination_audio_file):
         return read_json_from_file(destination_audio_file)
 
 
-
-
-
-
-
-
-
 def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
     """
     downloads mp3 file
@@ -778,12 +624,10 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
     updates spk2utt file
     """
     try:
-        #print("downloading single audio file")
-        #global downloaded_audio_count
+
         
         destination_filename= url.split("/")[-1]
-        #destination_path=destination_directory + destination_filename
-        #urllib.request.urlretrieve(url, destination_path)
+
         destination_path= source_mp3_directory + destination_filename 
  
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
@@ -791,24 +635,18 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
 
         # check if file has already been converted
         if utterance_id in  conversion_file_set:
-
             return
-
-
 
         output_destination_path=destination_wav_directory + output_wav_filename
         convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
 
         conversion_file_set.add(utterance_id)
 
-        
         create_wav_list_file(output_destination_path,wav_list_file,wav_scp_path)
         downloaded_audio_count=downloaded_audio_count + 1
 
         create_text_file(output_destination_path, text_filepath,transcription_filepath)
-        #print("speaker id ;")
-        #print(speaker_id)
-        #create_text_file(speaker_id + " " + output_wav_filename, spk2utt_filepath)
+
         append_row_file(spk2utt_filepath, utterance_id + "_" + speaker_id + " " + utterance_id )
         append_row_file(utt2spk_filepath, utterance_id + " " + utterance_id + "_" + speaker_id )
 
@@ -818,13 +656,3 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         print("exception during convert single file function")
         logging.error(logging.traceback.format_exc())
 
-def download_audio_list(audio_list, destination_directory ):
-    """
-        input : a list of urls storing audio files
-        output : if no error return true, else return -1
-    """
-
-    for url in audio_list:
-        file_name=url.split("/")[-1]
-
-        urllib.request.urlretrieve(url, destination_directory + file_name)
