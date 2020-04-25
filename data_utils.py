@@ -250,7 +250,7 @@ def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
 
 def create_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
-    sappends to kaldi text ( data/text ) file 
+    appends to kaldi text ( data/text ) file 
     """
 
     sentence_id=wav_file_path.split("_")[2].split('.')[0]
@@ -259,10 +259,8 @@ def create_text_file(wav_file_path,text_file_path,transcription_filepath):
     append_row_file(text_file_path,text_line)
 
 
-def check_if_file_exists(filepath):
-    
+def check_if_file_exists(filepath):   
     return os.path.isfile(filepath)
-
 
 def write_json_to_file(json_object,filepath):
     import json
@@ -289,8 +287,6 @@ onal/lexicon_final.txt
 
     shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
     generic_shell(shell_command,"logs/" + language_code + ".g2p.log")
-
-
 
 def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code):
     """ downloads transcriptions , but if already present doesnt download again 
@@ -400,12 +396,9 @@ def read_json_from_file(filepath):
         return json.load(f)
 
 def download_audio_json(final_audio_url,destination_audio_file):
-
     # check if file already exists
     audio_exists=check_if_file_exists(destination_audio_file)
     if not audio_exists:
-
-    
         with urllib.request.urlopen(final_audio_url) as url:
             data = json.loads(url.read().decode())
             print("downloading audio json")
@@ -414,8 +407,6 @@ def download_audio_json(final_audio_url,destination_audio_file):
 
             print("writing audio json")
             return data
-
-
     else:
         print("audio json already exists skippings")
         return read_json_from_file(destination_audio_file)
