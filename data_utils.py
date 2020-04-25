@@ -106,7 +106,9 @@ def init_system(language_code):
     Basically does some initialization stuff like loading some files
     """
     global conversion_file_set
-    my_set=load_pickle_file("."+ language_code + ".set")
+    #my_set=load_pickle_file("."+ language_code + ".set")
+    filepath="data/" + language_code + "/" + language_code + ".set"
+    my_set=set(read_file_to_list(filepath))
     conversion_file_set = my_set
     
     #Create and configure logger 
@@ -142,7 +144,9 @@ def close_system(language_code):
     global conversion_file_set
     #print("conversion file set : ")
     #print(conversion_file_set)
-    write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
+    #write_pickle_file(conversion_file_set,"."+ language_code + ".set" )
+    filepath="data/" + language_code + "/" + language_code + ".set"
+    write_list_to_file(list(conversion_file_set),filepath)
 
 
 
@@ -288,7 +292,13 @@ def rm_unnecessary_files(language_code):
     remove_file("train_ids")
 
 
+def write_list_to_file(my_list,filepath):
+    """
+    a simple utility function to write a python list to file 
+    """
 
+    with open(filepath, mode='wt', encoding='utf-8') as myfile:
+        myfile.write('\n'.join(my_list))
 
 def read_file_to_list(filepath):
     """
