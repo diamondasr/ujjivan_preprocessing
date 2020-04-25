@@ -30,7 +30,7 @@ argument_parser.add_argument('-source_mp3_dir',
                        type=str,
                        help='the source mp3 directory containing audio files')
 
-argument_parser.add_argument('-wav_dir',
+argument_parser.add_argument('-destination_wav_dir',
                        type=str,
                        help='the destination directory where wav files are stored')
 
