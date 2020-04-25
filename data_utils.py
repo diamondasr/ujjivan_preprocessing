@@ -633,7 +633,7 @@ def create_kaldi_lang(language_code,suffix_dir,lexicon_path):
 
 
     #lexicon.txt
-    shell_command0="cp " + lexicon_path + " " + kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
+    shell_command0="cp " + lexicon_path + " " + "kaldi_outputs/" + language_code + "/" +  suffix_dir + "/data/local/dict"
     generic_shell(shell_command0,"logs/" + language_code + "." + "kaldi_data_lang.log")
 
     
