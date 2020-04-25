@@ -165,11 +165,11 @@ def generic_shell(shell_command,log_file_name):
         #print(stdout)
 
         if stderr:
-            print(stderr)
-            print("Exception during running generic shell with following command - ")
-            print(shell_command)
+            #print(stderr)
+            #print("Exception during running generic shell with following command - ")
+            #print(shell_command)
             shell_logger=setup_logger(log_file_name, log_file_name, level=logging.INFO)
-            print(shell_command)
+            #print(shell_command)
 
             shell_logger.error(stderr)
 
