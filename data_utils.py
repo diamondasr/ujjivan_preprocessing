@@ -297,7 +297,7 @@ def create_new_data_variant(language_code):
         if new dataset rows is not in this list then it creates a new subset
 
     """
-def create_kaldi_directories(language_code,create_subset_split_dirs=False):
+def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
          
     """
@@ -400,11 +400,11 @@ def create_kaldi_directories(language_code,create_subset_split_dirs=False):
         generic_shell("mkdir logs","logs/" + language_code + "." + "mkdir.log")
     #generic_shell("rm -rf wavs","logs/rm.log")
     #generic_shell("rm -rf audios","logs/" + language_code + "." + "rm.log")
-    if not os.path.isdir("wavs"):
-        generic_shell("mkdir wavs","logs/" + language_code + "." + "mkdir.log")
+    if not os.path.isdir(destination_wav_dir):
+        generic_shell("mkdir " + destination_wav_dir ,"logs/" + language_code + "." + "mkdir.log")
     #generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
-    if not os.path.isdir("wavs/" + language_code):
-        generic_shell("mkdir wavs/" + language_code ,"logs/" + language_code + "." + "mkdir.log")
+    if not os.path.isdir(destination_wav_dir  + language_code):
+        generic_shell("mkdir " + destination_wav_dir + language_code ,"logs/" + language_code + "." + "mkdir.log")
 
 
     
