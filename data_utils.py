@@ -312,6 +312,8 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
          
     """
 
+    wav_scp_count=0
+
     # kaldi specific
     #generic_shell("rm -rf kaldi_outputs","logs/rm.log")
 
@@ -654,7 +656,7 @@ def create_kaldi_lang(language_code,suffix_dir):
 
     generic_shell(shell_command9,"logs/" + language_code + "." + "kaldi_data_lang.log")
     generic_shell(shell_command10,"logs/" + language_code + "." + "kaldi_data_lang.log")
-    
+
     # Create dummy GLM file for sclite:  
 
 
