@@ -17,7 +17,7 @@ from os.path import splitext
 from tqdm import tqdm
 import logging 
 from data_utils import download_transcriptions, init_system, close_system , create_kaldi_lang,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
-
+destination_wav_dir
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
 
@@ -30,7 +30,7 @@ argument_parser.add_argument('-source_mp3_dir',
                        type=str,
                        help='the source mp3 directory containing audio files')
 
-argument_parser.add_argument('-destination_wav_dir',
+argument_parser.add_argument('-',
                        type=str,
                        help='the destination directory where wav files are stored')
 
@@ -115,7 +115,7 @@ def check_file_extension(row,extension):
 init_system(language_code)
 
 # create initial kaldi directory structure
-create_kaldi_directories(language_code,create_subset_split_dirs=False)
+create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=False)
 
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
@@ -173,7 +173,7 @@ except Exception as ex:
 
 
 # create kaldi subdirectory for new split like ta_15k, it can only be done after wav.scp,text,spk2utt have already been generated
-create_kaldi_directories(language_code,create_subset_split_dirs=True)
+create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=True)
 
 # creates train test split
 #create_kaldi_subset(wav_scp_path,"kaldi_outputs" , language_code)
