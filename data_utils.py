@@ -24,17 +24,14 @@ conversion_file_set=set() # this basically stores all utterance ids of files alr
 words_set = set() # a set to store words for lexicon
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
-
 def setup_logger(name, log_file, level=logging.INFO):
     """To setup as many loggers as you want"""
-
     handler = logging.FileHandler(log_file)        
     handler.setFormatter(formatter)
 
     logger = logging.getLogger(name)
     logger.setLevel(level)
     logger.addHandler(handler)
-
     return logger
 
 
@@ -57,8 +54,6 @@ def init_system(language_code):
   
     #Setting the threshold of logger to DEBUG 
     logger.setLevel(logging.DEBUG) 
-
-    
     print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
 
 def close_system(language_code):
@@ -100,6 +95,17 @@ def count_lines(file_path):
     with open(file_path) as foo:
         lines = len(foo.readlines())
     return lines
+
+def filter_line(line):
+    """ filters comma,exclamation,question mark, punctuation marks, paranthesis """
+    punctuations = r'''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    no_punct = ""
+    for char in line:
+        if char not in punctuations:
+            no_punct = no_punct + char
+    return no_punct
+    
+
 
 
 def rm_unnecessary_files(language_code):
@@ -211,8 +217,6 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
     
     return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
 
-
-
 def read_transcription(transcription_id,transcription_filepath):
     # gets transcription from transcriptions.txt having corresponding id  
     import csv
@@ -227,22 +231,16 @@ def read_transcription(transcription_id,transcription_filepath):
 
 def append_row_file(file,row):
     """
-
     general function which appends data row to a text file
-
     """
-
     with open(file, "a") as myfile:
         myfile.write(row + "\n")
         
 def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
     """
-
     appends audio file path to wav_list file each new data row
     also appends to wav.scp file
-
     """
-
     utterance_id=wav_file_path.split("/")[-1].replace(".wav","")
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
@@ -288,7 +286,7 @@ onal/lexicon_final.txt
     shell_command="~/nv-g2p/rule/lexicon_post_process.sh " + lexicon_language_code + " " + input_lexicon_file + " " + output_lexicon_file
     generic_shell(shell_command,"logs/" + language_code + ".g2p.log")
 
-def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code):
+def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code,generate_lexicon=True):
     """ downloads transcriptions , but if already present doesnt download again 
     """
 
@@ -314,6 +312,7 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
         for sentence in transcription_json:
             sentence_id=sentence["id"]
             sentence_transcript=sentence["sentence"]
+            sentence_transcript=filter_line(sentence_transcript) # remove punctuations
             
             # extract words from sentence and add to a set, for creation of lexicon
 
@@ -330,13 +329,16 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
                 transcription_row=str(sentence_id) + " " + str(sentence_transcript) 
                 append_row_file(destination_transcription_file,transcription_row)
 
-        # create lexicon file here
-        write_lexicon(words_set,temp_lexicon_path)
+        if (generate_lexicon):
 
-        # call g2p script here
-        g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code)
+            # create lexicon file here
+            write_lexicon(words_set,temp_lexicon_path)
 
+            # call g2p script here
+            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code)
 
+        else:
+            print("not generating lexicon, assuming manually generated lexicon file is placed in data/" + language_code )
 
     except Exception as ex:
         #print(ex)
@@ -348,7 +350,6 @@ def remove_file(filepath):
     """
         utility function to remove a file but checks if it exists before removing it
     """
-
     if os.path.isfile(filepath):
         os.remove(filepath)
         
@@ -370,10 +371,9 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    #print(stdout, stderr)
+
 
     if stderr:
-
         logging.error(stderr)
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
@@ -385,7 +385,6 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
     generic_shell(shell_command,"logs/" + language_code + "." + "rm.log")
 
     if stderr2:
-
         logging.error(stderr2)
 
 

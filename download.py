@@ -13,7 +13,7 @@ import argparse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions, init_system, close_system ,rm_unnecessary_files,create_kaldi_subset,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions, init_system, close_system ,rm_unnecessary_files,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
 
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
@@ -34,6 +34,12 @@ argument_parser.add_argument('-destination_wav_dir',
 argument_parser.add_argument('-g2p_lang_id',
                        type=str,
                        help='language id used by g2ps repl.py ')
+
+
+
+argument_parser.add_argument('-automatic_lexicon_generation',
+                       type=str,
+                       help='should it automatically generate lexicon , true or false')
 
 # Execute the parse_args() method
 args = argument_parser.parse_args()
@@ -67,8 +73,6 @@ downloaded_audio_count=0
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp" # where will wav.scp be stored temporarily
 wav_list_path= os.getcwd() + "/wav.list"              # where will wav.list be stored temporarily
 
-
-#  os.getcwd() + "/wavs/" + language_code + "/"
 destination_wav_directory= args.destination_wav_dir + language_code + "/"
 
 spk2utt_filepath= os.getcwd() + "/kaldi_outputs/spk2utt"  # where will spk2utt be stored temporarily
@@ -109,7 +113,7 @@ def check_file_extension(row,extension):
 create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=False)
 
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
-download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code)
+download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code,args.automatic_lexicon_generation)
 
 # download audio json files
 data=download_audio_json(final_audio_url,destination_audio_file)
