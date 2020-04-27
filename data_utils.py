@@ -111,7 +111,7 @@ def filter_line(line):
 def rm_unnecessary_files(language_code):
     """ this functions deletes some temporary files , for example before train/test split """
 
-    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids']
+    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','kaldi_ouputs/wav.scp','kaldi_outputs/text','kaldi_outputs/lexicon.txt','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk']
     for file in files_to_remove:
         remove_file(file)
 
