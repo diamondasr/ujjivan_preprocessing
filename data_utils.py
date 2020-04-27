@@ -143,7 +143,7 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
     """
     wav_scp_count=0
-    mkdir_dirs=["logs","data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code]
+    mkdir_dirs=["logs","data", "data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code]
     for dir in mkdir_dirs:
         create_dir(dir,language_code)
         
