@@ -2,7 +2,7 @@ Python prprocessing script for Ujjivan dataset
 
 README 
 
-dependencies : FFMpeg, Sox , Python3
+dependencies : FFMpeg, Sox , Python3 , g2p
 
 Steps:
 
@@ -14,6 +14,9 @@ cd ujjivan.preprocessing ( use tmux with detached mode)
 conda activate g2p or { pip3 install tqdm }
 
 mkdir logs
+
+make sure you downloaded g2p and following script already exists
+~/g2p/rule/lexicon_post_process.sh
 
 Usage:
 
