@@ -21,25 +21,25 @@ argument_parser = argparse.ArgumentParser(description='Parser for preprocessing 
 # Add the arguments
 argument_parser.add_argument('-lang',
                        type=str,
-                       help='the lang id which is used is url of azure for example ta')
+                       help='the lang id which is used is url of azure for example ta', required=True)
 
 argument_parser.add_argument('-source_mp3_dir',
                        type=str,
-                       help='the source mp3 directory containing audio files')
+                       help='the source mp3 directory containing audio files', required=True)
 
 argument_parser.add_argument('-destination_wav_dir',
                        type=str,
-                       help='the destination directory where wav files are stored')
+                       help='the destination directory where wav files are stored', required=True)
 
 argument_parser.add_argument('-g2p_lang_id',
                        type=str,
-                       help='language id used by g2ps repl.py ')
+                       help='language id used by g2ps repl.py ', required=True)
 
 
 
 argument_parser.add_argument('-automatic_lexicon_generation',
                        type=str,
-                       help='should it automatically generate lexicon , true or false')
+                       help='should it automatically generate lexicon , true or false', required=True)
 
 # Execute the parse_args() method
 args = argument_parser.parse_args()
@@ -140,9 +140,9 @@ try:
     else:
         print("speaker filtering disabled ")
         for speaker_id in data:
-            print(speaker_id)
+            #print(speaker_id)
             for row in data[speaker_id]:
-                print(row)
+                #print(row)
                 #print(data[speaker_id])
                 extension_valid=check_file_extension(row,extension)
                 if extension_valid:

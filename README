@@ -2,6 +2,7 @@ Python prprocessing script for Ujjivan dataset
 
 README 
 
+dependencies : FFMpeg, Sox , Python3
 
 Steps:
 
@@ -9,7 +10,7 @@ git clone -b version2 https://github.com/diamondasr/ujjivan_preprocessing.git uj
 
 cd ujjivan.preprocessing ( use tmux with detached mode)
 
-conda activate g2p
+conda activate g2p or { pip3 install tqdm }
 
 mkdir logs
 
@@ -17,6 +18,7 @@ Usage:
 
 python3 download.py -lang ta -source_mp3_dir "/home/ubuntu/datasets/trial/voicecollectionblobcontainer/"  -destination_wav_dir "/home/ubuntu/wavs/" -final_kaldi_format "yes"
 
+-automatic_lexicon_generation True
 Directory Structure
 
 destination_wav_dir/{lang_id}
