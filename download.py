@@ -69,6 +69,7 @@ source_mp3_directory=args.source_mp3_dir
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
 
 downloaded_audio_count=0
+row_count=0
 
 wav_scp_path= os.getcwd() + "/kaldi_outputs/wav.scp" # where will wav.scp be stored temporarily
 wav_list_path= os.getcwd() + "/wav.list"              # where will wav.list be stored temporarily
@@ -129,6 +130,7 @@ try:
         data=data[speaker_id]
 
         for row in tqdm(data):
+            row_count=row_count + 1
             #print(row)
             extension_valid=check_file_extension(row,extension)
             #print(extension_valid)
@@ -142,6 +144,7 @@ try:
         for speaker_id in data:
             #print(speaker_id)
             for row in data[speaker_id]:
+                row_count=row_count + 1
                 #print(row)
                 #print(data[speaker_id])
                 extension_valid=check_file_extension(row,extension)
@@ -153,6 +156,9 @@ try:
 
 except Exception as ex:
     print("there was exception in download.py")
+
+print("total number of rows processed : " + str(row_count))
+
     
 
 # create kaldi subdirectory for new split like ta_15k, it can only be done after wav.scp,text,spk2utt have already been generated
