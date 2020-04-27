@@ -146,7 +146,7 @@ try:
         print("speaker filtering disabled ")
         for speaker_id in data:
             #print(speaker_id)
-            for row in data[speaker_id]:
+            for row in tqdm(data[speaker_id]):
                 row_count=row_count + 1
                 #print(row)
                 #print(data[speaker_id])

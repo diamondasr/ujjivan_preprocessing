@@ -6,7 +6,8 @@ dependencies : FFMpeg, Sox , Python3
 
 Steps:
 
-git clone -b version2 https://github.com/diamondasr/ujjivan_preprocessing.git ujjivan.preprocessing
+git clone -b v2_lite https://github.com/diamondasr/ujjivan_preprocessing.git ujjivan.preprocessing
+
 
 cd ujjivan.preprocessing ( use tmux with detached mode)
 
