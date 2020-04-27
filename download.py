@@ -4,14 +4,11 @@
 This python3 script downloads audio.json and transcriptions.txt, and creates a folder called wavs and 10 subdirectories,
 then for given language it converts all mp3 files according to audio.json to its correspoding subdirectory in wav 
 
-
-
 """
+
 import json
 import urllib.request, json 
-#import urllib.parses
 import os
-#from urlparse import urlparse
 import argparse
 from os.path import splitext
 from tqdm import tqdm
@@ -37,10 +34,6 @@ argument_parser.add_argument('-destination_wav_dir',
 argument_parser.add_argument('-g2p_lang_id',
                        type=str,
                        help='language id used by g2ps repl.py ')
-
-
-
-
 
 # Execute the parse_args() method
 args = argument_parser.parse_args()
@@ -125,7 +118,6 @@ data=download_audio_json(final_audio_url,destination_audio_file)
 data=data["data"]
 # see if specific speaker id is provided
 
-    
 
 try:
     if speaker_id != -1:
@@ -157,8 +149,7 @@ try:
 
 except Exception as ex:
     print("there was exception in download.py")
-    #print(ex)
-
+    
 
 # create kaldi subdirectory for new split like ta_15k, it can only be done after wav.scp,text,spk2utt have already been generated
 # dir_suffix is something like ta_15k

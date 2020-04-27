@@ -439,8 +439,8 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
 
         create_text_file(output_destination_path, text_filepath,transcription_filepath)
 
-        append_row_file(spk2utt_filepath, utterance_id + "_" + speaker_id + " " + utterance_id )
-        append_row_file(utt2spk_filepath, utterance_id + " " + utterance_id + "_" + speaker_id )
+        append_row_file(spk2utt_filepath, utterance_id  + " " + utterance_id )
+        append_row_file(utt2spk_filepath, utterance_id + " "  + utterance_id )
 
         return destination_path
 
