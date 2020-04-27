@@ -11,12 +11,15 @@ git clone -b v2_lite https://github.com/diamondasr/ujjivan_preprocessing.git ujj
 
 cd ujjivan.preprocessing ( use tmux with detached mode)
 
-conda activate g2p or { pip3 install tqdm }
+conda activate g2p or { pip3 install tqdm , pip3 install pandas}
 
 mkdir logs
 
 make sure you downloaded g2p and following script already exists
 ~/g2p/rule/lexicon_post_process.sh
+~/g2p/rule/repl_saurabh.py
+
+or just download https://github.com/diamondasr/g2p.git
 
 Usage:
 
