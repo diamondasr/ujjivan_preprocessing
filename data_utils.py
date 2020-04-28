@@ -144,7 +144,7 @@ def create_split_dir(language_code,wav_scp_count):
     create_dir("kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
     cp_source=['kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
     for source in cp_source:
-        shutil.copyfile(source, "kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count)
+        generic_shell("cp " + source + " kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
 
 
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
