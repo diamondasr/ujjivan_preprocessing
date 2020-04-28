@@ -336,6 +336,7 @@ def sort_file(filepath,language_code):
     generic_shell("sort " + filepath + " > " + sorted_file_name, "logs/" + language_code + ".sort.log" )
     remove_file(filepath)
     generic_shell('cp ' + sorted_file_name + ' ' + filepath,"logs/" + language_code + ".sort.log")
+    remove_file(sorted_file_name)
 
         
 def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
