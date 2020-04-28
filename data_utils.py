@@ -108,12 +108,18 @@ def filter_line(line):
     return no_punct
     
 
-def rm_unnecessary_files(language_code):
-    """ this functions deletes some temporary files , for example before train/test split """
+def rm_unnecessary_files(language_code,dir_prefix):
+    """ this functions deletes some temporary files , for example before train/test split and also sorts files """
 
     files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/lexicon.txt','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','lexion_temp2','lexicon_temp3']
     for file in files_to_remove:
         remove_file(file)
+
+    basepath='kaldi_outputs/' + language_code + "/" + dir_prefix + "/"
+    files_to_sort=[ basepath + 'wav.scp', basepath + 'spk2utt', basepath + 'utt2spk', basepath + 'text' ]
+    for file in files_to_sort:
+        sort_file(file,language_code)
+    
 
 
 def write_list_to_file(my_list,filepath):
@@ -322,6 +328,15 @@ def remove_file(filepath):
     """
     if os.path.isfile(filepath):
         os.remove(filepath)
+
+def sort_file(filepath,language_code):
+    base_path=os.path.dirname(filepath)
+    base_name=os.path.basename(filepath)
+    sorted_file_name=base_path + '/' +  base_name + '_sorted'
+    generic_shell("sort " + filepath + " > " + sorted_file_name, "logs/" + language_code + ".sort.log" )
+    remove_file(filepath)
+    generic_shell('cp ' + sorted_file_name + ' ' + filepath,"logs/" + language_code + ".sort.log")
+
         
 def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
 

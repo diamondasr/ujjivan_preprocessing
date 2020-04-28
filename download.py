@@ -169,7 +169,7 @@ print("total number of rows processed : " + str(row_count))
 dir_suffix=create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_split_dirs=True)
 
 # removes temp files 
-rm_unnecessary_files(language_code)
+rm_unnecessary_files(language_code, dir_suffix)
 
 # close_system
 close_system(language_code)
