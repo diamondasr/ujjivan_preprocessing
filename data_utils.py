@@ -395,14 +395,11 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         utterance_id=url.split("/")[-1].replace(".mp3","")
 
         # check if file has already been converted
-        if utterance_id in  conversion_file_set:
-            return
-
         output_destination_path=destination_wav_directory + output_wav_filename
-        convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
-
-        conversion_file_set.add(utterance_id)
-
+        if not utterance_id in  conversion_file_set:
+            convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
+            conversion_file_set.add(utterance_id)
+        
         create_wav_list_file(output_destination_path,wav_list_file,wav_scp_path)
         downloaded_audio_count=downloaded_audio_count + 1
 
