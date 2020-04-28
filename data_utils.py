@@ -17,6 +17,8 @@ import os.path
 import os
 from datetime import datetime
 import _pickle as pickle
+import path
+import shutil
 
 
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -136,20 +138,26 @@ def read_file_to_list(filepath):
 
 def create_dir(dir_path,language_code):
     if not os.path.isdir(dir_path):
-        generic_shell("mkdir " + dir_path ,"logs/" + language_code + "." + "mkdir.log")
+        os.makedirs(dir_path)
+        #generic_shell("mkdir " + dir_path ,"logs/" + language_code + "." + "mkdir.log")
+
+def create_split_dir(language_code,wav_scp_count):
+    print("split directory doesnt exist, creating ..")
+    create_dir("kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
+    cp_source=['kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
+    for source in cp_source:
+        shutil.copyfile(source, "kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count)
 
 
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
     """
     wav_scp_count=0
-    mkdir_dirs=["logs","data", "data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code]
+    mkdir_dirs=["logs","data", "data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
     for dir in mkdir_dirs:
-        create_dir(dir,language_code)
+        os.makedirs(dir,exist_ok=True)
         
-
     if create_subset_split_dirs==True:
-
         if not os.path.isfile("kaldi_outputs/" +   "wav.scp"):
             # this means all files were already processed so there is no new file
             print("not creating new split since no new file present")
@@ -163,58 +171,18 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
         
         if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
             print ("subset file exists for language")
-            print("wav scp count : ")
-            print(wav_scp_count)
-
+            print("wav scp count : " + str(wav_scp_count))
             subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
             
             if wav_scp_count in subset_counts:
                 print("split directory already existing")
             else:
-                print("split directory doesnt exist, creating ..")
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
-                shell_command="cp kaldi_outputs/wav.scp kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-                shell_command2="cp kaldi_outputs/text kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-                shell_command3="cp kaldi_outputs/spk2utt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-                shell_command4="cp kaldi_outputs/utt2spk kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-                
-                shell_command5="cp data/" + language_code +  "/lexicon.txt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-
-                cp_shell_commands=[shell_command,shell_command2,shell_command3,shell_command4,shell_command5]
-                for command in cp_shell_commands:
-                    generic_shell(command, "logs/" + language_code + "." + "cp.log" )
-
-
-                generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data","logs/" + language_code + "." + "mkdir.log")
-        
-
+                create_split_dir(language_code,wav_scp_count)        
         else:
             print ("subsets.txt doesnt exist creating it for the first time")
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,"logs/" + language_code + "." + "mkdir.log")
-            shell_command2="cp data/" + language_code +  "/lexicon.txt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-            generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
             append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+            create_split_dir(language_code,wav_scp_count)
 
-            shell_command="cp kaldi_outputs/wav.scp kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-            shell_command2="cp kaldi_outputs/text kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-            shell_command3="cp kaldi_outputs/spk2utt kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-            shell_command4="cp kaldi_outputs/utt2spk kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count
-            generic_shell(shell_command,"logs/" + language_code + "." + "cp.log")
-            generic_shell(shell_command2,"logs/" + language_code + "." + "cp.log")
-            generic_shell(shell_command3,"logs/" + language_code + "." + "cp.log")
-            generic_shell(shell_command4,"logs/" + language_code + "." + "cp.log")
-
-            generic_shell("mkdir kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count + "/data","logs/" + language_code + "." + "mkdir.log")
-
-    if not os.path.isdir("logs"):
-        generic_shell("mkdir logs","logs/" + language_code + "." + "mkdir.log")
-
-    if not os.path.isdir(destination_wav_dir):
-        generic_shell("mkdir " + destination_wav_dir ,"logs/" + language_code + "." + "mkdir.log")
-    #generic_shell("mkdir audios","logs/" + language_code + "." + "mkdir.log")
-    if not os.path.isdir(destination_wav_dir  + language_code):
-        generic_shell("mkdir " + destination_wav_dir + language_code ,"logs/" + language_code + "." + "mkdir.log")
-    
     return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
 
 def read_transcription(transcription_id,transcription_filepath):
