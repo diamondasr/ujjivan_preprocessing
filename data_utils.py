@@ -108,8 +108,6 @@ def filter_line(line):
     return no_punct
     
 
-
-
 def rm_unnecessary_files(language_code):
     """ this functions deletes some temporary files , for example before train/test split """
 
@@ -255,8 +253,10 @@ onal/lexicon_final.txt
     generic_shell(shell_command,"logs/" + language_code + ".g2p.log")
 
 def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code,generate_lexicon=True):
-    """ downloads transcriptions , but if already present doesnt download again 
+    """ 
+    downloads transcriptions , but if already present doesnt download again 
     """
+
 
     try:
         #downloaded_audio_count=downloaded_audio_count + 1
