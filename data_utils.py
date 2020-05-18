@@ -20,7 +20,6 @@ import _pickle as pickle
 import path
 import shutil
 
-
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 words_set = set() # a set to store words for lexicon
@@ -30,12 +29,10 @@ def setup_logger(name, log_file, level=logging.INFO):
     """To setup as many loggers as you want"""
     handler = logging.FileHandler(log_file)        
     handler.setFormatter(formatter)
-
     logger = logging.getLogger(name)
     logger.setLevel(level)
     logger.addHandler(handler)
     return logger
-
 
 def init_system(language_code):
     """
@@ -63,7 +60,6 @@ def close_system(language_code):
     Basically does some final post processing like storing stateof dictionary etc
     """
     global conversion_file_set
-
     filepath="data/" + language_code + "/" + language_code + ".set"
     write_list_to_file(list(conversion_file_set),filepath)
 
@@ -72,7 +68,6 @@ def generic_shell(shell_command,log_file_name):
         this defines a python function which can run any shell script command
         from python and route logs to log file 
     """
-
     try:
         #print(shell_command.split())
         process = subprocess.Popen(shell_command,
@@ -84,14 +79,10 @@ def generic_shell(shell_command,log_file_name):
 
             shell_logger=setup_logger(log_file_name, log_file_name, level=logging.INFO)
             shell_logger.error(stderr)
-
-
     except:
         print("Exception during running generic shell with following command - ")
         shell_logger=setup_logger(log_file_name, log_file_name, level=logging.INFO)
         shell_logger.error(stderr)
-
-
 
 def count_lines(file_path):
     with open(file_path) as foo:
@@ -107,7 +98,6 @@ def filter_line(line):
             no_punct = no_punct + char
     return no_punct
     
-
 def rm_unnecessary_files(language_code,dir_prefix):
     """ this functions deletes some temporary files , for example before train/test split and also sorts files """
 
@@ -119,8 +109,6 @@ def rm_unnecessary_files(language_code,dir_prefix):
     files_to_sort=[ basepath + 'wav.scp', basepath + 'spk2utt', basepath + 'utt2spk', basepath + 'text' ]
     for file in files_to_sort:
         sort_file(file,language_code)
-    
-
 
 def write_list_to_file(my_list,filepath):
     """
@@ -151,7 +139,6 @@ def create_split_dir(language_code,wav_scp_count):
     cp_source=['kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
     for source in cp_source:
         generic_shell("cp " + source + " kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
-
 
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
@@ -198,7 +185,6 @@ def read_transcription(transcription_id,transcription_filepath):
         for row in reader:
             if row[0]==transcription_id:
                 return ' '.join(row[1:])
-
     return ""
 
 def append_row_file(file,row):
@@ -217,17 +203,14 @@ def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
-
 def create_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
     appends to kaldi text ( data/text ) file 
     """
-
     sentence_id=wav_file_path.split("_")[2].split('.')[0]
     transcription=read_transcription(sentence_id,transcription_filepath)
     text_line=wav_file_path.split("/")[-1].replace(".wav","") + " " +  transcription
     append_row_file(text_file_path,text_line)
-
 
 def check_if_file_exists(filepath):   
     return os.path.isfile(filepath)
@@ -262,8 +245,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
     """ 
     downloads transcriptions , but if already present doesnt download again 
     """
-
-
     try:
         #downloaded_audio_count=downloaded_audio_count + 1
 
@@ -278,11 +259,7 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
         with urllib.request.urlopen(final_text_url) as url:
             #data = json.loads(url.read().decode())
             transcription_json = json.loads(url.read().decode())
-        #print(data)
-
-
         transcription_json=transcription_json["data"]
-        #create_wav_list_file(url)
         for sentence in transcription_json:
             sentence_id=sentence["id"]
             sentence_transcript=sentence["sentence"]
@@ -293,7 +270,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
             for word in sentence_transcript.split():
                 # print(word)                                                                                                                         
                 words_set.add(word)
-
             # check if sentence is empty
             if sentence_transcript=="":
                 empty_transcript_counter=empty_transcript_counter + 1
@@ -304,12 +280,10 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
                 append_row_file(destination_transcription_file,transcription_row)
 
         if (generate_lexicon):
-
             logging.info("automatically generating lexicon")
             # create lexicon file here
             write_lexicon(words_set,temp_lexicon_path)
             logging.info("generating left side of lexicon")
-
             # call g2p script here
             g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code)
 
@@ -320,7 +294,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
         #print(ex)
         print("exception in download transcriptions function")
         logging.error(logging.traceback.format_exc())
-
 
 def remove_file(filepath):
     """
@@ -338,14 +311,10 @@ def sort_file(filepath,language_code):
     generic_shell('cp ' + sorted_file_name + ' ' + filepath,"logs/" + language_code + ".sort.log")
     remove_file(sorted_file_name)
 
-        
 def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
-
     """
-
     returns True if conversion was successfull , else returns False
     if destination file already exists, by default it replaces it -y flag
-
     """
     #/usr/bin/ffmpeg -i mp3_dir/$file wav_dir/${out_file}_tmp.wav; 
     #sox wav_dir/${out_file}_tmp.wav -c1 -r16000 -b16 wav_dir/${out_file}.wav ;
@@ -357,7 +326,6 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-
 
     if stderr:
         logging.error(stderr)
@@ -373,10 +341,8 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
     if stderr2:
         logging.error(stderr2)
 
-
 def read_json_from_file(filepath):
     import json
-
     with open(filepath, 'r') as f:
         return json.load(f)
 
@@ -396,20 +362,15 @@ def download_audio_json(final_audio_url,destination_audio_file):
         print("audio json already exists skippings")
         return read_json_from_file(destination_audio_file)
 
-
 def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
     """
     converts mp3 to wav file , updates wav.list , wav.scp text ,spk2utt file
     """
     try:
-
         destination_filename= url.split("/")[-1]
-
         destination_path= source_mp3_directory + destination_filename 
- 
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
         utterance_id=url.split("/")[-1].replace(".mp3","")
-
         # check if file has already been converted
         output_destination_path=destination_wav_directory + output_wav_filename
         if not utterance_id in  conversion_file_set:
@@ -418,9 +379,7 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         
         create_wav_list_file(output_destination_path,wav_list_file,wav_scp_path)
         downloaded_audio_count=downloaded_audio_count + 1
-
         create_text_file(output_destination_path, text_filepath,transcription_filepath)
-
         append_row_file(spk2utt_filepath, utterance_id + "_" +  str(speaker_id) + " " + utterance_id )
         append_row_file(utt2spk_filepath, utterance_id + " "  +  utterance_id + "_" +  str(speaker_id))
 
