@@ -15,7 +15,6 @@ create new conda environment with python 3.5
 Install following packages
 { pip3 install tqdm , pip3 install pandas}
 
-mkdir logs
 
 Make sure you have this version of g2p (in home Directory)
 git clone https://github.com/diamondasr/g2p.git g2p
