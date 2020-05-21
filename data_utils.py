@@ -102,6 +102,8 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
         with urllib.request.urlopen(final_text_url) as url:
             transcription_json = json.loads(url.read().decode())
         transcription_json=transcription_json["data"]
+        # make sure if transcriptions file is already present we remove it 
+        remove_file(destination_transcription_file)
         for sentence in transcription_json:
             sentence_id=sentence["id"]
             sentence_transcript=sentence["sentence"]
@@ -117,8 +119,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
             else:
                 # write the sentence to transcription file
                 transcription_row=str(sentence_id) + " " + str(sentence_transcript)
-                # make sure if transcriptions file is already present we remove it 
-                remove_file(destination_transcription_file)
                 append_row_file(destination_transcription_file,transcription_row)
 
         if (generate_lexicon):
