@@ -13,20 +13,20 @@ import urllib.request, json
 import urllib
 from os.path import splitext
 import logging 
-import os.path
+
 import os
 from datetime import datetime
 import _pickle as pickle
-import path
+#import path
 import shutil
 
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 words_set = set() # a set to store words for lexicon
 
-from file_utils import check_if_file_exists, read_json_from_file,read_file_to_list,write_json_to_file,write_list_to_file,append_row_file,remove_file,convert_mp3_to_wav
+from file_utils import check_if_file_exists, read_json_from_file,read_file_to_list,write_json_to_file,write_list_to_file,append_row_file,remove_file,  convert_mp3_to_wav 
 from g2p_utils import write_lexicon,g2p_create_lexicon
-from kaldi_utils import create_wav_list_file,create_text_file,create_kaldi_directories
+from kaldi_utils import create_wav_list_file,create_text_file,create_kaldi_directories,rm_unnecessary_files
 
 def init_system(language_code):
     """

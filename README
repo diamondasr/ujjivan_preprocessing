@@ -25,8 +25,7 @@ Usage:
 python3 download.py -lang ta \
  -source_mp3_dir "/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/" \
   -destination_wav_dir "/home/ubuntu/datasets/ujjivan/wavs/" \
-   -automatic_lexicon_generation True\
-   -g2p_lang_id "tamil"
+   -automatic_lexicon_generation True
 
 
 
