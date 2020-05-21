@@ -24,7 +24,7 @@ current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 words_set = set() # a set to store words for lexicon
 
-from file_utils import check_if_file_exists, read_json_from_file,read_file_to_list,write_json_to_file,write_list_to_file,append_row_file
+from file_utils import check_if_file_exists, read_json_from_file,read_file_to_list,write_json_to_file,write_list_to_file,append_row_file,remove_file
 from g2p_utils import write_lexicon,g2p_create_lexicon
 
 def init_system(language_code):
@@ -82,11 +82,6 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
     downloads transcriptions , but if already present doesnt download again 
     """
     try:
-        transcription_exists=check_if_file_exists(destination_transcription_file) 
-        if transcription_exists:
-            print("transcriptions.txt already exists not downloading")
-            return 
-
         print("downloading transcriptions json")
         with urllib.request.urlopen(final_text_url) as url:
             transcription_json = json.loads(url.read().decode())
@@ -107,7 +102,10 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
             
             else:
                 # write the sentence to transcription file
-                transcription_row=str(sentence_id) + " " + str(sentence_transcript) 
+                transcription_row=str(sentence_id) + " " + str(sentence_transcript)
+
+                # make sure if transcriptions file is already present we remove it 
+                remove_file(destination_transcription_file)
                 append_row_file(destination_transcription_file,transcription_row)
 
         if (generate_lexicon):
