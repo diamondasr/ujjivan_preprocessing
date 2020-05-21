@@ -127,7 +127,7 @@ def download_transcriptions(final_text_url,destination_transcription_file,temp_l
             write_lexicon(words_set,temp_lexicon_path)
             logging.info("generating left side of lexicon")
             # call g2p script here
-            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code)
+            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code)
 
         else:
             print("not generating lexicon, assuming manually generated lexicon file is placed in data/" + language_code )
