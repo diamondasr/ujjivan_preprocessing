@@ -1,7 +1,7 @@
 # utility functions that involve kaldi
 
 import os
-from file_utils import remove_file,sort_file,count_lines,read_file_to_list,append_row_file
+from file_utils import remove_file,sort_file,count_lines,read_file_to_list,append_row_file, read_transcription
 from shell_utils import generic_shell
 
 

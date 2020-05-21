@@ -3,7 +3,10 @@
 
 import os
 from shell_utils import generic_shell
+from kaldi_utils import create_wav_list_file,create_text_file
 import logging
+import subprocess
+
 
 def append_row_file(file,row):
     """
@@ -125,3 +128,13 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         logging.error(logging.traceback.format_exc())
 
 
+def read_transcription(transcription_id,transcription_filepath):
+    # gets transcription from transcriptions.txt having corresponding id  
+    import csv
+    transcription_id=transcription_id.replace(".wav","")
+    with open(transcription_filepath) as inf:
+        reader = csv.reader(inf, delimiter=" ")
+        for row in reader:
+            if row[0]==transcription_id:
+                return ' '.join(row[1:])
+    return ""
