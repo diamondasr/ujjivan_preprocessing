@@ -12,7 +12,8 @@ import argparse
 from os.path import splitext
 from tqdm import tqdm
 import logging 
-from data_utils import download_transcriptions, init_system, close_system ,rm_unnecessary_files,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from data_utils import download_transcriptions, init_system, close_system ,create_kaldi_directories,write_json_to_file,check_if_file_exists,download_audio_json , read_json_from_file , convert_single_file,convert_mp3_to_wav
+from file_utils import rm_unnecessary_files
 
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
