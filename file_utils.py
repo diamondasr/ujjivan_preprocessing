@@ -1,4 +1,3 @@
-
 # generic file utility functions
 
 import os
@@ -6,7 +5,6 @@ from shell_utils import generic_shell
 from kaldi_utils import create_wav_list_file,create_text_file
 import logging
 import subprocess
-
 
 def append_row_file(file,row):
     """
@@ -34,7 +32,6 @@ def read_file_to_list(filepath):
     else:
         return []
 
-
 def write_list_to_file(my_list,filepath):
     """
     a simple utility function to write a python list to file 
@@ -46,8 +43,6 @@ def count_lines(file_path):
     with open(file_path) as foo:
         lines = len(foo.readlines())
     return lines
-
-
 
 def remove_file(filepath):
     """
@@ -99,34 +94,6 @@ def read_json_from_file(filepath):
     import json
     with open(filepath, 'r') as f:
         return json.load(f)
-
-def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
-    """
-    converts mp3 to wav file , updates wav.list , wav.scp text ,spk2utt file
-    """
-    try:
-        destination_filename= url.split("/")[-1]
-        destination_path= source_mp3_directory + destination_filename 
-        output_wav_filename= url.split("/")[-1].replace("mp3","wav")
-        utterance_id=url.split("/")[-1].replace(".mp3","")
-        # check if file has already been converted
-        output_destination_path=destination_wav_directory + output_wav_filename
-        if not utterance_id in  conversion_file_set:
-            convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
-            conversion_file_set.add(utterance_id)
-        
-        create_wav_list_file(output_destination_path,wav_list_file,wav_scp_path)
-        downloaded_audio_count=downloaded_audio_count + 1
-        create_text_file(output_destination_path, text_filepath,transcription_filepath)
-        append_row_file(spk2utt_filepath, utterance_id + "_" +  str(speaker_id) + " " + utterance_id )
-        append_row_file(utt2spk_filepath, utterance_id + " "  +  utterance_id + "_" +  str(speaker_id))
-
-        return destination_path
-
-    except Exception as ex:
-        print("exception during convert single file function")
-        logging.error(logging.traceback.format_exc())
-
 
 def read_transcription(transcription_id,transcription_filepath):
     # gets transcription from transcriptions.txt having corresponding id  
