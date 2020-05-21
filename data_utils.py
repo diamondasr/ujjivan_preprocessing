@@ -93,7 +93,7 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         print("exception during convert single file function")
         logging.error(logging.traceback.format_exc())
 
-def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,lexicon_language_code,language_code,generate_lexicon=True):
+def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,language_code,generate_lexicon=True):
     """ 
     downloads transcriptions , but if already present doesnt download again 
     """

@@ -87,7 +87,7 @@ create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_sp
 init_system(language_code)
 
 # download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
-download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path, lexicon_language_code,language_code,args.automatic_lexicon_generation)
+download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,language_code,args.automatic_lexicon_generation)
 
 # download audio json files
 data=download_audio_json(final_audio_url,destination_audio_file)
