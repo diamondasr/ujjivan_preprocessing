@@ -1,14 +1,13 @@
 # utility functions that involve kaldi
 
 import os
-from file_utils import remove_file,sort_file,count_lines,read_file_to_list,append_row_file, read_transcription
+from file_utils import remove_file , sort_file,count_lines,read_file_to_list,append_row_file, read_transcription
 from shell_utils import generic_shell
 
 
 def create_dir(dir_path,language_code):
     if not os.path.isdir(dir_path):
         os.makedirs(dir_path)
-
 
 def rm_unnecessary_files(language_code,dir_prefix):
     """ this functions deletes some temporary files , for example before train/test split and also sorts files """

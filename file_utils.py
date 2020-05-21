@@ -2,7 +2,7 @@
 
 import os
 from shell_utils import generic_shell
-from kaldi_utils import create_wav_list_file,create_text_file
+#from kaldi_utils import create_wav_list_file,create_text_file
 import logging
 import subprocess
 
