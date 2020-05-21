@@ -30,10 +30,6 @@ argument_parser.add_argument('-destination_wav_dir',
                        type=str,
                        help='the destination directory where wav files are stored', required=True)
 
-argument_parser.add_argument('-g2p_lang_id',
-                       type=str,
-                       help='language id used by g2ps repl.py ', required=True)
-
 argument_parser.add_argument('-automatic_lexicon_generation',
                        type=str,
                        help='should it automatically generate lexicon , true or false', required=True)
@@ -50,7 +46,6 @@ final_text_url=text_source + language_code
 destination_directory="./audios/"
 destination_transcription_file="data/" + language_code + "/transcriptions.txt"
 destination_audio_file="data/" + language_code +"/audio.json"
-lexicon_language_code=args.g2p_lang_id # this is the language code that we enter in g2p repl.py
 source_mp3_directory=args.source_mp3_dir
 text_filepath= os.getcwd() + "/kaldi_outputs/text"
 downloaded_audio_count=0
