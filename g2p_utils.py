@@ -53,11 +53,11 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
         # create actual lexicon file
         generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
-        generic_shell("awk '$2!=""' lexicon_temp2 > lexicon_temp3" , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3""" , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         generic_shell('echo "!SIL SIL" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         generic_shell('echo "<UNK> SPN" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove duplicate rows
-        generic_shell("awk '!seen[$0]++' lexicon_temp3 > " + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("""awk '!seen[$0]++' lexicon_temp3 > """ + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
 
         
