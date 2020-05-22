@@ -49,7 +49,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
         files_to_remove=['lexicon_temp','lexicon_temp2','lexicon_temp3','lexicon_temp4']
         for f in files_to_remove:
             remove_file(f)
-        generic_shell(' python ~/nv-g2p/rule/repl_saurabh.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell(' python3 ~/nv-g2p/rule/repl_saurabh.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # create actual lexicon file
         generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
