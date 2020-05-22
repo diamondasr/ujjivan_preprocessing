@@ -1,6 +1,6 @@
 from shell_utils import generic_shell
 from contextlib import contextmanager
-from file_utils import remove_file,remove_duplicate_lines,append_row_file
+from file_utils import remove_file,remove_duplicate_lines,append_row_file,write_list_to_file
 import os
 import shutil
 
@@ -18,34 +18,13 @@ g2p_lang_dictionary = { 'ta':'tamil','te':'telegu', \
 'gu':'gujrati' , 'ka':'Kannada', 'ma':'malayalam' , 'od':'odia','be':'bengali','as':'assamese' \
 , 'hi':'hindi' , 'pu':'punjabi','mar':'marathi' }
 
-def write_lexicon(words_set,output_lexicon_path):
-    """ given a set having unique words , write one word to each line
-    this file will be input to the g2p """
-
-    with open(output_lexicon_path, "w") as lexicon_output:
-            for word in list(words_set):
-                lexicon_output.write(word + "\n")
-
-#def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
-    '''
-    call g2p script to take list of words and convert it into final lexicon
-
-     ~/nv-g2p/rule/lexicon_post_process.sh "hindi" ~/datasets/rich_transcription/hin_regional/lexicon_input.txt ~/datasets/rich_transcription/hin_regi\
-onal/lexicon_final.txt
-    '''
-
-    #print("Running G2p and creating final lexicon file")
-
-    #shell_command="~/g2p/rule/lexicon_post_process.sh " + g2p_lang_dictionary[language_code] + " " + input_lexicon_file + " " + output_lexicon_file
-    #generic_shell(shell_command,"logs/" + language_code + ".g2p.log")
-
-def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
+def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,words_set):
     """
      calls g2p python script and does some post processing to give final kaldi compatible lexicon file
     """
     g2p_lang_code=g2p_lang_dictionary[language_code]
     log_prefix=str(os.getcwd()) + '/'
-
+    write_list_to_file(list(words_set),input_lexicon_file)
     with cd('~/g2p/rule'):
         files_to_remove=['lexicon_temp','lexicon_temp2','lexicon_temp3','lexicon_temp4']
         for f in files_to_remove:
@@ -55,16 +34,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
         generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2 ', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
         generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3 """ , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-
         append_row_file('lexicon_temp3','!SIL SIL')
         append_row_file('lexicon_temp3','<UNK> SPN')
-        #generic_shell('echo "!SIL SIL"' + '>> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-        #generic_shell('echo "<UNK> SPN"' + ' >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-        # remove duplicate rows
         remove_duplicate_lines('lexicon_temp3','lexicon_temp4')
-        #copy file output_lexicon_file
         shutil.copyfile('lexicon_temp4', output_lexicon_file)
-        #generic_shell("""awk '!seen[$0]++' lexicon_temp3 > """ + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-
-
-        

@@ -35,7 +35,6 @@ argument_parser.add_argument('-automatic_lexicon_generation',
                        type=str,
                        help='should it automatically generate lexicon , true or false', required=True)
 
-# Execute the parse_args() method
 args = argument_parser.parse_args()
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
 text_source="https://vca-admin.azurewebsites.net/v1/sentence?passcode=N@v4n473ch&language_code="
@@ -86,35 +85,32 @@ create_kaldi_directories(language_code,args.destination_wav_dir,create_subset_sp
 # initialize system
 init_system(language_code)
 
-# download transcriptions and then creates a list of words and then runs g2p to create final lexicon file
+# download transcriptions json and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,language_code,args.automatic_lexicon_generation)
 
-# download audio json files
-data=download_audio_json(final_audio_url,destination_audio_file)
+# download audio json file
+audio_json=download_audio_json(final_audio_url,destination_audio_file)
 
-data=data["data"]
+audio_json=audio_json["data"]
 # see if specific speaker id is provided
 
 try:
     if speaker_id != -1:
         print("filtering according to specific speaker")
-        data=data[speaker_id]
-        for row in tqdm(data):
+        speaker_rows=audio_json[speaker_id]
+        for row in tqdm(speaker_rows):
             row_count=row_count + 1
             extension_valid=check_file_extension(row,extension)
             if extension_valid:
-
                         destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_path,wav_scp_path,language_code)
-
     else:
         print("speaker filtering disabled ")
-        for speaker_id in data:
+        for speaker_id in audio_json:
             #print(speaker_id)
-            for row in tqdm(data[speaker_id]):
+            for row in tqdm(audio_json[speaker_id]):
                 row_count=row_count + 1
                 extension_valid=check_file_extension(row,extension)
                 if extension_valid:
-                    
                         # download audio
                         destination_mp3_path=convert_single_file(row,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_path,wav_scp_path,language_code)
 
@@ -133,17 +129,3 @@ rm_unnecessary_files(language_code, dir_suffix)
 # close_system
 close_system(language_code)
 print("Done")
-
-
-
-
-                    
-
-
-
-
-
-
-
-
-

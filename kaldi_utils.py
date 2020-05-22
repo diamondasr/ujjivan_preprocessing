@@ -1,13 +1,8 @@
 # utility functions that involve kaldi
 
 import os
-from file_utils import remove_file , sort_file,count_lines,read_file_to_list,append_row_file, read_transcription
+from file_utils import remove_file , sort_file,count_lines,read_file_to_list,append_row_file, read_transcription, create_dir
 from shell_utils import generic_shell
-
-
-def create_dir(dir_path,language_code):
-    if not os.path.isdir(dir_path):
-        os.makedirs(dir_path)
 
 def rm_unnecessary_files(language_code,dir_prefix):
     """ this functions deletes some temporary files , for example before train/test split and also sorts files """
@@ -22,6 +17,11 @@ def rm_unnecessary_files(language_code,dir_prefix):
         sort_file(file,language_code)
 
 def create_split_dir(language_code,wav_scp_count):
+    """
+        Create a new dir in kaldi_outputs/lang_id/lang_wav_scp_count
+        for eg. kaldi_outputs/ta/ta_15200
+    """
+
     print("split directory doesnt exist, creating ..")
     create_dir("kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
     cp_source=['kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
@@ -31,6 +31,7 @@ def create_split_dir(language_code,wav_scp_count):
 
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
+        for example it creates kaldi_outputs/<lang_code>/<split>/
     """
     wav_scp_count=0
     mkdir_dirs=["logs","data", "data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
@@ -65,7 +66,7 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
 
     return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
 
-def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
+def create_kaldi_wav_scp_file(wav_file_path,wav_list_path,wav_scp_path):
     """
     appends audio file path to wav_list file each new data row
     also appends to wav.scp file
@@ -74,9 +75,9 @@ def create_wav_list_file(wav_file_path,wav_list_path,wav_scp_path):
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
-def create_text_file(wav_file_path,text_file_path,transcription_filepath):
+def create_kaldi_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
-    appends to kaldi text ( data/text ) file 
+    appends to kaldi text ( data/text in usual kaldi directory ) file 
     """
     sentence_id=wav_file_path.split("_")[2].split('.')[0]
     transcription=read_transcription(sentence_id,transcription_filepath)

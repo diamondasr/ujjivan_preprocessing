@@ -118,3 +118,7 @@ def remove_duplicate_lines(input_file,output_file):
             outfile.write(line)
             lines_seen.add(line)
     outfile.close()
+
+def create_dir(dir_path,language_code):
+    if not os.path.isdir(dir_path):
+        os.makedirs(dir_path)
