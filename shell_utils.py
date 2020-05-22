@@ -12,7 +12,7 @@ def generic_shell(shell_command,log_file_name):
         #print(shell_command.split())
         process = subprocess.Popen(shell_command,
                         stdout=subprocess.PIPE, 
-                        stderr=subprocess.PIPE,shell=True)
+                        stderr=subprocess.PIPE, shell=True)
         stdout, stderr = process.communicate()
 
         if stderr:
