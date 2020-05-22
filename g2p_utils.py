@@ -43,20 +43,21 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
      calls g2p python script and does some post processing to give final kaldi compatible lexicon file
     """
     g2p_lang_code=g2p_lang_dictionary[language_code]
+    log_prefix=str(os.getcwd()) + '/'
 
-    with cd('~/nv-g2p/rule'):
+    with cd('~/g2p/rule'):
         files_to_remove=['lexicon_temp','lexicon_temp2','lexicon_temp3','lexicon_temp4']
         for f in files_to_remove:
             remove_file(f)
-        generic_shell(' python ~/nv-g2p/rule/repl_saurabh.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' ,"logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell(' python ~/nv-g2p/rule/repl_saurabh.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # create actual lexicon file
-        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2',"logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
-        generic_shell("awk '$2!=""' lexicon_temp2 > lexicon_temp3" ,"logs/" + language_code + ".lexicon_post_process.log")
-        generic_shell('echo "!SIL SIL" >> lexicon_temp3' ,"logs/" + language_code + ".lexicon_post_process.log")
-        generic_shell('echo "<UNK> SPN" >> lexicon_temp3' ,"logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("awk '$2!=""' lexicon_temp2 > lexicon_temp3" , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('echo "!SIL SIL" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('echo "<UNK> SPN" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove duplicate rows
-        generic_shell("awk '!seen[$0]++' lexicon_temp3 > " + output_lexicon_file  ,"logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("awk '!seen[$0]++' lexicon_temp3 > " + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
 
         
