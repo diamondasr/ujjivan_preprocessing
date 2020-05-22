@@ -1,7 +1,8 @@
 from shell_utils import generic_shell
 from contextlib import contextmanager
-from file_utils import remove_file
+from file_utils import remove_file,remove_duplicate_lines,append_row_file
 import os
+import shutil
 
 @contextmanager
 def cd(newdir):
@@ -51,13 +52,19 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code):
             remove_file(f)
         generic_shell(' python3 ~/g2p/rule/repl_saurabh.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # create actual lexicon file
-        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2 ', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
-        generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3""" , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-        generic_shell('echo "!SIL SIL" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
-        generic_shell('echo "<UNK> SPN" >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3 """ , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        append_row_file('lexicon_temp3','!SIL SIL')
+        append_row_file('lexicon_temp3','<UNK> SPN')
+        #generic_shell('echo "!SIL SIL"' + '>> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        #generic_shell('echo "<UNK> SPN"' + ' >> lexicon_temp3' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove duplicate rows
-        generic_shell("""awk '!seen[$0]++' lexicon_temp3 > """ + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        remove_duplicate_lines('lexicon_temp3','lexicon_temp4')
+        #copy file output_lexicon_file
+        shutil.copyfile('lexicon_temp4', output_lexicon_file)
+        #generic_shell("""awk '!seen[$0]++' lexicon_temp3 > """ + output_lexicon_file  , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
 
         

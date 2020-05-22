@@ -105,3 +105,16 @@ def read_transcription(transcription_id,transcription_filepath):
             if row[0]==transcription_id:
                 return ' '.join(row[1:])
     return ""
+
+def remove_duplicate_lines(input_file,output_file):
+    """
+    removes duplicate lines from a text file
+    """
+
+    lines_seen = set() # holds lines already seen
+    outfile = open(output_file, "w")
+    for line in open(input_file, "r"):
+        if line not in lines_seen: # not a duplicate
+            outfile.write(line)
+            lines_seen.add(line)
+    outfile.close()
