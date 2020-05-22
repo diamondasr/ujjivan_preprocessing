@@ -1,6 +1,6 @@
 wavs/
 audios/
-kaldi_outputs/
+preprocessed_outputs/
 lexicon_left
 transcriptions.txt
 UI.odt

@@ -34,10 +34,10 @@ destination_wav_dir/{lang_id}
 logs/lang_id.*.log
 
 If final_kaldi_format is enabled :
-    kaldi_outputs/{lang_id}/{subset_id}/ {data,exp,mfcc, wav.scp,text,spk2utt,utt2spk,lexicon.txt}
+    preprocessed_outputs/{lang_id}/{subset_id}/ {data,exp,mfcc, wav.scp,text,spk2utt,utt2spk,lexicon.txt}
 
 If final_kaldi_format is disabled :
-    kaldi_outputs/{lang_id}/{subset_id}/ {wav.scp,text,spk2utt,utt2spk,lexicon.txt}
+    preprocessed_outputs/{lang_id}/{subset_id}/ {wav.scp,text,spk2utt,utt2spk,lexicon.txt}
     wav.scp,text,spk2utt,utt2spk,lexicon.txt are files before test split
 
 

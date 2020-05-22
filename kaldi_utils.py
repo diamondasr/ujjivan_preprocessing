@@ -7,53 +7,53 @@ from shell_utils import generic_shell
 def rm_unnecessary_files(language_code,dir_prefix):
     """ this functions deletes some temporary files , for example before train/test split and also sorts files """
 
-    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/lexicon.txt','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','lexion_temp2','lexicon_temp3']
+    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','preprocessed_outputs/wav.scp','preprocessed_outputs/text','preprocessed_outputs/lexicon.txt','preprocessed_outputs/spk2utt','preprocessed_outputs/utt2spk','lexion_temp2','lexicon_temp3']
     for file in files_to_remove:
         remove_file(file)
 
-    basepath='kaldi_outputs/' + language_code + "/" + dir_prefix + "/"
+    basepath='preprocessed_outputs/' + language_code + "/" + dir_prefix + "/"
     files_to_sort=[ basepath + 'wav.scp', basepath + 'spk2utt', basepath + 'utt2spk', basepath + 'text' ]
     for file in files_to_sort:
         sort_file(file,language_code)
 
 def create_split_dir(language_code,wav_scp_count):
     """
-        Create a new dir in kaldi_outputs/lang_id/lang_wav_scp_count
-        for eg. kaldi_outputs/ta/ta_15200
+        Create a new dir in preprocessed_outputs/lang_id/lang_wav_scp_count
+        for eg. preprocessed_outputs/ta/ta_15200
     """
 
     print("split directory doesnt exist, creating ..")
-    create_dir("kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
-    cp_source=['kaldi_outputs/wav.scp','kaldi_outputs/text','kaldi_outputs/spk2utt','kaldi_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
+    create_dir("preprocessed_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
+    cp_source=['preprocessed_outputs/wav.scp','preprocessed_outputs/text','preprocessed_outputs/spk2utt','preprocessed_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
     for source in cp_source:
-        generic_shell("cp " + source + " kaldi_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
+        generic_shell("cp " + source + " preprocessed_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
 
 
 def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
     """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
-        for example it creates kaldi_outputs/<lang_code>/<split>/
+        for example it creates preprocessed_outputs/<lang_code>/<split>/
     """
     wav_scp_count=0
-    mkdir_dirs=["logs","data", "data/" + language_code , "kaldi_outputs" , "kaldi_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
+    mkdir_dirs=["logs","data", "data/" + language_code , "preprocessed_outputs" , "preprocessed_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
     for dir in mkdir_dirs:
         os.makedirs(dir,exist_ok=True)
         
     if create_subset_split_dirs==True:
-        if not os.path.isfile("kaldi_outputs/" +   "wav.scp"):
+        if not os.path.isfile("preprocessed_outputs/" +   "wav.scp"):
             # this means all files were already processed so there is no new file
             print("not creating new split since no new file present")
             return
         
-        # read the length of wav.scp in kaldi_outputs/language_id
-        wav_scp_count=str(count_lines("kaldi_outputs/"  + "wav.scp"))
+        # read the length of wav.scp in preprocessed_outputs/language_id
+        wav_scp_count=str(count_lines("preprocessed_outputs/"  + "wav.scp"))
 
-        # check if wav_scp_count is present in file called .subsets.txt in kaldi_outputs/language_id
-        # if yes skip , dont do anything, if not create a subdirectory in kaldi_outputs/language_id called language_id_wav_scp_count
+        # check if wav_scp_count is present in file called .subsets.txt in preprocessed_outputs/language_id
+        # if yes skip , dont do anything, if not create a subdirectory in preprocessed_outputs/language_id called language_id_wav_scp_count
         
-        if os.path.isfile("kaldi_outputs/" +  language_code + "/.subsets.txt"):
+        if os.path.isfile("preprocessed_outputs/" +  language_code + "/.subsets.txt"):
             print ("subset file exists for language")
             print("wav scp count : " + str(wav_scp_count))
-            subset_counts=read_file_to_list("kaldi_outputs/" +  language_code + "/.subsets.txt")
+            subset_counts=read_file_to_list("preprocessed_outputs/" +  language_code + "/.subsets.txt")
             
             if wav_scp_count in subset_counts:
                 print("split directory already existing")
@@ -61,7 +61,7 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
                 create_split_dir(language_code,wav_scp_count)        
         else:
             print ("subsets.txt doesnt exist creating it for the first time")
-            append_row_file("kaldi_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
+            append_row_file("preprocessed_outputs/" +  language_code + "/.subsets.txt",wav_scp_count)
             create_split_dir(language_code,wav_scp_count)
 
     return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
