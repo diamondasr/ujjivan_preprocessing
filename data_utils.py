@@ -22,9 +22,13 @@ current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 words_set = set() # a set to store words for lexicon
 
-from file_utils import check_if_file_exists, read_json_from_file,read_file_to_list,write_json_to_file,write_list_to_file,append_row_file,remove_file,  convert_mp3_to_wav 
+from file_utils import read_file_to_list, remove_file,  convert_mp3_to_wav
+from file_utils import write_json_to_file,write_list_to_file,append_row_file
+
 from g2p_utils import g2p_create_lexicon
-from kaldi_utils import create_kaldi_wav_scp_file,create_kaldi_text_file,create_kaldi_directories,rm_unnecessary_files
+
+from kaldi_utils import create_kaldi_wav_scp_file,create_kaldi_text_file
+from kaldi_utils import create_kaldi_directories,rm_unnecessary_files
 
 def init_system(language_code):
     """
@@ -63,7 +67,9 @@ def filter_line(line):
             no_punct = no_punct + char
     return no_punct
     
-def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
+def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,\
+source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,\
+utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
     """
     converts mp3 to wav file , updates wav.list , wav.scp text ,spk2utt file
     """
@@ -90,7 +96,8 @@ def convert_single_file(url,downloaded_audio_count,destination_directory,speaker
         print("exception during convert single file function")
         logging.error(logging.traceback.format_exc())
 
-def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,final_lexicon_path,language_code,generate_lexicon=True):
+def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
+final_lexicon_path,language_code,generate_lexicon=True):
     """ 
     downloads transcriptions json and then also generate lexicon
     """

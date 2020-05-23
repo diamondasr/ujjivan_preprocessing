@@ -24,7 +24,8 @@ def create_split_dir(language_code,wav_scp_count):
 
     print("split directory doesnt exist, creating ..")
     create_dir("preprocessed_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count,language_code)
-    cp_source=['preprocessed_outputs/wav.scp','preprocessed_outputs/text','preprocessed_outputs/spk2utt','preprocessed_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
+    cp_source=['preprocessed_outputs/wav.scp','preprocessed_outputs/text','preprocessed_outputs/spk2utt',\
+    'preprocessed_outputs/utt2spk','data/' + language_code +  '/lexicon.txt']
     for source in cp_source:
         generic_shell("cp " + source + " preprocessed_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
 
@@ -34,7 +35,8 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
         for example it creates preprocessed_outputs/<lang_code>/<split>/
     """
     wav_scp_count=0
-    mkdir_dirs=["logs","data", "data/" + language_code , "preprocessed_outputs" , "preprocessed_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
+    mkdir_dirs=["logs","data", "data/" + language_code , "preprocessed_outputs" , \
+    "preprocessed_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
     for dir in mkdir_dirs:
         os.makedirs(dir,exist_ok=True)
         

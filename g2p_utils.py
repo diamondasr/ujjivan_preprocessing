@@ -29,11 +29,14 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         files_to_remove=['lexicon_temp','lexicon_temp2','lexicon_temp3','lexicon_temp4']
         for f in files_to_remove:
             remove_file(f)
-        generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + \
+        ' ' + 'lexicon_temp' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # create actual lexicon file
-        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2 ', log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('paste ' + input_lexicon_file + ' ' + 'lexicon_temp > lexicon_temp2 ',\
+         log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         # remove rows with empty pronunciations
-        generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3 """ , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell("""awk '$2!=""' lexicon_temp2 > lexicon_temp3 """ , \
+        log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
         append_row_file('lexicon_temp3','!SIL SIL')
         append_row_file('lexicon_temp3','<UNK> SPN')
         remove_duplicate_lines('lexicon_temp3','lexicon_temp4')

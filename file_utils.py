@@ -71,7 +71,8 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
-    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-hide_banner' ,'-nostats', '-y', '-i', mp3_path , output_wav_dir + out_file_temp]
+    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-hide_banner' ,'-nostats', '-y',\
+     '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -79,7 +80,8 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
     if stderr:
         logging.error(stderr)
 
-    process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' , '-r16000' , '-b16',output_wav_dir + out_file]
+    process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' ,\
+     '-r16000' , '-b16',output_wav_dir + out_file]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
     stdout2, stderr2 = process2.communicate()
@@ -110,7 +112,6 @@ def remove_duplicate_lines(input_file,output_file):
     """
     removes duplicate lines from a text file
     """
-
     lines_seen = set() # holds lines already seen
     outfile = open(output_file, "w")
     for line in open(input_file, "r"):
