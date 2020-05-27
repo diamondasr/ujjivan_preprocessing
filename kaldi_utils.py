@@ -81,7 +81,7 @@ def create_kaldi_text_file(wav_file_path,text_file_path,transcription_filepath):
     """
     appends to kaldi text ( data/text in usual kaldi directory ) file 
     """
-    sentence_id=wav_file_path.split("_")[2].split('.')[0]
+    sentence_id=wav_file_path.split("/")[-1].split("_")[2].split('.')[0]
     transcription=read_transcription(sentence_id,transcription_filepath)
     text_line=wav_file_path.split("/")[-1].replace(".wav","") + " " +  transcription
     append_row_file(text_file_path,text_line)
