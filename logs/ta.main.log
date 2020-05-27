@@ -1,0 +1,690 @@
+2020-04-27 17:16:58,996 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887585_128_192.mp3: No such file or directory\n'
+2020-04-27 17:16:59,059 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887585_128_192.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,060 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887585_128_192.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,165 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887620_128_689.mp3: No such file or directory\n'
+2020-04-27 17:16:59,171 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887620_128_689.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,171 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887620_128_689.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,202 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887648_128_243.mp3: No such file or directory\n'
+2020-04-27 17:16:59,208 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887648_128_243.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,209 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887648_128_243.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,240 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887686_128_88.mp3: No such file or directory\n'
+2020-04-27 17:16:59,246 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887686_128_88.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,246 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887686_128_88.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,277 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887713_128_89.mp3: No such file or directory\n'
+2020-04-27 17:16:59,282 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887713_128_89.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,282 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887713_128_89.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,314 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887754_128_507.mp3: No such file or directory\n'
+2020-04-27 17:16:59,319 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887754_128_507.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,319 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887754_128_507.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,350 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887774_128_562.mp3: No such file or directory\n'
+2020-04-27 17:16:59,355 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887774_128_562.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,356 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887774_128_562.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,388 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887800_128_652.mp3: No such file or directory\n'
+2020-04-27 17:16:59,393 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887800_128_652.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,394 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887800_128_652.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,424 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887851_128_147.mp3: No such file or directory\n'
+2020-04-27 17:16:59,429 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887851_128_147.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,430 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887851_128_147.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,461 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887874_128_638.mp3: No such file or directory\n'
+2020-04-27 17:16:59,466 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887874_128_638.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,467 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887874_128_638.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,497 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887921_128_487.mp3: No such file or directory\n'
+2020-04-27 17:16:59,502 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887921_128_487.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,502 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887921_128_487.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,533 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887945_128_165.mp3: No such file or directory\n'
+2020-04-27 17:16:59,538 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887945_128_165.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,539 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887945_128_165.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,569 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563887980_128_496.mp3: No such file or directory\n'
+2020-04-27 17:16:59,574 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563887980_128_496.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,575 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563887980_128_496.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,606 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563888048_128_510.mp3: No such file or directory\n'
+2020-04-27 17:16:59,611 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563888048_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,611 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563888048_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,643 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563888077_128_510.mp3: No such file or directory\n'
+2020-04-27 17:16:59,649 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563888077_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,650 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563888077_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,683 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563888163_128_510.mp3: No such file or directory\n'
+2020-04-27 17:16:59,688 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563888163_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,688 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563888163_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,719 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563888190_128_510.mp3: No such file or directory\n'
+2020-04-27 17:16:59,725 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563888190_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,725 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563888190_128_510.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,756 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1563888224_128_264.mp3: No such file or directory\n'
+2020-04-27 17:16:59,762 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1563888224_128_264.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,762 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1563888224_128_264.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,797 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566538854_141_697.mp3: No such file or directory\n'
+2020-04-27 17:16:59,801 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566538854_141_697.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,802 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566538854_141_697.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,834 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566538890_141_85.mp3: No such file or directory\n'
+2020-04-27 17:16:59,839 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566538890_141_85.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,840 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566538890_141_85.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,869 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566538930_141_470.mp3: No such file or directory\n'
+2020-04-27 17:16:59,875 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566538930_141_470.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,875 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566538930_141_470.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,906 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566538994_141_511.mp3: No such file or directory\n'
+2020-04-27 17:16:59,911 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566538994_141_511.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,912 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566538994_141_511.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,943 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539035_141_755.mp3: No such file or directory\n'
+2020-04-27 17:16:59,948 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539035_141_755.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,948 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539035_141_755.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,980 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539059_141_755.mp3: No such file or directory\n'
+2020-04-27 17:16:59,985 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539059_141_755.temp.wav': No such file or directory\n"
+2020-04-27 17:16:59,985 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539059_141_755.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,016 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539090_141_618.mp3: No such file or directory\n'
+2020-04-27 17:17:00,021 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539090_141_618.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,022 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539090_141_618.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,054 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539138_141_179.mp3: No such file or directory\n'
+2020-04-27 17:17:00,059 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539138_141_179.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,060 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539138_141_179.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,093 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539195_141_715.mp3: No such file or directory\n'
+2020-04-27 17:17:00,098 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539195_141_715.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,099 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539195_141_715.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,131 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539223_141_326.mp3: No such file or directory\n'
+2020-04-27 17:17:00,136 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539223_141_326.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,137 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539223_141_326.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,167 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539253_141_267.mp3: No such file or directory\n'
+2020-04-27 17:17:00,172 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539253_141_267.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,173 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539253_141_267.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,204 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539291_141_121.mp3: No such file or directory\n'
+2020-04-27 17:17:00,209 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539291_141_121.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,210 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539291_141_121.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,240 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539321_141_497.mp3: No such file or directory\n'
+2020-04-27 17:17:00,245 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539321_141_497.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,246 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539321_141_497.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,277 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539349_141_72.mp3: No such file or directory\n'
+2020-04-27 17:17:00,283 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539349_141_72.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,284 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539349_141_72.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,323 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539371_141_62.mp3: No such file or directory\n'
+2020-04-27 17:17:00,329 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539371_141_62.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,330 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539371_141_62.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,360 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539400_141_787.mp3: No such file or directory\n'
+2020-04-27 17:17:00,365 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539400_141_787.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,366 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539400_141_787.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,398 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539422_141_746.mp3: No such file or directory\n'
+2020-04-27 17:17:00,404 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539422_141_746.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,405 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539422_141_746.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,439 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539455_141_695.mp3: No such file or directory\n'
+2020-04-27 17:17:00,444 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539455_141_695.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,445 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539455_141_695.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,476 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539488_141_733.mp3: No such file or directory\n'
+2020-04-27 17:17:00,481 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539488_141_733.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,483 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539488_141_733.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,515 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539529_141_427.mp3: No such file or directory\n'
+2020-04-27 17:17:00,520 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539529_141_427.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,521 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539529_141_427.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,552 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539548_141_729.mp3: No such file or directory\n'
+2020-04-27 17:17:00,557 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539548_141_729.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,559 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539548_141_729.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,592 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539589_141_690.mp3: No such file or directory\n'
+2020-04-27 17:17:00,597 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539589_141_690.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,598 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539589_141_690.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,631 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539626_141_92.mp3: No such file or directory\n'
+2020-04-27 17:17:00,636 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539626_141_92.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,637 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539626_141_92.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,669 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539687_141_299.mp3: No such file or directory\n'
+2020-04-27 17:17:00,675 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539687_141_299.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,676 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539687_141_299.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,706 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539709_141_235.mp3: No such file or directory\n'
+2020-04-27 17:17:00,711 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539709_141_235.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,713 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539709_141_235.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,744 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539740_141_401.mp3: No such file or directory\n'
+2020-04-27 17:17:00,749 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539740_141_401.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,750 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539740_141_401.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,781 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539787_141_488.mp3: No such file or directory\n'
+2020-04-27 17:17:00,786 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539787_141_488.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,787 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539787_141_488.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,818 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539823_141_803.mp3: No such file or directory\n'
+2020-04-27 17:17:00,823 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539823_141_803.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,824 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539823_141_803.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,856 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539852_141_382.mp3: No such file or directory\n'
+2020-04-27 17:17:00,861 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539852_141_382.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,862 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539852_141_382.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,893 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539879_141_385.mp3: No such file or directory\n'
+2020-04-27 17:17:00,898 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539879_141_385.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,901 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539879_141_385.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,932 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539898_141_662.mp3: No such file or directory\n'
+2020-04-27 17:17:00,937 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539898_141_662.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,939 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539898_141_662.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,970 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539927_141_67.mp3: No such file or directory\n'
+2020-04-27 17:17:00,976 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539927_141_67.temp.wav': No such file or directory\n"
+2020-04-27 17:17:00,977 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539927_141_67.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,007 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539948_141_192.mp3: No such file or directory\n'
+2020-04-27 17:17:01,013 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539948_141_192.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,014 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539948_141_192.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,045 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539976_141_628.mp3: No such file or directory\n'
+2020-04-27 17:17:01,050 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539976_141_628.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,051 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539976_141_628.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,083 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566539998_141_254.mp3: No such file or directory\n'
+2020-04-27 17:17:01,088 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566539998_141_254.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,089 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566539998_141_254.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,120 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540019_141_355.mp3: No such file or directory\n'
+2020-04-27 17:17:01,125 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540019_141_355.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,126 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540019_141_355.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,157 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540040_141_333.mp3: No such file or directory\n'
+2020-04-27 17:17:01,163 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540040_141_333.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,165 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540040_141_333.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,196 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540069_141_495.mp3: No such file or directory\n'
+2020-04-27 17:17:01,202 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540069_141_495.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,203 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540069_141_495.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,234 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540110_141_752.mp3: No such file or directory\n'
+2020-04-27 17:17:01,239 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540110_141_752.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,241 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540110_141_752.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,272 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540132_141_319.mp3: No such file or directory\n'
+2020-04-27 17:17:01,277 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540132_141_319.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,278 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540132_141_319.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,308 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540156_141_23.mp3: No such file or directory\n'
+2020-04-27 17:17:01,313 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540156_141_23.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,315 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540156_141_23.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,345 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540185_141_65.mp3: No such file or directory\n'
+2020-04-27 17:17:01,351 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540185_141_65.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,352 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540185_141_65.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,382 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540203_141_500.mp3: No such file or directory\n'
+2020-04-27 17:17:01,388 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540203_141_500.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,389 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540203_141_500.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,420 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540233_141_191.mp3: No such file or directory\n'
+2020-04-27 17:17:01,425 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540233_141_191.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,427 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540233_141_191.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,457 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540259_141_607.mp3: No such file or directory\n'
+2020-04-27 17:17:01,463 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540259_141_607.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,464 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540259_141_607.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,495 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540297_141_584.mp3: No such file or directory\n'
+2020-04-27 17:17:01,501 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540297_141_584.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,502 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540297_141_584.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,533 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540319_141_69.mp3: No such file or directory\n'
+2020-04-27 17:17:01,539 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540319_141_69.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,541 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540319_141_69.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,571 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540342_141_740.mp3: No such file or directory\n'
+2020-04-27 17:17:01,576 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540342_141_740.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,578 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540342_141_740.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,608 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540379_141_44.mp3: No such file or directory\n'
+2020-04-27 17:17:01,614 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540379_141_44.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,615 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540379_141_44.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,647 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540401_141_309.mp3: No such file or directory\n'
+2020-04-27 17:17:01,653 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540401_141_309.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,654 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540401_141_309.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,686 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540419_141_804.mp3: No such file or directory\n'
+2020-04-27 17:17:01,692 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540419_141_804.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,693 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540419_141_804.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,725 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540443_141_242.mp3: No such file or directory\n'
+2020-04-27 17:17:01,730 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540443_141_242.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,732 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540443_141_242.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,762 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540464_141_383.mp3: No such file or directory\n'
+2020-04-27 17:17:01,767 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540464_141_383.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,769 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540464_141_383.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,800 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540482_141_255.mp3: No such file or directory\n'
+2020-04-27 17:17:01,805 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540482_141_255.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,807 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540482_141_255.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,837 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540512_141_522.mp3: No such file or directory\n'
+2020-04-27 17:17:01,843 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540512_141_522.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,845 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540512_141_522.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,875 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540536_141_27.mp3: No such file or directory\n'
+2020-04-27 17:17:01,880 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540536_141_27.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,882 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540536_141_27.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,912 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540562_141_795.mp3: No such file or directory\n'
+2020-04-27 17:17:01,917 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540562_141_795.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,919 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540562_141_795.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,950 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540587_141_129.mp3: No such file or directory\n'
+2020-04-27 17:17:01,956 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540587_141_129.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,957 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540587_141_129.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,988 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540612_141_60.mp3: No such file or directory\n'
+2020-04-27 17:17:01,993 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540612_141_60.temp.wav': No such file or directory\n"
+2020-04-27 17:17:01,995 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540612_141_60.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,025 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540644_141_616.mp3: No such file or directory\n'
+2020-04-27 17:17:02,031 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540644_141_616.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,033 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540644_141_616.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,065 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540676_141_64.mp3: No such file or directory\n'
+2020-04-27 17:17:02,071 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540676_141_64.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,073 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540676_141_64.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,105 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540715_141_463.mp3: No such file or directory\n'
+2020-04-27 17:17:02,110 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540715_141_463.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,112 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540715_141_463.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,146 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540735_141_380.mp3: No such file or directory\n'
+2020-04-27 17:17:02,152 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540735_141_380.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,154 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540735_141_380.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,187 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540756_141_666.mp3: No such file or directory\n'
+2020-04-27 17:17:02,193 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540756_141_666.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,195 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540756_141_666.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,228 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540827_141_491.mp3: No such file or directory\n'
+2020-04-27 17:17:02,233 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540827_141_491.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,235 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540827_141_491.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,269 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540869_141_341.mp3: No such file or directory\n'
+2020-04-27 17:17:02,282 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540869_141_341.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,284 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540869_141_341.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,323 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540882_141_341.mp3: No such file or directory\n'
+2020-04-27 17:17:02,329 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540882_141_341.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,331 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540882_141_341.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,363 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540929_141_211.mp3: No such file or directory\n'
+2020-04-27 17:17:02,369 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540929_141_211.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,371 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540929_141_211.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,402 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566540979_141_452.mp3: No such file or directory\n'
+2020-04-27 17:17:02,408 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566540979_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,410 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566540979_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,442 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541003_141_452.mp3: No such file or directory\n'
+2020-04-27 17:17:02,448 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541003_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,450 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541003_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,482 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541026_141_452.mp3: No such file or directory\n'
+2020-04-27 17:17:02,488 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541026_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,491 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541026_141_452.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,523 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541046_141_545.mp3: No such file or directory\n'
+2020-04-27 17:17:02,529 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541046_141_545.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,534 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541046_141_545.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,567 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541082_141_142.mp3: No such file or directory\n'
+2020-04-27 17:17:02,575 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541082_141_142.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,579 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541082_141_142.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,610 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541089_141_142.mp3: No such file or directory\n'
+2020-04-27 17:17:02,615 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541089_141_142.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,617 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541089_141_142.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,650 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541141_141_482.mp3: No such file or directory\n'
+2020-04-27 17:17:02,655 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541141_141_482.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,657 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541141_141_482.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,689 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541160_141_482.mp3: No such file or directory\n'
+2020-04-27 17:17:02,695 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541160_141_482.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,697 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541160_141_482.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,728 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541180_141_654.mp3: No such file or directory\n'
+2020-04-27 17:17:02,734 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541180_141_654.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,736 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541180_141_654.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,767 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541202_141_493.mp3: No such file or directory\n'
+2020-04-27 17:17:02,772 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541202_141_493.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,774 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541202_141_493.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,806 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541221_141_166.mp3: No such file or directory\n'
+2020-04-27 17:17:02,811 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541221_141_166.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,814 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541221_141_166.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,845 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541240_141_367.mp3: No such file or directory\n'
+2020-04-27 17:17:02,850 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541240_141_367.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,852 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541240_141_367.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,887 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541281_141_189.mp3: No such file or directory\n'
+2020-04-27 17:17:02,892 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541281_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,895 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541281_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,925 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541333_141_189.mp3: No such file or directory\n'
+2020-04-27 17:17:02,931 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541333_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,933 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541333_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,964 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541353_141_189.mp3: No such file or directory\n'
+2020-04-27 17:17:02,969 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541353_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:02,972 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541353_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,003 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541359_141_189.mp3: No such file or directory\n'
+2020-04-27 17:17:03,008 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541359_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,011 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541359_141_189.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,042 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541454_141_728.mp3: No such file or directory\n'
+2020-04-27 17:17:03,048 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541454_141_728.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,050 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541454_141_728.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,082 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541473_141_726.mp3: No such file or directory\n'
+2020-04-27 17:17:03,087 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541473_141_726.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,092 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541473_141_726.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,125 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541496_141_131.mp3: No such file or directory\n'
+2020-04-27 17:17:03,130 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541496_141_131.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,132 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541496_141_131.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,163 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541522_141_148.mp3: No such file or directory\n'
+2020-04-27 17:17:03,169 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541522_141_148.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,173 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541522_141_148.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,205 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541546_141_331.mp3: No such file or directory\n'
+2020-04-27 17:17:03,211 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541546_141_331.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,213 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541546_141_331.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,247 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541565_141_244.mp3: No such file or directory\n'
+2020-04-27 17:17:03,252 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541565_141_244.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,255 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541565_141_244.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,287 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541585_141_465.mp3: No such file or directory\n'
+2020-04-27 17:17:03,292 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541585_141_465.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,297 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541585_141_465.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,329 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541615_141_619.mp3: No such file or directory\n'
+2020-04-27 17:17:03,335 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541615_141_619.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,337 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541615_141_619.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,369 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541643_141_636.mp3: No such file or directory\n'
+2020-04-27 17:17:03,375 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541643_141_636.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,377 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541643_141_636.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,410 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541662_141_750.mp3: No such file or directory\n'
+2020-04-27 17:17:03,415 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541662_141_750.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,418 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541662_141_750.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,449 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541680_141_160.mp3: No such file or directory\n'
+2020-04-27 17:17:03,455 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541680_141_160.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,457 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541680_141_160.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,489 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541704_141_94.mp3: No such file or directory\n'
+2020-04-27 17:17:03,495 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541704_141_94.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,497 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541704_141_94.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,530 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541736_141_664.mp3: No such file or directory\n'
+2020-04-27 17:17:03,535 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541736_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,538 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541736_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,571 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541763_141_664.mp3: No such file or directory\n'
+2020-04-27 17:17:03,577 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541763_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,580 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541763_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,611 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541790_141_664.mp3: No such file or directory\n'
+2020-04-27 17:17:03,617 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541790_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,622 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541790_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,656 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541803_141_664.mp3: No such file or directory\n'
+2020-04-27 17:17:03,661 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541803_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,664 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541803_141_664.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,696 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541840_141_786.mp3: No such file or directory\n'
+2020-04-27 17:17:03,702 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541840_141_786.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,704 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541840_141_786.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,737 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541864_141_438.mp3: No such file or directory\n'
+2020-04-27 17:17:03,742 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541864_141_438.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,745 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541864_141_438.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,777 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541888_141_813.mp3: No such file or directory\n'
+2020-04-27 17:17:03,782 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541888_141_813.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,788 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541888_141_813.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,820 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541912_141_634.mp3: No such file or directory\n'
+2020-04-27 17:17:03,826 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541912_141_634.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,833 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541912_141_634.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,865 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541940_141_737.mp3: No such file or directory\n'
+2020-04-27 17:17:03,871 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541940_141_737.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,874 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541940_141_737.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,907 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566541981_141_213.mp3: No such file or directory\n'
+2020-04-27 17:17:03,913 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566541981_141_213.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,916 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566541981_141_213.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,948 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542012_141_417.mp3: No such file or directory\n'
+2020-04-27 17:17:03,953 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542012_141_417.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,957 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542012_141_417.temp.wav': No such file or directory\n"
+2020-04-27 17:17:03,989 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542035_141_122.mp3: No such file or directory\n'
+2020-04-27 17:17:03,995 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542035_141_122.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,001 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542035_141_122.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,035 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542092_141_577.mp3: No such file or directory\n'
+2020-04-27 17:17:04,041 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542092_141_577.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,043 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542092_141_577.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,075 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542111_141_252.mp3: No such file or directory\n'
+2020-04-27 17:17:04,081 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542111_141_252.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,083 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542111_141_252.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,115 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542141_141_397.mp3: No such file or directory\n'
+2020-04-27 17:17:04,121 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542141_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,124 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542141_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,156 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542163_141_397.mp3: No such file or directory\n'
+2020-04-27 17:17:04,162 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542163_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,165 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542163_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,196 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542182_141_397.mp3: No such file or directory\n'
+2020-04-27 17:17:04,202 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542182_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,205 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542182_141_397.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,237 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542208_141_134.mp3: No such file or directory\n'
+2020-04-27 17:17:04,242 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542208_141_134.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,247 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542208_141_134.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,279 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542264_141_228.mp3: No such file or directory\n'
+2020-04-27 17:17:04,284 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542264_141_228.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,288 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542264_141_228.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,321 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542299_141_5.mp3: No such file or directory\n'
+2020-04-27 17:17:04,326 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542299_141_5.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,332 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542299_141_5.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,363 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542319_141_237.mp3: No such file or directory\n'
+2020-04-27 17:17:04,369 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542319_141_237.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,372 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542319_141_237.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,403 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542352_141_239.mp3: No such file or directory\n'
+2020-04-27 17:17:04,409 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542352_141_239.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,412 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542352_141_239.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,443 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542386_141_96.mp3: No such file or directory\n'
+2020-04-27 17:17:04,449 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542386_141_96.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,452 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542386_141_96.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,483 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542430_141_772.mp3: No such file or directory\n'
+2020-04-27 17:17:04,488 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542430_141_772.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,491 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542430_141_772.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,524 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542454_141_748.mp3: No such file or directory\n'
+2020-04-27 17:17:04,530 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542454_141_748.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,533 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542454_141_748.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,565 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542487_141_48.mp3: No such file or directory\n'
+2020-04-27 17:17:04,570 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542487_141_48.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,574 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542487_141_48.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,604 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542507_141_589.mp3: No such file or directory\n'
+2020-04-27 17:17:04,610 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542507_141_589.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,616 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542507_141_589.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,650 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542530_141_707.mp3: No such file or directory\n'
+2020-04-27 17:17:04,655 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542530_141_707.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,659 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542530_141_707.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,690 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542592_141_144.mp3: No such file or directory\n'
+2020-04-27 17:17:04,696 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542592_141_144.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,699 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542592_141_144.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,731 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542618_141_180.mp3: No such file or directory\n'
+2020-04-27 17:17:04,736 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542618_141_180.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,742 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542618_141_180.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,774 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542651_141_699.mp3: No such file or directory\n'
+2020-04-27 17:17:04,779 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542651_141_699.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,785 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542651_141_699.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,819 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542674_141_812.mp3: No such file or directory\n'
+2020-04-27 17:17:04,825 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542674_141_812.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,828 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542674_141_812.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,860 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542694_141_507.mp3: No such file or directory\n'
+2020-04-27 17:17:04,866 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542694_141_507.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,869 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542694_141_507.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,902 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542714_141_464.mp3: No such file or directory\n'
+2020-04-27 17:17:04,907 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542714_141_464.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,911 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542714_141_464.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,943 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542737_141_756.mp3: No such file or directory\n'
+2020-04-27 17:17:04,949 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542737_141_756.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,952 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542737_141_756.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,985 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542763_141_549.mp3: No such file or directory\n'
+2020-04-27 17:17:04,991 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542763_141_549.temp.wav': No such file or directory\n"
+2020-04-27 17:17:04,997 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542763_141_549.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,029 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542792_141_483.mp3: No such file or directory\n'
+2020-04-27 17:17:05,035 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542792_141_483.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,038 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542792_141_483.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,072 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542814_141_483.mp3: No such file or directory\n'
+2020-04-27 17:17:05,077 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542814_141_483.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,081 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542814_141_483.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,112 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542838_141_551.mp3: No such file or directory\n'
+2020-04-27 17:17:05,118 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542838_141_551.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,122 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542838_141_551.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,154 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542863_141_15.mp3: No such file or directory\n'
+2020-04-27 17:17:05,160 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542863_141_15.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,163 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542863_141_15.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,194 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542895_141_704.mp3: No such file or directory\n'
+2020-04-27 17:17:05,200 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542895_141_704.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,203 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542895_141_704.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,238 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542927_141_188.mp3: No such file or directory\n'
+2020-04-27 17:17:05,243 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542927_141_188.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,250 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542927_141_188.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,282 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542947_141_739.mp3: No such file or directory\n'
+2020-04-27 17:17:05,287 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542947_141_739.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,291 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542947_141_739.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,323 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566542979_141_565.mp3: No such file or directory\n'
+2020-04-27 17:17:05,329 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566542979_141_565.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,332 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566542979_141_565.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,364 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543026_141_565.mp3: No such file or directory\n'
+2020-04-27 17:17:05,370 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543026_141_565.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,376 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543026_141_565.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,409 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543510_141_262.mp3: No such file or directory\n'
+2020-04-27 17:17:05,414 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543510_141_262.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,418 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543510_141_262.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,450 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543531_141_575.mp3: No such file or directory\n'
+2020-04-27 17:17:05,456 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543531_141_575.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,463 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543531_141_575.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,497 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543550_141_423.mp3: No such file or directory\n'
+2020-04-27 17:17:05,503 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543550_141_423.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,506 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543550_141_423.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,538 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543581_141_388.mp3: No such file or directory\n'
+2020-04-27 17:17:05,544 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543581_141_388.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,548 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543581_141_388.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,580 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543594_141_388.mp3: No such file or directory\n'
+2020-04-27 17:17:05,587 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543594_141_388.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,591 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543594_141_388.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,625 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543617_141_736.mp3: No such file or directory\n'
+2020-04-27 17:17:05,631 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543617_141_736.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,635 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543617_141_736.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,668 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543650_141_815.mp3: No such file or directory\n'
+2020-04-27 17:17:05,674 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543650_141_815.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,679 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543650_141_815.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,711 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543674_141_229.mp3: No such file or directory\n'
+2020-04-27 17:17:05,717 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543674_141_229.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,721 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543674_141_229.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,752 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543706_141_510.mp3: No such file or directory\n'
+2020-04-27 17:17:05,758 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543706_141_510.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,762 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543706_141_510.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,794 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543731_141_24.mp3: No such file or directory\n'
+2020-04-27 17:17:05,799 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543731_141_24.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,803 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543731_141_24.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,834 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543786_141_517.mp3: No such file or directory\n'
+2020-04-27 17:17:05,840 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543786_141_517.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,844 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543786_141_517.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,875 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543810_141_236.mp3: No such file or directory\n'
+2020-04-27 17:17:05,881 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543810_141_236.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,885 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543810_141_236.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,916 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543838_141_432.mp3: No such file or directory\n'
+2020-04-27 17:17:05,922 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543838_141_432.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,929 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543838_141_432.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,961 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543869_141_30.mp3: No such file or directory\n'
+2020-04-27 17:17:05,967 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543869_141_30.temp.wav': No such file or directory\n"
+2020-04-27 17:17:05,970 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543869_141_30.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,002 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543888_141_434.mp3: No such file or directory\n'
+2020-04-27 17:17:06,008 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543888_141_434.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,012 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543888_141_434.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,044 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543907_141_193.mp3: No such file or directory\n'
+2020-04-27 17:17:06,050 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543907_141_193.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,055 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543907_141_193.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,086 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543934_141_184.mp3: No such file or directory\n'
+2020-04-27 17:17:06,092 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543934_141_184.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,096 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543934_141_184.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,128 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543959_141_609.mp3: No such file or directory\n'
+2020-04-27 17:17:06,134 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543959_141_609.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,141 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543959_141_609.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,175 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566543980_141_693.mp3: No such file or directory\n'
+2020-04-27 17:17:06,182 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566543980_141_693.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,189 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566543980_141_693.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,223 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544008_141_266.mp3: No such file or directory\n'
+2020-04-27 17:17:06,229 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544008_141_266.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,233 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544008_141_266.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,265 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544028_141_455.mp3: No such file or directory\n'
+2020-04-27 17:17:06,271 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544028_141_455.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,275 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544028_141_455.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,308 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544058_141_74.mp3: No such file or directory\n'
+2020-04-27 17:17:06,314 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544058_141_74.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,318 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544058_141_74.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,349 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544077_141_630.mp3: No such file or directory\n'
+2020-04-27 17:17:06,355 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544077_141_630.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,359 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544077_141_630.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,391 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544112_141_651.mp3: No such file or directory\n'
+2020-04-27 17:17:06,397 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544112_141_651.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,404 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544112_141_651.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,437 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544134_141_33.mp3: No such file or directory\n'
+2020-04-27 17:17:06,443 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544134_141_33.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,447 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544134_141_33.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,478 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544163_141_563.mp3: No such file or directory\n'
+2020-04-27 17:17:06,484 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544163_141_563.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,491 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544163_141_563.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,524 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544193_141_541.mp3: No such file or directory\n'
+2020-04-27 17:17:06,530 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544193_141_541.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,534 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544193_141_541.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,566 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544211_141_683.mp3: No such file or directory\n'
+2020-04-27 17:17:06,572 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544211_141_683.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,576 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544211_141_683.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,608 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544237_141_391.mp3: No such file or directory\n'
+2020-04-27 17:17:06,613 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544237_141_391.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,618 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544237_141_391.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,651 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544256_141_671.mp3: No such file or directory\n'
+2020-04-27 17:17:06,657 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544256_141_671.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,661 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544256_141_671.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,693 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544276_141_132.mp3: No such file or directory\n'
+2020-04-27 17:17:06,698 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544276_141_132.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,702 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544276_141_132.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,734 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544295_141_638.mp3: No such file or directory\n'
+2020-04-27 17:17:06,739 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544295_141_638.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,744 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544295_141_638.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,776 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544313_141_467.mp3: No such file or directory\n'
+2020-04-27 17:17:06,782 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544313_141_467.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,786 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544313_141_467.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,817 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544331_141_269.mp3: No such file or directory\n'
+2020-04-27 17:17:06,823 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544331_141_269.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,831 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544331_141_269.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,863 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544353_141_342.mp3: No such file or directory\n'
+2020-04-27 17:17:06,869 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544353_141_342.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,876 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544353_141_342.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,908 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544374_141_558.mp3: No such file or directory\n'
+2020-04-27 17:17:06,913 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544374_141_558.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,918 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544374_141_558.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,950 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544409_141_29.mp3: No such file or directory\n'
+2020-04-27 17:17:06,956 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544409_141_29.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,964 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544409_141_29.temp.wav': No such file or directory\n"
+2020-04-27 17:17:06,995 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544427_141_734.mp3: No such file or directory\n'
+2020-04-27 17:17:07,001 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544427_141_734.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,005 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544427_141_734.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,040 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544447_141_139.mp3: No such file or directory\n'
+2020-04-27 17:17:07,046 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544447_141_139.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,054 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544447_141_139.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,086 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544467_141_86.mp3: No such file or directory\n'
+2020-04-27 17:17:07,092 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544467_141_86.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,097 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544467_141_86.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,129 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544490_141_4.mp3: No such file or directory\n'
+2020-04-27 17:17:07,135 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544490_141_4.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,139 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544490_141_4.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,171 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544521_141_765.mp3: No such file or directory\n'
+2020-04-27 17:17:07,177 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544521_141_765.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,181 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544521_141_765.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,213 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544588_141_314.mp3: No such file or directory\n'
+2020-04-27 17:17:07,219 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544588_141_314.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,223 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544588_141_314.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,255 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544620_141_327.mp3: No such file or directory\n'
+2020-04-27 17:17:07,260 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544620_141_327.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,269 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544620_141_327.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,301 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544643_141_754.mp3: No such file or directory\n'
+2020-04-27 17:17:07,307 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544643_141_754.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,312 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544643_141_754.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,345 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544691_141_428.mp3: No such file or directory\n'
+2020-04-27 17:17:07,350 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544691_141_428.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,355 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544691_141_428.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,387 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544711_141_16.mp3: No such file or directory\n'
+2020-04-27 17:17:07,393 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544711_141_16.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,401 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544711_141_16.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,433 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544732_141_670.mp3: No such file or directory\n'
+2020-04-27 17:17:07,439 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544732_141_670.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,444 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544732_141_670.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,476 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544749_141_264.mp3: No such file or directory\n'
+2020-04-27 17:17:07,481 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544749_141_264.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,490 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544749_141_264.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,522 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544771_141_675.mp3: No such file or directory\n'
+2020-04-27 17:17:07,528 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544771_141_675.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,533 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544771_141_675.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,567 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544790_141_454.mp3: No such file or directory\n'
+2020-04-27 17:17:07,573 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544790_141_454.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,578 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544790_141_454.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,610 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544820_141_441.mp3: No such file or directory\n'
+2020-04-27 17:17:07,616 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544820_141_441.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,620 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544820_141_441.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,656 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544935_141_667.mp3: No such file or directory\n'
+2020-04-27 17:17:07,663 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544935_141_667.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,668 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544935_141_667.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,702 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566544962_141_799.mp3: No such file or directory\n'
+2020-04-27 17:17:07,708 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566544962_141_799.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,713 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566544962_141_799.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,746 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545027_141_714.mp3: No such file or directory\n'
+2020-04-27 17:17:07,751 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545027_141_714.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,756 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545027_141_714.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,789 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545046_141_426.mp3: No such file or directory\n'
+2020-04-27 17:17:07,796 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545046_141_426.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,800 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545046_141_426.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,834 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545065_141_8.mp3: No such file or directory\n'
+2020-04-27 17:17:07,840 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545065_141_8.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,845 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545065_141_8.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,877 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545085_141_165.mp3: No such file or directory\n'
+2020-04-27 17:17:07,883 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545085_141_165.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,888 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545085_141_165.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,920 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545115_141_673.mp3: No such file or directory\n'
+2020-04-27 17:17:07,926 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545115_141_673.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,934 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545115_141_673.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,969 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545137_141_588.mp3: No such file or directory\n'
+2020-04-27 17:17:07,975 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545137_141_588.temp.wav': No such file or directory\n"
+2020-04-27 17:17:07,981 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545137_141_588.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,016 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545174_141_369.mp3: No such file or directory\n'
+2020-04-27 17:17:08,022 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545174_141_369.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,030 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545174_141_369.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,062 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545503_141_702.mp3: No such file or directory\n'
+2020-04-27 17:17:08,068 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545503_141_702.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,077 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545503_141_702.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,110 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545528_141_702.mp3: No such file or directory\n'
+2020-04-27 17:17:08,116 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545528_141_702.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,121 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545528_141_702.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,153 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545569_141_769.mp3: No such file or directory\n'
+2020-04-27 17:17:08,159 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545569_141_769.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,168 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545569_141_769.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,201 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545589_141_779.mp3: No such file or directory\n'
+2020-04-27 17:17:08,207 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545589_141_779.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,212 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545589_141_779.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,244 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545613_141_133.mp3: No such file or directory\n'
+2020-04-27 17:17:08,250 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545613_141_133.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,254 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545613_141_133.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,285 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545649_141_373.mp3: No such file or directory\n'
+2020-04-27 17:17:08,292 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545649_141_373.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,297 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545649_141_373.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,328 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545679_141_241.mp3: No such file or directory\n'
+2020-04-27 17:17:08,334 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545679_141_241.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,339 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545679_141_241.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,371 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545745_141_226.mp3: No such file or directory\n'
+2020-04-27 17:17:08,377 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545745_141_226.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,386 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545745_141_226.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,418 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545768_141_462.mp3: No such file or directory\n'
+2020-04-27 17:17:08,424 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545768_141_462.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,429 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545768_141_462.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,461 b'/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/1566545808_141_312.mp3: No such file or directory\n'
+2020-04-27 17:17:08,467 b"rm: cannot remove '/home/ubuntu/datasets/ujjivan/wavs/ta/1566545808_141_312.temp.wav': No such file or directory\n"
+2020-04-27 17:17:08,472 b"sox FAIL formats: can't open input file `/home/ubuntu/datasets/ujjivan/wavs/ta/1566545808_141_312.temp.wav': No such file or directory\n"

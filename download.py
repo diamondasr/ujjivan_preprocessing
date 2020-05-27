@@ -42,6 +42,8 @@ argument_parser.add_argument('-automatic_lexicon_generation',
 args = argument_parser.parse_args()
 language_code=args.lang # this is part of url of audio source and text source
 source_mp3_directory=args.source_mp3_dir
+if source_mp3_directory[-1] != '/':
+    source_mp3_directory=source_mp3_directory + '/'
 
 
 audio_source="https://vca-admin.azurewebsites.net/v1/audio?passcode=N@v4n473ch&language_code="
@@ -54,6 +56,8 @@ extension=".mp3" # default value is -1
 downloaded_audio_count=0
 row_count=0
 
+if args.destination_wav_dir[-1] != '/':
+    args.destination_wav_dir=args.destination_wav_dir + '/'
 destination_wav_directory= args.destination_wav_dir + language_code + "/"
 wav_list_path= os.getcwd() + "/wav.list"              # where will wav.list be stored temporarily
 
