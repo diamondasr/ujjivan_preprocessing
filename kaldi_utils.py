@@ -77,12 +77,12 @@ def create_kaldi_wav_scp_file(wav_file_path,wav_list_path,wav_scp_path,utterance
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
-def create_kaldi_text_file(wav_file_path,text_file_path,transcription_filepath):
+def create_kaldi_text_file(wav_file_path,text_file_path,transcription_filepath,utterance_id):
     """
     appends to kaldi text ( data/text in usual kaldi directory ) file 
     """
     sentence_id=wav_file_path.split("/")[-1].split("_")[2].split('.')[0]
     transcription=read_transcription(sentence_id,transcription_filepath)
-    text_line=wav_file_path.split("/")[-1].replace(".wav","") + " " +  transcription
+    text_line=utterance_id + " " +  transcription
     append_row_file(text_file_path,text_line)
 

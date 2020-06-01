@@ -92,7 +92,7 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         
         create_kaldi_wav_scp_file(output_destination_path,wav_list_file,wav_scp_path,utterance_id)
         downloaded_audio_count=downloaded_audio_count + 1
-        create_kaldi_text_file(output_destination_path, text_filepath,transcription_filepath)
+        create_kaldi_text_file(output_destination_path, text_filepath,transcription_filepath,utterance_id)
         append_row_file(spk2utt_filepath, str(speaker_id) + " " + utterance_id )
         append_row_file(utt2spk_filepath,  utterance_id + " "  + str(speaker_id)   )
 
