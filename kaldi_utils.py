@@ -68,12 +68,12 @@ def create_kaldi_directories(language_code,destination_wav_dir,create_subset_spl
 
     return language_code + "_" + str(wav_scp_count) # this will be used by other functions later, to store files in this subset
 
-def create_kaldi_wav_scp_file(wav_file_path,wav_list_path,wav_scp_path):
+def create_kaldi_wav_scp_file(wav_file_path,wav_list_path,wav_scp_path,utterance_id):
     """
     appends audio file path to wav_list file each new data row
     also appends to wav.scp file
     """
-    utterance_id=wav_file_path.split("/")[-1].replace(".wav","")
+    #utterance_id=wav_file_path.split("/")[-1].replace(".wav","")
     append_row_file(wav_list_path,wav_file_path)
     append_row_file(wav_scp_path,utterance_id + " " + wav_file_path)
 
