@@ -78,6 +78,12 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         destination_path= source_mp3_directory + destination_filename 
         output_wav_filename= url.split("/")[-1].replace("mp3","wav")
         utterance_id=url.split("/")[-1].replace(".mp3","")
+        #default format is [epoch_time]_[speaker_id]_[sentence_id]
+        epoch_time=utterance_id.split('_')[0]
+        sentence_id=utterance_id.split('_')[2]
+        utterance_id=speaker_id + "_" + epoch_time + "_" + sentence_id # new format suitable /
+        # for kaldi is speaker_id][epochtime][sentence_id]
+
         # check if file has already been converted
         output_destination_path=destination_wav_directory + output_wav_filename
         if not utterance_id in  conversion_file_set:
@@ -87,8 +93,8 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         create_kaldi_wav_scp_file(output_destination_path,wav_list_file,wav_scp_path)
         downloaded_audio_count=downloaded_audio_count + 1
         create_kaldi_text_file(output_destination_path, text_filepath,transcription_filepath)
-        append_row_file(spk2utt_filepath, str(speaker_id) + " " +   str(speaker_id)   + "_" + utterance_id )
-        append_row_file(utt2spk_filepath, str(speaker_id)   + "_" + utterance_id + " "  + str(speaker_id)   )
+        append_row_file(spk2utt_filepath, str(speaker_id) + " " + utterance_id )
+        append_row_file(utt2spk_filepath,  utterance_id + " "  + str(speaker_id)   )
 
         return destination_path
 
