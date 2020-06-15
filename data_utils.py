@@ -103,32 +103,50 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         logging.error(logging.traceback.format_exc())
 
 def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
-final_lexicon_path,language_code,generate_lexicon=True):
+final_lexicon_path,language_code,generate_lexicon=True ,\
+    custom_transcription_path='',custom_transcription=False):
     """ 
     downloads transcriptions json and then also generate lexicon
     """
     try:
-        print("downloading transcriptions json")
-        with urllib.request.urlopen(final_text_url) as url:
-            transcription_json = json.loads(url.read().decode())
-        transcription_json=transcription_json["data"]
-        # make sure if transcriptions file is already present we remove it 
-        remove_file(destination_transcription_file)
-        for sentence in transcription_json:
-            sentence_id=sentence["id"]
-            sentence_transcript=sentence["sentence"]
-            sentence_transcript=filter_line(sentence_transcript) # remove punctuations     
-            # extract words from sentence and add to a set, for creation of lexicon
-            for word in sentence_transcript.split():
-                # print(word)                                                                                                                         
-                words_set.add(word)
-            # check if sentence is empty
-            if sentence_transcript=="":
-                empty_transcript_counter=empty_transcript_counter + 1 
-            else:
-                # write the sentence to transcription file
-                transcription_row=str(sentence_id) + " " + str(sentence_transcript)
+        if (custom_transcription):
+            print("using manual transcription file provided")
+            transcriptions=read_file_to_list(custom_transcription_path)
+            for transcription in transcriptions:
+                transcription=transcription.split(" ")[1]
+                sentence_id=transcription.split(" ")[0].split('_')[2]
+                for word in transcription.split():
+                    # print(word)                                                                                                                         
+                    words_set.add(word)
+                # check if sentence is empty
+                if transcription=="":
+                    empty_transcript_counter=empty_transcript_counter + 1
+                transcription_row=str(sentence_id) + " " + str(transcription)
                 append_row_file(destination_transcription_file,transcription_row)
+
+        else:
+
+            print("downloading transcriptions json")
+            with urllib.request.urlopen(final_text_url) as url:
+                transcription_json = json.loads(url.read().decode())
+            transcription_json=transcription_json["data"]
+        # make sure if transcriptions file is already present we remove it 
+            remove_file(destination_transcription_file)
+            for sentence in transcription_json:
+                sentence_id=sentence["id"]
+                sentence_transcript=sentence["sentence"]
+                sentence_transcript=filter_line(sentence_transcript) # remove punctuations     
+                # extract words from sentence and add to a set, for creation of lexicon
+                for word in sentence_transcript.split():
+                    # print(word)                                                                                                                         
+                    words_set.add(word)
+                # check if sentence is empty
+                if sentence_transcript=="":
+                    empty_transcript_counter=empty_transcript_counter + 1 
+                else:
+                    # write the sentence to transcription file
+                    transcription_row=str(sentence_id) + " " + str(sentence_transcript)
+                    append_row_file(destination_transcription_file,transcription_row)
 
         if (generate_lexicon):
             logging.info("automatically generating lexicon")
