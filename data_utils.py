@@ -113,8 +113,8 @@ final_lexicon_path,language_code,generate_lexicon=True ,\
             print("using manual transcription file provided")
             transcriptions=read_file_to_list(custom_transcription_path)
             for transcription in transcriptions:
-                transcription=transcription.split(" ")[1]
-                sentence_id=transcription.split(" ")[0].split('_')[2]
+                transcription=" ".join(transcription.split(" ")[1:])
+                sentence_id=transcription.split(" ")[0]
                 for word in transcription.split():
                     # print(word)                                                                                                                         
                     words_set.add(word)

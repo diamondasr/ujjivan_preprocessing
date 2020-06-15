@@ -111,7 +111,8 @@ init_system(language_code)
 
 # download transcriptions json and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
-final_lexicon_path,language_code,args.automatic_lexicon_generation)
+final_lexicon_path,language_code,args.automatic_lexicon_generation,\
+    custom_transcription_file_path,custom_transcription)
 
 # download audio json file
 audio_json=download_audio_json(final_audio_url,destination_audio_file)
