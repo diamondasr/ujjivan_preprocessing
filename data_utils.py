@@ -113,15 +113,15 @@ final_lexicon_path,language_code,generate_lexicon=True ,\
             print("using manual transcription file provided")
             transcriptions=read_file_to_list(custom_transcription_path)
             for transcription in transcriptions:
-                transcription=" ".join(transcription.split(" ")[1:])
+                sentence_transcript=" ".join(transcription.split(" ")[1:])
                 sentence_id=transcription.split(" ")[0]
-                for word in transcription.split():
+                for word in sentence_transcript.split():
                     # print(word)                                                                                                                         
                     words_set.add(word)
                 # check if sentence is empty
-                if transcription=="":
+                if sentence_transcript=="":
                     empty_transcript_counter=empty_transcript_counter + 1
-                transcription_row=str(sentence_id) + " " + str(transcription)
+                transcription_row=str(sentence_id) + " " + str(sentence_transcript)
                 append_row_file(destination_transcription_file,transcription_row)
 
         else:
