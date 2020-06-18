@@ -114,7 +114,7 @@ final_lexicon_path,language_code,generate_lexicon=True ,\
             transcriptions=read_file_to_list(custom_transcription_path)
             for transcription in transcriptions:
                 sentence_transcript=" ".join(transcription.split(" ")[1:])
-                sentence_id=transcription.split(" ")[0]
+                sentence_id=transcription.split(" ")[0].split("_")[2]
                 for word in sentence_transcript.split():
                     # print(word)                                                                                                                         
                     words_set.add(word)
