@@ -59,7 +59,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
          # extract second column of above
-        generic_shell(""" awk '{ print $2 }' """ + transliteration_map_file_path + """ > lexicon_temp5 """,\
+        generic_shell(""" cut -d ' ' -f 2- """ + transliteration_map_file_path + """ > lexicon_temp5 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # run g2p again for transliterated words
