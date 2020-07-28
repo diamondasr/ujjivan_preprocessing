@@ -47,6 +47,10 @@ argument_parser.add_argument('-custom_transcription_path',
                        type=str,
                        help='path for custom transcription file')
 
+argument_parser.add_argument('-transcription_map_file_path',
+                       type=str,
+                       help='path for transcription mapping file')
+
 args = argument_parser.parse_args()
 language_code=args.lang # this is part of url of audio source and text source
 source_mp3_directory=args.source_mp3_dir
@@ -115,7 +119,7 @@ init_system(language_code)
 
 # download transcriptions json and then creates a list of words and then runs g2p to create final lexicon file
 download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
-final_lexicon_path,language_code,args.automatic_lexicon_generation,\
+final_lexicon_path,language_code, args.transliteration_map_file_path ,args.automatic_lexicon_generation,\
     custom_transcription_file_path,custom_transcription)
 
 # download audio json file

@@ -18,7 +18,7 @@ g2p_lang_dictionary = { 'ta':'tamil','te':'telegu', \
 'gu':'gujrati' , 'ka':'Kannada', 'ma':'malayalam' , 'od':'odia','be':'bengali','as':'assamese' \
 , 'hi':'hindi' , 'pu':'punjabi','mar':'marathi' }
 
-def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,words_set):
+def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,words_set,transliteration_map_file_path):
     """
      calls g2p python script and does some post processing to give final kaldi compatible lexicon file
     """
@@ -54,16 +54,16 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         # run python transliteration mapping script which goes through each failed word and uses mapping dictionary file provided to get correct pronunciation
         # its output will be a file with following format
         # english word transliterated version
-        generic_shell("""python transliterate.py -output_file_path transliteration_output """,\
+        generic_shell("""python transliterate.py -output_file_path transliteration_output -mapping_file_path """ + transliteration_map_file_path,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
          # extract second column of above
-        generic_shell(""" awk '{ print $2 }' english_words_lexicon_temp > lexicon_temp4 """,\
+        generic_shell(""" awk '{ print $2 }' transliteration_output > lexicon_temp4 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # run g2p again for transliterated words
-        generic_shell("""python ~/g2p/rule/repl_wrapper.py -f $1 lexicon_temp4 lexicon_temp5""",\
-                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + 'lexicon_temp4' + \
+        ' ' + 'lexicon_temp5' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # then paste the first column of above transliteration mapping python script with g2p output
         generic_shell(""" awk '{ print $1 }' english_words_lexicon_temp > lexicon_temp6 """,\

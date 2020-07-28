@@ -3,9 +3,6 @@ import argparse
 
 failed_g2p_cases_file='failed_g2p_cases'
 
-# transliteration mapping file location
-mapping_file="transliteration_mapping.txt"
-
 # Create the parser
 argument_parser = argparse.ArgumentParser(description='Parser for preprocessing script for Ujjivan')
 
@@ -14,10 +11,16 @@ argument_parser.add_argument('-output_file_path',
                        type=str,
                        help='specify the output file path', required=True)
 
+argument_parser.add_argument('-mapping_file_path',
+                       type=str,
+                       help='specify the transliteration mapping file path', required=True)
 
 
 args = argument_parser.parse_args()
 output_lexicon_file=args.output_file_path
+
+# transliteration mapping file location
+mapping_file=args.mapping_file_path  #transliteration_mapping.txt
 
 with open(mapping_file, mode='r') as infile:
             reader = csv.reader(infile,delimiter=':')

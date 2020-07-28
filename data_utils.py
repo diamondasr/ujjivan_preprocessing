@@ -103,7 +103,7 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         logging.error(logging.traceback.format_exc())
 
 def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
-final_lexicon_path,language_code,generate_lexicon=True ,\
+final_lexicon_path,language_code, transliteration_map_file_path, generate_lexicon=True ,\
     custom_transcription_path='',custom_transcription=False):
     """ 
     downloads transcriptions json and then also generate lexicon
@@ -150,7 +150,7 @@ final_lexicon_path,language_code,generate_lexicon=True ,\
 
         if (generate_lexicon):
             logging.info("automatically generating lexicon")
-            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code,words_set)
+            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code,words_set,transliteration_map_file_path)
 
         else:
             print("not generating lexicon, assuming manually generated lexicon file is placed in data/" + language_code )
