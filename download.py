@@ -41,7 +41,11 @@ argument_parser.add_argument('-automatic_lexicon_generation',
 
 argument_parser.add_argument('-custom_transcription',
                        type=str,
-                       help='do you want to use your own transcriptions file , true or false')
+                       help='do you want to use your own transcriptions file ?')
+
+argument_parser.add_argument('-custom_transcription_path',
+                       type=str,
+                       help='path for custom transcription file')
 
 args = argument_parser.parse_args()
 language_code=args.lang # this is part of url of audio source and text source
@@ -71,7 +75,7 @@ destination_audio_file="data/" + language_code +"/audio.json"
 destination_transcription_file="data/" + language_code + "/transcriptions.txt"
 transcription_filepath= os.getcwd() + "/data/" + language_code + "/transcriptions.txt"
 custom_transcription=args.custom_transcription
-custom_transcription_file_path=""
+custom_transcription_file_path=args.custom_transcription_path
 
 
 temp_lexicon_path= os.getcwd() + "/lexicon_left" # it only stores each word in each line , this file is just temporary
