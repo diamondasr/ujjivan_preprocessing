@@ -27,7 +27,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
     write_list_to_file(list(words_set),input_lexicon_file)
     with cd('~/g2p/rule'):
         files_to_remove=['lexicon_temp','lexicon_temp2','lexicon_temp3','lexicon_temp4','lexicon_temp5',\
-            'lexicon_temp6','lexicon_temp7','lexicon_temp8','lexicon_temp9']
+            'lexicon_temp6','lexicon_temp7','lexicon_temp9']
         for f in files_to_remove:
             remove_file(f)
         generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + input_lexicon_file + \
@@ -76,7 +76,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
 
         # finally concatenate it with previous lexicon
 
-        generic_shell(""" cat lexicon_temp8 lexicon_temp7 > lexicon_temp9  """,\
+        generic_shell(""" cat lexicon_temp4 lexicon_temp7 > lexicon_temp9  """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         shutil.copyfile('lexicon_temp9', output_lexicon_file)
