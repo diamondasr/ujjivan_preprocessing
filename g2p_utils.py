@@ -40,4 +40,42 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         append_row_file('lexicon_temp3','!SIL SIL')
         append_row_file('lexicon_temp3','<UNK> SPN')
         remove_duplicate_lines('lexicon_temp3','lexicon_temp4')
-        shutil.copyfile('lexicon_temp4', output_lexicon_file)
+
+        # 4. manage failed g2p cases
+        generic_shell("""cat lexicon_temp2 | sort | uniq > temp2""",\
+         log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        generic_shell("""cat lexicon_temp4 | sort | uniq > temp3""",\
+         log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        generic_shell("""comm -23 temp2 temp3 > failed_g2p_cases """,\
+         log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        # run python transliteration mapping script which goes through each failed word and uses mapping dictionary file provided to get correct pronunciation
+        # its output will be a file with following format
+        # english word transliterated version
+        generic_shell("""python transliterate.py -output_file_path transliteration_output """,\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+         # extract second column of above
+        generic_shell(""" awk '{ print $2 }' english_words_lexicon_temp > lexicon_temp4 """,\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        # run g2p again for transliterated words
+        generic_shell("""python ~/g2p/rule/repl_wrapper.py -f $1 lexicon_temp4 lexicon_temp5""",\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        # then paste the first column of above transliteration mapping python script with g2p output
+        generic_shell(""" awk '{ print $1 }' english_words_lexicon_temp > lexicon_temp6 """,\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        generic_shell(""" paste lexicon_temp6 lexicon_temp5 > lexicon_temp7  """,\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+
+        # finally concatenate it with previous lexicon
+
+        generic_shell(""" cat lexicon_temp8 lexicon_temp7 > lexicon_temp9  """,\
+                log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+
+        shutil.copyfile('lexicon_temp9', output_lexicon_file)

@@ -7,7 +7,9 @@ from shell_utils import generic_shell
 def rm_unnecessary_files(language_code,dir_prefix):
     """ this functions deletes some temporary files , for example before train/test split and also sorts files """
 
-    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','preprocessed_outputs/wav.scp','preprocessed_outputs/text','preprocessed_outputs/lexicon.txt','preprocessed_outputs/spk2utt','preprocessed_outputs/utt2spk','lexion_temp2','lexicon_temp3']
+    files_to_remove=['lexicon_left','lexicon.txt','wav.list','test_ids','dataset_ids','train_ids','preprocessed_outputs/wav.scp','preprocessed_outputs/text',\
+        'preprocessed_outputs/lexicon.txt','preprocessed_outputs/spk2utt','preprocessed_outputs/utt2spk',\
+            'lexion_temp2','lexicon_temp3','temp2','temp3']
     for file in files_to_remove:
         remove_file(file)
 
