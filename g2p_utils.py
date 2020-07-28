@@ -54,7 +54,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         # run python transliteration mapping script which goes through each failed word and uses mapping dictionary file provided to get correct pronunciation
         # its output will be a file with following format
         # english word transliterated version
-        generic_shell("""python transliterate.py -output_file_path transliteration_output -mapping_file_path """ + transliteration_map_file_path,\
+        generic_shell("""python3 transliterate.py -output_file_path transliteration_output -mapping_file_path """ + transliteration_map_file_path,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
          # extract second column of above

@@ -47,7 +47,7 @@ argument_parser.add_argument('-custom_transcription_path',
                        type=str,
                        help='path for custom transcription file')
 
-argument_parser.add_argument('-transcription_map_file_path',
+argument_parser.add_argument('-transliteration_map_file_path',
                        type=str,
                        help='path for transcription mapping file')
 
