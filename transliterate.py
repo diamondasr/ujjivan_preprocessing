@@ -23,12 +23,12 @@ output_lexicon_file=args.output_file_path
 mapping_file=args.mapping_file_path  #transliteration_mapping.txt
 
 with open(mapping_file, mode='r') as infile:
-            reader = csv.reader(infile,delimiter=':')
+            reader = csv.reader(infile,delimiter=' ')
             eng_dict = {rows[0]:rows[1].strip() for rows in reader}
 
             print(eng_dict)
 
-with open(failed_g2p_cases_file) as f, open(output_lexicon_file) as f2:
+with open(failed_g2p_cases_file) as f, open(output_lexicon_file,'w') as f2:
         failed_words = f.readlines()
         # you may also want to remove whitespace characters like `\n` at the end of each line
         failed_words = [x.strip() for x in failed_words]

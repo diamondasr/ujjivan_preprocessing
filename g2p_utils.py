@@ -58,7 +58,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
          # extract second column of above
-        generic_shell(""" awk '{ print $2 }' transliteration_output > lexicon_temp4 """,\
+        generic_shell(""" awk '{ print $2 }' """ + transliteration_map_file_path + """ > lexicon_temp4 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # run g2p again for transliterated words
@@ -66,7 +66,7 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         ' ' + 'lexicon_temp5' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # then paste the first column of above transliteration mapping python script with g2p output
-        generic_shell(""" awk '{ print $1 }' english_words_lexicon_temp > lexicon_temp6 """,\
+        generic_shell(""" awk '{ print $1 }' """ + transliteration_map_file_path + """ > lexicon_temp6 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         generic_shell(""" paste lexicon_temp6 lexicon_temp5 > lexicon_temp7  """,\
