@@ -2,7 +2,11 @@ Python prprocessing script for Ujjivan dataset
 
 README 
 
-dependencies : FFMpeg, Sox , Python3 , g2p
+dependencies : 
+FFMpeg, 
+Sox , 
+Python3 , 
+G2p
 
 Steps:
 
