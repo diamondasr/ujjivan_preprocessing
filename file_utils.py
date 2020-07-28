@@ -112,13 +112,18 @@ def remove_duplicate_lines(input_file,output_file):
     """
     removes duplicate lines from a text file
     """
-    lines_seen = set() # holds lines already seen
-    outfile = open(output_file, "w")
+    import hashlib
+    completed_lines_hash = set()
+    output_file = open(output_file, "w")
     for line in open(input_file, "r"):
-        if line not in lines_seen: # not a duplicate
-            outfile.write(line)
-            lines_seen.add(line)
-    outfile.close()
+        
+        hashValue = hashlib.md5(line.rstrip().encode('utf-8')).hexdigest()
+        
+        if hashValue not in completed_lines_hash:
+            output_file.write(line)
+            completed_lines_hash.add(hashValue)
+
+    output_file.close()
 
 def create_dir(dir_path,language_code):
     if not os.path.isdir(dir_path):

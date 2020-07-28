@@ -25,10 +25,13 @@ git clone https://github.com/diamondasr/g2p.git g2p
 
 Usage:
 
-python3 download.py -lang ta \
- -source_mp3_dir "/home/ubuntu/datasets/ujjivan/voicecollectionblobcontainer/" \
-  -destination_wav_dir "/home/ubuntu/datasets/ujjivan/wavs/" \
-   -automatic_lexicon_generation True
+sudo python3 download.py -lang ta \
+ -source_mp3_dir "/testdatahdd/datasets/ujjivan/voicecollectionblobcontainer/" \
+  -destination_wav_dir "/testdatahdd/datasets/ujjivan/wavs/" \
+   -automatic_lexicon_generation True \
+   -custom_transcription yes \
+   -custom_transcription_path "/testdatahdd/ujjivan_transcriptions_fixed.txt" \
+   -transliteration_map_file_path "/testdatahdd/ujj_eng_g2p_mapping"
 
 
 
