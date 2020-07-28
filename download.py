@@ -41,7 +41,7 @@ argument_parser.add_argument('-automatic_lexicon_generation',
 
 argument_parser.add_argument('-custom_transcription',
                        type=str,
-                       help='do you want to use your own transcriptions file , true or false', required=True)
+                       help='do you want to use your own transcriptions file , true or false')
 
 args = argument_parser.parse_args()
 language_code=args.lang # this is part of url of audio source and text source
