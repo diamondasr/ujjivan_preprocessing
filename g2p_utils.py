@@ -59,24 +59,24 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
          # extract second column of above
-        generic_shell(""" awk '{ print $2 }' """ + transliteration_map_file_path + """ > lexicon_temp4 """,\
+        generic_shell(""" awk '{ print $2 }' """ + transliteration_map_file_path + """ > lexicon_temp5 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # run g2p again for transliterated words
-        generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + 'lexicon_temp4' + \
-        ' ' + 'lexicon_temp5' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
+        generic_shell('python3 ~/g2p/rule/repl_wrapper.py -f ' + g2p_lang_code + ' ' + 'lexicon_temp5' + \
+        ' ' + 'lexicon_temp6' , log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         # then paste the first column of above transliteration mapping python script with g2p output
-        generic_shell(""" awk '{ print $1 }' """ + transliteration_map_file_path + """ > lexicon_temp6 """,\
+        generic_shell(""" awk '{ print $1 }' """ + transliteration_map_file_path + """ > lexicon_temp7 """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
-        generic_shell(""" paste lexicon_temp6 lexicon_temp5 > lexicon_temp7  """,\
+        generic_shell(""" paste lexicon_temp7 lexicon_temp6 > lexicon_temp8  """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
 
         # finally concatenate it with previous lexicon
 
-        generic_shell(""" cat lexicon_temp4 lexicon_temp7 > lexicon_temp9  """,\
+        generic_shell(""" cat lexicon_temp4 lexicon_temp8 > lexicon_temp9  """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
         shutil.copyfile('lexicon_temp9', output_lexicon_file)
