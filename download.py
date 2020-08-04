@@ -6,7 +6,7 @@ This is python3 script which preprocesses ujjivan data
 """
 
 import json
-import urllib.request, json 
+import urllib.request
 import os
 import argparse
 from os.path import splitext
