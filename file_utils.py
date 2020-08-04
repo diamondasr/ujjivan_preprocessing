@@ -5,6 +5,7 @@ from shell_utils import generic_shell
 #from kaldi_utils import create_wav_list_file,create_text_file
 import logging
 import subprocess
+import json
 
 def append_row_file(file,row):
     """
@@ -17,7 +18,6 @@ def check_if_file_exists(filepath):
     return os.path.isfile(filepath)
 
 def write_json_to_file(json_object,filepath):
-    import json
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(json_object, f, ensure_ascii=False, indent=4)
 
@@ -93,7 +93,6 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
         logging.error(stderr2)
 
 def read_json_from_file(filepath):
-    import json
     with open(filepath, 'r') as f:
         return json.load(f)
 
