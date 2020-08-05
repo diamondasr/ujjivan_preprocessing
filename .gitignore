@@ -1,4 +1,4 @@
-./__pycache__/
-./preprocessed_outputs/
-./data/
-./logs/
+/__pycache__/
+/preprocessed_outputs/
+/data/
+/logs/
