@@ -32,13 +32,14 @@ def create_split_dir(language_code,wav_scp_count):
         generic_shell("cp " + source + " preprocessed_outputs/" +  language_code + "/" + language_code + "_" + wav_scp_count, "logs/" + language_code + "." + 'cp.log')
 
 
-def create_kaldi_directories(language_code,destination_wav_dir,create_subset_split_dirs=False):
-    """ this function generates folder structure which kaldi expects, also creates some general directories not for kaldi
+def create_kaldi_directories(language_code, destination_wav_dir, create_subset_split_dirs=False):
+    """ this function generates directory structure which kaldi expects, also creates some general directories not for kaldi
         for example it creates preprocessed_outputs/<lang_code>/<split>/
     """
-    wav_scp_count=0
+    wav_scp_count = 0
     mkdir_dirs=["logs","data", "data/" + language_code , "preprocessed_outputs" , \
-    "preprocessed_outputs/" + language_code,destination_wav_dir,destination_wav_dir + language_code]
+    "preprocessed_outputs/" + language_code, destination_wav_dir, destination_wav_dir + language_code]
+
     for dir in mkdir_dirs:
         os.makedirs(dir,exist_ok=True)
         

@@ -7,36 +7,39 @@ This script has common utility functions, and is used by main download.py script
 """
 
 import subprocess
-import logging
 import json
-import urllib.request, json 
 import urllib
+import urllib.request
+import os
 from os.path import splitext
 import logging 
-import os
 from datetime import datetime
 import _pickle as pickle
 import shutil
+from shell_utils import generic_shell
 
 current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 conversion_file_set=set() # this basically stores all utterance ids of files already converted to wav
 words_set = set() # a set to store words for lexicon
 
 from file_utils import read_file_to_list, remove_file,  convert_mp3_to_wav
-from file_utils import write_json_to_file,write_list_to_file,append_row_file
+from file_utils import write_json_to_file, write_list_to_file, append_row_file
 
 from g2p_utils import g2p_create_lexicon
 
 from kaldi_utils import create_kaldi_wav_scp_file,create_kaldi_text_file
 from kaldi_utils import create_kaldi_directories,rm_unnecessary_files
 
-def init_system(language_code):
+def init_system(language_code , destination_wav_dir):
     """
     Basically does some initialization stuff like loading some files
     """
     global conversion_file_set
     #my_set=load_pickle_file("."+ language_code + ".set")
     converted_set_filepath="data/" + language_code + "/" + language_code + ".set"
+    generic_shell("ls " + destination_wav_dir + '/*.wav' +""" | awk -F '_' '{ print $2,$1,$3 }' | tr ' ' '_' > """ +  converted_set_filepath ,\
+            "logs/" + language_code + "." + 'init.log')
+
     conversion_file_set =set(read_file_to_list(converted_set_filepath))
 
     #Create and configure logger 
@@ -50,13 +53,6 @@ def init_system(language_code):
     logger.setLevel(logging.DEBUG) 
     print(str(len(conversion_file_set)) + " files have already been converted to wav so will skip those for language " + language_code )
 
-def close_system(language_code):
-    """
-    Basically does some final post processing like storing state of global vars etc
-    """
-    global conversion_file_set
-    converted_set_filepath="data/" + language_code + "/" + language_code + ".set"
-    write_list_to_file(list(conversion_file_set), converted_set_filepath)
 
 def filter_line(line):
     """ filters comma,exclamation,question mark, punctuation marks, paranthesis """
@@ -67,7 +63,7 @@ def filter_line(line):
             no_punct = no_punct + char
     return no_punct
     
-def convert_single_file(url,downloaded_audio_count,destination_directory,speaker_id,\
+def convert_single_file(url,downloaded_audio_count,speaker_id,\
 source_mp3_directory,destination_wav_directory,text_filepath,spk2utt_filepath,\
 utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code):
     """
@@ -102,8 +98,8 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         print("exception during convert single file function")
         logging.error(logging.traceback.format_exc())
 
-def download_transcriptions(final_text_url,destination_transcription_file,temp_lexicon_path,\
-final_lexicon_path,language_code, transliteration_map_file_path, generate_lexicon=True ,\
+def download_transcriptions(text_url, transcription_filepath, temp_lexicon_path,\
+final_lexicon_path, language_code, transliteration_map_file_path, generate_lexicon=True ,\
     custom_transcription_path='',custom_transcription=False):
     """ 
     downloads transcriptions json and then also generate lexicon
@@ -111,46 +107,44 @@ final_lexicon_path,language_code, transliteration_map_file_path, generate_lexico
     try:
         if (custom_transcription):
             print("using manual transcription file provided")
-            transcriptions=read_file_to_list(custom_transcription_path)
+            transcriptions = read_file_to_list(custom_transcription_path)
             for transcription in transcriptions:
-                sentence_transcript=" ".join(transcription.split(" ")[1:])
-                sentence_id=transcription.split(" ")[0].split("_")[2]
+                sentence_transcript = " ".join(transcription.split(" ")[1:])
+                sentence_id = transcription.split(" ")[0].split("_")[2]
                 for word in sentence_transcript.split():
-                    # print(word)                                                                                                                         
                     words_set.add(word)
                 # check if sentence is empty
-                if sentence_transcript=="":
-                    empty_transcript_counter=empty_transcript_counter + 1
-                transcription_row=str(sentence_id) + " " + str(sentence_transcript)
-                append_row_file(destination_transcription_file,transcription_row)
+                if sentence_transcript == "":
+                    empty_transcript_counter = empty_transcript_counter + 1
+                transcription_row = str(sentence_id) + " " + str(sentence_transcript)
+                append_row_file(transcription_filepath,transcription_row)
 
         else:
 
             print("downloading transcriptions json")
-            with urllib.request.urlopen(final_text_url) as url:
+            with urllib.request.urlopen(text_url) as url:
                 transcription_json = json.loads(url.read().decode())
-            transcription_json=transcription_json["data"]
+            transcription_json = transcription_json["data"]
         # make sure if transcriptions file is already present we remove it 
-            remove_file(destination_transcription_file)
+            remove_file(transcription_filepath)
             for sentence in transcription_json:
-                sentence_id=sentence["id"]
-                sentence_transcript=sentence["sentence"]
-                sentence_transcript=filter_line(sentence_transcript) # remove punctuations     
+                sentence_id = sentence["id"]
+                sentence_transcript = sentence["sentence"]
+                sentence_transcript = filter_line(sentence_transcript) # remove punctuations     
                 # extract words from sentence and add to a set, for creation of lexicon
                 for word in sentence_transcript.split():
-                    # print(word)                                                                                                                         
                     words_set.add(word)
                 # check if sentence is empty
-                if sentence_transcript=="":
-                    empty_transcript_counter=empty_transcript_counter + 1 
+                if sentence_transcript == "":
+                    empty_transcript_counter = empty_transcript_counter + 1 
                 else:
                     # write the sentence to transcription file
-                    transcription_row=str(sentence_id) + " " + str(sentence_transcript)
-                    append_row_file(destination_transcription_file,transcription_row)
+                    transcription_row = str(sentence_id) + " " + str(sentence_transcript)
+                    append_row_file(transcription_filepath, transcription_row)
 
         if (generate_lexicon):
             logging.info("automatically generating lexicon")
-            g2p_create_lexicon(temp_lexicon_path,final_lexicon_path,language_code,words_set,transliteration_map_file_path)
+            g2p_create_lexicon(temp_lexicon_path, final_lexicon_path, language_code, words_set, transliteration_map_file_path)
 
         else:
             print("not generating lexicon, assuming manually generated lexicon file is placed in data/" + language_code )
