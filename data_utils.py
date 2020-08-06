@@ -37,7 +37,7 @@ def init_system(language_code , destination_wav_dir):
     global conversion_file_set
     #my_set=load_pickle_file("."+ language_code + ".set")
     converted_set_filepath="data/" + language_code + "/" + language_code + ".set"
-    generic_shell("ls " + destination_wav_dir + """ | awk -F '_' '{ print $2,$1,$3 }' |sed 's:.wav::g' | tr ' ' '_' > """ +  converted_set_filepath ,\
+    generic_shell("ls " + destination_wav_dir + """ |  awk -F/ '{print $NF}' | awk -F '_' '{ print $2,$1,$3 }' |sed 's:.wav::g' | tr ' ' '_' > """ +  converted_set_filepath ,\
             "logs/" + language_code + "." + 'init.log')
 
     conversion_file_set =set(read_file_to_list(converted_set_filepath))

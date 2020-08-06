@@ -71,7 +71,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
     out_file_temp=  mp3_path.split("/")[-1].replace(".mp3",".temp.wav")
     out_file=  mp3_path.split("/")[-1].replace(".mp3",".wav")
 
-    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-hide_banner' ,'-nostats', '-y',\
+    process = subprocess.Popen(['/usr/bin/ffmpeg' ,'-loglevel' ,'warning','-hide_banner' ,'-nostats', '-y',\
      '-i', mp3_path , output_wav_dir + out_file_temp]
                      ,stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
@@ -79,6 +79,7 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
 
     if stderr:
         logging.error(stderr)
+        return False
 
     process2 = subprocess.Popen(['sox', output_wav_dir + out_file_temp , '-c1' ,\
      '-r16000' , '-b16',output_wav_dir + out_file]
@@ -91,6 +92,8 @@ def convert_mp3_to_wav(mp3_path,output_wav_dir,language_code):
 
     if stderr2:
         logging.error(stderr2)
+        return False
+    return True
 
 def read_json_from_file(filepath):
     with open(filepath, 'r') as f:
