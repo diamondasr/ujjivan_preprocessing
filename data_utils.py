@@ -85,7 +85,7 @@ utt2spk_filepath,transcription_filepath,wav_list_file,wav_scp_path,language_code
         if not utterance_id in  conversion_file_set:
             result = convert_mp3_to_wav(destination_path,destination_wav_directory ,language_code )
             if not result:
-                break
+                return
             conversion_file_set.add(utterance_id)
         
         create_kaldi_wav_scp_file(output_destination_path,wav_list_file,wav_scp_path,utterance_id)
