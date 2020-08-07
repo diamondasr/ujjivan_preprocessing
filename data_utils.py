@@ -112,7 +112,7 @@ final_lexicon_path, language_code, transliteration_map_file_path, generate_lexic
             transcriptions = read_file_to_list(custom_transcription_path)
             for transcription in transcriptions:
                 sentence_transcript = " ".join(transcription.split(" ")[1:])
-                sentence_id = transcription.split(" ")[0].split("_")[2]
+                sentence_id = transcription.split(" ")[0]
                 for word in sentence_transcript.split():
                     words_set.add(word)
                 # check if sentence is empty
