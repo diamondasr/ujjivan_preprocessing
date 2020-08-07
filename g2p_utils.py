@@ -73,10 +73,11 @@ def g2p_create_lexicon(input_lexicon_file,output_lexicon_file,language_code,word
         generic_shell(""" paste lexicon_temp7 lexicon_temp6 > lexicon_temp8  """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
+        remove_duplicate_lines('lexicon_temp8','lexicon_temp9')
 
         # finally concatenate it with previous lexicon
 
-        generic_shell(""" cat lexicon_temp4 lexicon_temp8 > lexicon_temp9  """,\
+        generic_shell(""" cat lexicon_temp4 lexicon_temp9 > lexicon_temp10  """,\
                 log_prefix + "logs/" + language_code + ".lexicon_post_process.log")
 
-        shutil.copyfile('lexicon_temp9', output_lexicon_file)
+        shutil.copyfile('lexicon_temp10', output_lexicon_file)
