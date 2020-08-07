@@ -24,7 +24,7 @@ mapping_file=args.mapping_file_path  #transliteration_mapping.txt
 
 with open(mapping_file, mode='r') as infile:
             reader = csv.reader(infile,delimiter=' ')
-            eng_dict = {rows[0]:rows[1].strip() for rows in reader}
+            eng_dict = {rows[0]:' '.join(rows[1:]) for rows in reader}
 
             print(eng_dict)
 
